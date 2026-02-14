@@ -1,0 +1,252 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #ebebeb;
+    font-family: "Poppins", sans-serif;
+    border-right: 3px solid red;
+}
+
+.supporting-div {
+    background-color: #4e635c;
+    width: 100%;
+    height: 9vh;
+}
+
+.slider {
+    height: 60vh;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.slides {
+    display: flex;
+    height: 100%;
+    transition: transform 0.6s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    height: 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    cursor: pointer;
+    transform: translateY(-50%);
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 45px;
+}
+
+.left {
+    left: 15px;
+}
+
+.right {
+    right: 15px;
+}
+
+.scale-div {
+    display: flex;
+    gap: 78px;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-items: center;
+    margin: 25px 0 10px;
+}
+
+.scale-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.scale-size {
+    background-color: rgb(255, 255, 255);
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: 1s;
+    position: relative;
+    margin-bottom: 10px;
+}
+.scale-size:hover {
+    width: 160px;
+    height: 130px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+.hover-over {
+    position: absolute;
+    width: 173px;
+    top: 0px;
+    left: -6px;
+    opacity: 0;
+}
+.scale-size:hover .hover-over {
+    opacity: 1;
+}
+.scale-icon {
+    object-fit: cover;
+    width: 160px;
+    margin-left: 10px;
+}
+.scale-discription {
+    font-size: 14px;
+    font-weight: 600;
+}
+.trending, .latest {
+    margin: 40px 0 20px 30px;
+    font-weight: 600;
+    font-size: 25px;
+    display: inline-block;
+}
+
+.product-grid-latest,
+.product-grid-trending,
+.product-grid-hot-wheels,
+.product-grid-diorama {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    column-gap: 30px;
+    row-gap: 30px;
+    padding: 20px 30px;
+}
+
+.product-container {
+    height: 407px;
+    width: 100%;
+    overflow: hidden;
+    background-color: rgb(235 235 235);
+    border-radius: 10px;
+}
+
+.img-box {
+    width: 100%;
+    height: 278.67px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.product-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.best-seller {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    font-size: 14px;
+    background-color: #4e635c;
+    color: white;
+    border-radius: 4px;
+    padding: 4px 5px;
+}
+
+.offer {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    font-size: 15px;
+    padding: 3px 3px 2px;
+    color: rgb(255, 0, 0);
+    font-weight: 600;
+}
+
+.wishlist-checkBox,
+.wishlist-label {
+    display: none;
+}
+
+.img-box:hover .wishlist-label {
+    display: block;
+    position: absolute;
+    bottom: 12px;
+    right: 6px;
+    width: 23px;
+    cursor: pointer;
+    content: url(/images/icons/icons8-heart-96.png);
+}
+
+.wishlist-checkBox:checked+.wishlist-label {
+    content: url(/images/icons/icons8-heart-fill-red.png);
+}
+
+.name {
+    padding: 10px 0;
+    font-weight: 600;
+}
+
+.mrp {
+    display: inline-block;
+    text-decoration: line-through;
+    color: rgb(98, 98, 98);
+}
+
+.offer-price {
+    display: inline-block;
+    margin-left: 10px;
+    color: #d97706;
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.more-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.explore {
+    background-color: #4e635c;
+    font-size: 17px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.product-partition {
+    width: 80%;
+    height: 1px;
+    border: none;
+    margin: 20px auto;
+    background-color: black;
+}
+@media (max-width: 500px) {
+    .supporting-div{
+        height: 4vh;
+    }
+    .slider{
+        height: 30vh;
+    }
+    .slide{
+        width: 100%;
+    }
+    .slide img{
+        width: 100%;
+    }
+}

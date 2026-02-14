@@ -1,0 +1,260 @@
+body{
+    margin: 0;
+}
+.hamburger-menu{
+    display: none;
+}
+.navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(78, 99, 92, 0.856);
+    backdrop-filter: blur(15px);
+    height: 9vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+.left-portion{
+    width: 15.82%;
+    display: flex;
+}
+.brand-logo{
+    flex: 1;
+    margin: 4px 4px 4px 28px;
+}
+.brand-logo img{
+    width: 100%;
+}
+.middle-portion{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    font-weight: 600;
+    cursor: pointer;
+}
+.category, .kids, .brand{
+    position: relative;
+    align-content: center;
+    height: 100%;
+}
+.sell-prodect, .about-us, .contact-us{
+    align-content: center;
+    height: 82%;
+}
+.nav-popup{
+    position: absolute;
+    width: 110px;
+    padding: 3px 8px;
+    top: 53px;
+    display: none;
+}
+.nav-popup a{
+    text-decoration: none;
+    font-size: 14px;
+    color: black;
+    font-weight: 500;
+    line-height: 2;
+    display: block;
+}
+.category-popup, .kids-popup, .brand-popup, .sell-popup, .about-popup, .contact-popup{
+    padding-top: 7px;
+}
+.category:hover .nav-popup, .nav-popup:hover{
+    display: block;
+}
+.category .nav-popup{
+    background-color: #eef2f6;
+    left: -29px;
+}
+.category-popup{
+    border-top: 3px #5d7894 solid;
+}
+.category-popup a:hover{
+    color: #5d7894;
+}
+.kids:hover .nav-popup, .nav-popup:hover{
+    display: block;
+}
+.kids .nav-popup{
+    background-color: #FFF4EC;
+    left: -46px;
+}
+.kids-popup{
+    border-top: 3px #FF8C42 solid;
+}
+.kids-popup a:hover{
+    color: #FF8C42;
+}
+.brand:hover .nav-popup, .nav-popup:hover{
+    display: block;
+}
+.brand .nav-popup{
+    background-color: #F1F5FF;
+    left: -138px;
+    width: auto;
+}
+.brand-popup{
+    border-top: 3px #1E3A8A solid;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 4px;
+    align-items: center;
+}
+.brand-popup a{
+    width: 100px;
+    background-color: white;
+}
+.brand-popup img{
+    width: 100%;
+}
+.sell-prodect:hover{
+    border-bottom: 3px #22C55E solid;
+}
+.sell-prodect .nav-popup{
+    background-color: #ECFDF5;
+}
+.about-us{
+    text-decoration: none;
+    color: black;
+}
+.about-us:hover{
+    border-bottom: 3px #6D28D9 solid;
+}
+.contact-us{
+    text-decoration: none;
+    color: black;
+}
+.contact-us:hover{
+    border-bottom: 3px #0D9488 solid;
+}
+.phBrand-logo{
+    display: none;
+}
+.right-portion{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    padding-right: 24px;
+    position: relative;
+}
+.right-portion img{
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+.search-icon,.login-icon ,.wishlist-icon ,.cart-icon{
+    width: 25px;
+    position: relative;
+    cursor: pointer;
+    font-size: 12px;
+}
+.search-icon{
+    background-color: transparent;
+    border: 0;
+}
+.login-icon{
+    background-color: transparent;
+    border: 0;
+}
+.search-icon:hover::after,.login-icon:hover::after,
+.wishlist-icon:hover::after,.cart-icon:hover::after{
+    position: absolute;
+    top: 44px;
+    background-color: gray;
+    padding: 2px 4px;
+    color: white;
+    border-radius: 2px;
+}
+.search-icon:hover::after{
+    content: "Search";
+    left: -9px;
+}
+.login-icon:hover::after{
+    content: "Login";
+    right: -8px;
+}
+.wishlist-icon:hover::after{
+    content: "Wishlist";
+    right: -14px;
+}
+.cart-icon:hover::after{
+    content: "Cart";
+    right: -6px;
+}
+.cound{
+    background-color: #d97706;
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    padding: 3px 2px 0px 2px;
+    border-radius: 50%;
+    font-size: 11px;
+    text-align: center;
+    top: -6px;
+    right: -9px;
+    font-weight: 600;
+    color: white;
+}
+@media (max-width: 500px) {
+    
+    .navbar{
+        height: 4vh;
+    }
+    .left-portion{
+        padding-left: 10px;
+        width: 5.82%;
+    }
+    .left-portion a{
+        display: none;
+    }
+    .hamburger-menu{
+        display: inline-block;
+        width: 18px;
+    }
+    .hamburger-menu img{
+        width: 100%;
+    }
+    .middle-portion > *{
+        display: none;
+    }
+    .middle-portion{
+        flex: 1;
+        align-items: center;
+        justify-content: center;
+    }
+    .phBrand-logo{
+        width: 135px;
+        display: inline-block;
+    }
+    .phBrand-logo img{
+        width: 100%;
+    }
+    .right-portion{
+        width: 100px;
+        justify-content: space-around;
+        gap: 0;
+        padding-right: 0;
+    }
+    .right-portion img{
+        width: 18px;
+    }
+    .wishlist-icon{
+        display: none;
+    }
+    .cound{
+        width: 10px;
+        height: 10px;
+        font-size: 7px;
+        padding: 2px 1px 0px 1px;
+        right: 2px;
+        top: -4px;
+    }
+
+}

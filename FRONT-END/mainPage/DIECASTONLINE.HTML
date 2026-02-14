@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOON CAST</title>
+    <link rel="website icon" href="/FRONT-END/images/icons/van.png" type="png">
+    <link rel="stylesheet" href="style/intro.css" type="text/css">
+    <link rel="stylesheet" href="style/navbar.css" type="text/css">
+    <link rel="stylesheet" href="style/navbar-interact.css">
+    <link rel="stylesheet" href="style/main.css" type="text/css">
+    <link rel="stylesheet" href="style/footer.css">
+</head>
+
+<body>
+    <div class="intro" id="logo-intro">
+        <div class="logo-container">
+            <img class="image js-img" src="/FRONT-END/images/icons/moon.png">
+            <img class="image js-img" src="/FRONT-END/images/icons/van5.png">
+            <img class="image js-img" src="/FRONT-END/images/icons/tire.png">
+            <img class="image js-img" src="/FRONT-END/images/icons/die.png">
+            <img class="image js-img" src="/FRONT-END/images/icons/cast.png">
+        </div>
+        <div class="invisible-box"></div>
+    </div>
+    <header class="navbar" id="website-content">
+        <div class="left-portion">
+            <a href="DIECASTONLINE.HTML" class="brand-logo">
+                <img src="/FRONT-END/images/icons/Picsart_25-08-19_15-17-59-2482.png">
+            </a>
+            <div class="hamburger-menu" onclick="openNav()">
+                <img src="/FRONT-END/images/icons/icons8-hamburger-menu-100.png" alt="">
+            </div>
+        </div>
+        <div class="middle-portion">
+            <div class="category">
+                Category
+                <div class="nav-popup">
+                    <div class="category-popup">
+                        <a href="">New Arrivals</a>
+                        <a href="">Trendings</a>
+                        <a href="">Diecast Cars</a>
+                        <a href="">Diecast Bikes</a>
+                        <a href="">Diecast Suvs</a>
+                        <a href="">Diorama</a>
+                        <a href="">Accessories</a>
+                        <a href="">Classical Models</a>
+                        <a href="">DieCast</a>
+                        <a href="">Rare Models</a>
+                        <a href="">RC Cars</a>
+                        <a href="">Hobby Grade RC</a>
+                        <a href="">Others</a>
+                    </div>
+                </div>
+            </div>
+            <div class="kids">
+                Kids
+                <div class="nav-popup">
+                    <div class="kids-popup">
+                        <a href="">1 to 3 year</a>
+                        <a href="">3 to 6 year</a>
+                        <a href="">6 to 9 year</a>
+                        <a href="">9 to 13 year</a>
+                        <a href="">Electrical Cars</a>
+                        <a href="">Electrical Bikes</a>
+                        <a href="">Ride ons</a>
+                        <a href="">Plasma Cars</a>
+                    </div>
+                </div>
+            </div>
+            <div class="brand">
+                Brand
+                <div class="nav-popup">
+                    <div class="brand-popup">
+                        <a href="">
+                            <img src="/FRONT-END/images/banner/03.jpg" alt="hotwheels brand">
+                        </a>
+                        <a href="">
+                            <img src="/FRONT-END/images/banner/04.jpg" alt="greenlight brand">
+                        </a>
+                        <a href="">
+                            <img src="/FRONT-END/images/banner/05.jpg" alt="majorette brand">
+                        </a>
+                        <a href="">
+                            <img src="/FRONT-END/images/banner/10.jpg" alt="matchbox brand">
+                        </a>
+                        <a href="">
+                            <img src="/FRONT-END/images/banner/brand-logo-intro__jada_320x160.avif" alt="jada brand">
+                        </a>
+                        <a href="">
+                            <img src="/FRONT-END/images/banner/brand-logo-intro__m2machines_320x192.avif"
+                                alt="m2 machine brand">
+                        </a>
+                        <a href="">
+                            <img src="/FRONT-END/images/banner/Untitled_300_x_300_px_2.webp" alt="minigt-brand">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="sell-prodect">
+                Start Selling
+                <div class="nav-popup">
+                    <div class="sell-popup">
+
+                    </div>
+                </div>
+            </div>
+            <a class="about-us" href="/aboutPage/aboutPage.html">
+                About-us
+            </a>
+            <a class="contact-us" href="/contactUs/contact-us.html">
+                Contact-us
+            </a>
+            <a href="DIECASTONLINE.HTML" class="phBrand-logo">
+                <img src="/FRONT-END/images/icons/Picsart_25-08-19_15-17-59-2482.png">
+            </a>
+        </div>
+        <div class="right-portion">
+            <button class="search-icon" onclick="openSearch()">
+                <img src="/FRONT-END/images/icons/icons8-search-10.png">
+            </button>
+            <div class="search-overlay" id="search-overlay">
+                <div class="search-box">
+                    <input class="search-bar" type="text" placeholder="Search Your Dreams..." name="search1">
+                    <button class="search-close" onclick="closeSearch()">
+                        <img src="/FRONT-END/images/icons/icons8-multiply-96.png" alt="search-close">
+                    </button>
+                </div>
+            </div>
+            <button class="login-icon" onclick="openLogin()">
+                <img src="/FRONT-END/images/icons/icons8-login-96.png">
+            </button>
+            <div class="wishlist-icon" onclick="openWishlist()">
+                <img src="/FRONT-END/images/icons/icons8-favorite-60.png">
+                <div class="cound">0</div>
+            </div>
+            <a href="/cartPage/cart.html" class="cart-icon">
+                <img src="/FRONT-END/images/icons/icons8-cart-96.png">
+                <div class="cound">20</div>
+            </a>
+        </div>
+    </header>
+    <main>
+        <div class="navbar-popup">
+            <div class="login-overlay" id="login-overlay">
+                <div class="login-page">
+                    <button class="login-close" onclick="closeLogin()">
+                        <img src="/FRONT-END/images/icons/icons8-multiply-96.png" alt="log-close">
+                    </button>
+                    <div class="log-head">
+                        <div class="log-logo">
+                            <img src="/FRONT-END/images/icons/Picsart_25-08-19_15-17-59-2482.png" alt="">
+                        </div>
+                        <div class="login-signup">
+                            <div class="login" id="login-btn">Log In</div>
+                            <div class="vertical-line"></div>
+                            <div class="signup" id="signup-btn">Sign Up</div>
+                        </div>
+                        <div class="log-content" id="log-content">
+                            <div class="log-details">
+                                <h2>Login</h2>
+                                <input type="email" placeholder="Email" name="log-email">
+                                <input type="password" placeholder="Password" name="log-password">
+                            </div>
+                            <a href="" class="forgot-pass">Forgot Your Password?</a>
+                            <div class="log-button">
+                                <button>Sign In</button>
+                            </div>
+                        </div>
+                        <div class="sign-content" id="sign-content">
+                            <div class="sign-details">
+                                <h2>Sign up</h2>
+                                <input type="text" placeholder="User Name" name="User-name">
+                                <input type="email" placeholder="Email" name="sign-email">
+                                <input type="password" placeholder="Password" name="sign-password">
+                            </div>
+                            <div class="sign-button">
+                                <button>Sign up</button>
+                            </div>
+                        </div>
+                        <div class="log-partition">
+                            <hr> or
+                            <hr>
+                        </div>
+                        <div class="log-options">
+                            <button class="log-google">
+                                <img src="/FRONT-END/images/icons/7123953_logo_google_g_icon.png" alt="google-img">
+                            </button>
+                            <button class="log-facebook">
+                                <img src="/FRONT-END/images/icons/5296499_fb_facebook_facebook logo_icon.png"
+                                    alt="facebook-img">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="wishlist-overlay" id="whishlist-overlay">
+                <div class="wishlist-popup">
+                    <div class="wish-close" onclick="closeWishlist()">
+                        <img src="/FRONT-END/images/icons/icons8-multiply-96.png" alt="wish-close">
+                    </div>
+                    <div class="wishlist-head">
+                        <h2>wishlist</h2>
+                        <p>Where legends wait for your garage</p>
+                        <hr>
+                    </div>
+                    <div class="wishlist-content">
+                        <div class="wish-prodects">
+                            <div class="wProduct-img">
+                                <img class="wishProduct-img" src="/FRONT-END/images/product/71gxGks7MvL._SL1500_.jpg"
+                                    alt="wishProduct-img">
+                            </div>
+                            <div class="wProduct-details">
+                                <div class="p-name">
+                                    Dodge Challenger SRT Hellcat 1:24 Diecast
+                                </div>
+                                <div class="p-cost-button">
+                                    <div class="p-price">
+                                        <div class="mrp">2999</div>
+                                        <div class="offer-price">1103</div>
+                                        <div class="w-offer">- 63</div>
+                                    </div>
+                                    <div class="wish-buttons">
+                                        <div class="p-remove">Remove</div>
+                                        <button class="p-add-cart">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wish-prodects">
+                            <div class="wProduct-img">
+                                <img class="wishProduct-img" src="/FRONT-END/images/product/61HH0G5DoPL._SX569_.jpg"
+                                    alt="wishProduct-img">
+                            </div>
+                            <div class="wProduct-details">
+                                <div class="p-name">
+                                    Rolls Royce Phantom Die-cast Car 1:32 Scale Model
+                                </div>
+                                <div class="p-cost-button">
+                                    <div class="p-price">
+                                        <div class="mrp">1999</div>
+                                        <div class="offer-price">799</div>
+                                        <div class="w-offer">- 60</div>
+                                    </div>
+                                    <div class="wish-buttons">
+                                        <div class="p-remove">Remove</div>
+                                        <button class="p-add-cart">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wish-prodects">
+                            <div class="wProduct-img">
+                                <img class="wishProduct-img" src="/FRONT-END/images/product/ford.png"
+                                    alt="wishProduct-img">
+                            </div>
+                            <div class="wProduct-details">
+                                <div class="p-name">
+                                    Ford Raptor F150 Model Car 1:28 diecast
+                                </div>
+                                <div class="p-cost-button">
+                                    <div class="p-price">
+                                        <div class="mrp">3000</div>
+                                        <div class="offer-price">999</div>
+                                        <div class="w-offer">- 67</div>
+                                    </div>
+                                    <div class="wish-buttons">
+                                        <div class="p-remove">Remove</div>
+                                        <button class="p-add-cart">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wish-prodects">
+                            <div class="wProduct-img">
+                                <img class="wishProduct-img" src="/FRONT-END/images/product/royal enfild 350.png"
+                                    alt="wishProduct-img">
+                            </div>
+                            <div class="wProduct-details">
+                                <div class="p-name">
+                                    Royal Enfield Classic 350 1:12 licensed
+                                </div>
+                                <div class="p-cost-button">
+                                    <div class="p-price">
+                                        <div class="mrp">1750</div>
+                                        <div class="offer-price">999</div>
+                                        <div class="w-offer">- 42</div>
+                                    </div>
+                                    <div class="wish-buttons">
+                                        <div class="p-remove">Remove</div>
+                                        <button class="p-add-cart">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="supporting-div"></div>
+        <div class="slider">
+            <div class="slides">
+                <div class="slide"><img src="/FRONT-END/images/banner/rolls3.jpg" alt="Image 1"></div>
+                <div class="slide"><img src="/FRONT-END/images/banner/defender3.jpg" alt="Image 2"></div>
+                <div class="slide"><img src="/FRONT-END/images/banner/popRace.png" alt="Image 3"></div>
+                <div class="slide"><img src="/FRONT-END/images/banner/mini gt.png" alt="Image 4"></div>
+                <div class="slide"><img src="/FRONT-END/images/banner/kaidoHouse.jpg" alt="Image 5"></div>
+                <div class="slide"><img src="/FRONT-END/images/banner/minigtsport.jpg" alt="Image 6"></div>
+            </div>
+            <button class="arrow left">&#10094;</button>
+            <button class="arrow right">&#10095;</button>
+        </div>
+        <div class="scale-div">
+            <div class="scale-container">
+                <div class="scale-size">
+                    <img class="scale-icon" src="/FRONT-END/images/icons/mercedes-benz-300sl-roadster-blue.jpg" alt="">
+                    <img class="hover-over" src="/FRONT-END/images/icons/benz-classic1.png" alt="">
+                </div>
+                <div class="scale-discription">1:64</div>
+            </div>
+            <div class="scale-container">
+                <div class="scale-size">
+                    <img class="scale-icon" src="/FRONT-END/images/icons/ferrari.png" alt="">
+                    <img class="hover-over" src="/FRONT-END/images/icons/ferrari22.png" alt="">
+                </div>
+                <div class="scale-discription">1:43</div>
+            </div>
+            <div class="scale-container">
+                <div class="scale-size">
+                    <img class="scale-icon" src="/FRONT-END/images/icons/bentley-flying-spur-plum.jpg" alt="">
+                    <img class="hover-over" src="/FRONT-END/images/icons/bentley22.png" alt="">
+                </div>
+                <div class="scale-discription">1:32</div>
+            </div>
+            <div class="scale-container">
+                <div class="scale-size">
+                    <img class="scale-icon" src="/FRONT-END/images/icons/ferrari-f40-red.jpg" alt="">
+                    <img class="hover-over" src="/FRONT-END/images/icons/ferarri-red1.png" alt="">
+                </div>
+                <div class="scale-discription">1:24</div>
+            </div>
+            <div class="scale-container">
+                <div class="scale-size">
+                    <img class="scale-icon" src="/FRONT-END/images/icons/volvo rally.png" alt="">
+                    <img class="hover-over" src="/FRONT-END/images/icons/volvo-rally1.png" alt="">
+                </div>
+                <div class="scale-discription">1:18</div>
+            </div>
+            <div class="scale-container">
+                <div class="scale-size">
+                    <img class="scale-icon" src="/FRONT-END/images/icons/bmw.png" alt="">
+                    <img class="hover-over" src="/FRONT-END/images/icons/bmw2.png" alt="">
+                </div>
+                <div class="scale-discription">1:12</div>
+            </div>
+        </div>
+        <div>
+            <div class="latest">Latest Collection</div>
+            <div class="product-grid-latest"></div>
+            <div class="more-div">
+                <a class="explore" id="latest-explore">explore more</a>
+            </div>
+            <hr class="product-partition">
+            <div class="trending">Trending Now</div>
+            <div class="product-grid-trending"></div>
+            <div class="more-div">
+                <a class="explore" id="trending-explore">explore more</a>
+            </div>
+            <hr class="product-partition">
+            <div class="trending">Hot Wheels</div>
+            <div class="product-grid-hot-wheels"></div>
+            <div class="more-div">
+                <a class="explore" id="hotwheels-explore">explore more</a>
+            </div>
+            <hr class="product-partition">
+            <div class="trending">Diorama</div>
+            <div class="product-grid-diorama"></div>
+            <div class="more-div">
+                <a class="explore" id="hotwheels-explore">explore more</a>
+            </div>
+    </main>
+    <footer class="footer-div">
+        <div class="services-div">
+            <div class="service-box">
+                <img src="/FRONT-END/images/icons/icons8-secure.png" alt="">
+                <div class="services-dscr">100% SECURE CHECKOUT</div>
+            </div>
+            <div class="service-box">
+                <img src="/FRONT-END/images/icons/icons8-shipping-100.png" alt="">
+                <div class="services-dscr">SHIPPING ACROSS INDIA</div>
+            </div>
+            <div class="service-box">
+                <img src="/FRONT-END/images/icons/icons8-customer-service-100.png" alt="">
+                <div class="services-dscr">24×7 SUPPORT</div>
+            </div>
+        </div>
+        <div class="page-discription">
+            <img src="/FRONT-END/images/icons/Picsart_25-08-19_15-17-59-2482.png" alt="">
+            <p>
+                At Moon Cast, we are more than just a store – we’re a community built for diecast enthusiasts.
+                From rare diecast cars and detailed dioramas to unique collectibles, we bring together everything a true
+                collector or hobbyist could dream of.
+                make collecting an exciting, affordable, and trusted experience. With rare models, exclusive
+                collections, and unbeatable prices.
+                we ensure that every collector – from casual hobbyists to diecast crazies – finds something special to
+                add to their shelf.
+                <strong>What makes us different?</strong> Along with offering the best in diecast collectibles, we
+                proudly support startup creators and custom makers.
+                showcasing 3D-printed diecast models and innovative collectibles designed by passionate talents in the
+                community.
+            </p>
+        </div>
+        <div class="connect-us-div">
+            <div class="consumer-policy">
+                <h5>CONSUMER POLICY</h5>
+                <a href="" class="policy">Refunds</a>
+                <a href="" class="policy">Privacy Policy</a>
+                <a href="" class="policy">Terms & Conditions</a>
+                <a href="" class="policy">Return & Cancellation</a>
+                <a href="" class="policy">Shipping Policy & Charges</a>
+            </div>
+            <div class="address-div">
+                <h5>REGISTERED OFFICE ADDRESS</h5>
+                <P>
+                    Moon cast,<br>3rd floor, LULU mall, <br>
+                    Govindapuram, Kozhikode(Calicut), Kerala 676521 <br>
+                </P>
+                <h6>TELEPHONE: </h6> <a href="">+91 9876543210</a> / <a href="">0495-234678</a>
+            </div>
+            <div class="newsletter">
+                <h5>NEWSLETTER</h5>
+                <p>Sign up for exclusive updates, new arrivals, events and more</p>
+                <div class="newsletter-inp">
+                    <input type="search" placeholder="Email address">
+                    <button class="letter-submitt">SUBMIT</button>
+                </div>
+            </div>
+            <div class="social-connection">
+                <div class="social-media">
+                    <h5>FOLLOW MOON CAST HERE</h5>
+                    <div class="social-img-div">
+                        <img class="social-img" src="/FRONT-END/images/icons/icons8-facebook-logo-100 (1).png" alt="">
+                        <img class="social-img" src="/FRONT-END/images/icons/icons8-instagram-logo-100 (1).png" alt="">
+                        <img class="social-img" src="/FRONT-END/images/icons/icons8-x-logo-90 (1).png" alt="">
+                        <img class="social-img" src="/FRONT-END/images/icons/icons8-youtube-logo-100.png" alt="">
+                        <img class="social-img" src="/FRONT-END/images/icons/icons8-whatsapp-100.png" alt="">
+                    </div>
+                </div>
+                <div class="mobile-version">
+                    <h5>EXPERIENCE MOONCAST ON MOBILE</h5>
+                    <div class="app-div">
+                        <img class="andriod-img" src="/FRONT-END/images/icons/playstoreapp.png" alt="">
+                        <img class="ios-img" src="/FRONT-END/images/icons/5a902db97f96951c82922874.png" alt="">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="footer-box">
+            <div class="copywrite-div">
+                <img src="/FRONT-END/images/icons/icons8-circled-c-96.png" alt="">
+                <p>2025 www.mooncast.com All rights reserved</p>
+            </div>
+            <div class="pay-div">
+                <div class="payment-platform">
+                    <img src="/FRONT-END/images/icons/visa.png" alt="">
+                </div>
+                <div class="payment-platform">
+                    <img src="/FRONT-END/images/icons/bhim-upi-icon.png" alt="">
+                </div>
+                <div class="payment-platform">
+                    <img src="/FRONT-END/images/icons/money.png" alt="">
+                </div>
+                <div class="payment-platform">
+                    <img src="/FRONT-END/images/icons/google-pay.png" alt="">
+                </div>
+                <div class="payment-platform">
+                    <img src="/FRONT-END/images/icons/sam-pay.png" alt="">
+                </div>
+                <div class="payment-platform">
+                    <img src="/FRONT-END/images/icons/paypal.png" alt="">
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="mainjs/intro.js"></script>
+    <script type="module" src="mainjs/main.js"></script>
+    <script src="mainjs/navbar.js"></script>
+    <script type="module" src="/productPage/productjs/product.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,126 @@
+*{
+    margin: 0;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    background: #ebebeb;
+}
+.contact-section {
+    width: 100%;
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+}
+.contact-container {
+    max-width: 900px;
+    background: #F0FDFA;
+    padding: 15px 40px 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.08);
+}
+.contact-content{
+    border-top: 4px #0D9488 solid;
+    position: relative;
+    border-radius: 5px;
+}
+/* Headings */
+.title {
+    text-align: center;
+    font-size: 32px;
+    letter-spacing: -.5px;
+    margin:30px 10px;
+    font-weight: 600;
+    color: #111;
+}
+.login-close{
+    position: absolute;
+    top: 5px;
+    right: 0px;
+    background-color: rgb(255, 0, 0);
+    border: none;
+    cursor: pointer;
+    border-radius: 7px;
+    padding: 3px 0 0 1px;
+}
+.login-close img{
+    width: 25px;
+}
+.subtitle {
+    text-align: center;
+    color: #555;
+    margin-bottom: 25px;
+}
+/* Contact Form */
+.contact-form {
+    margin-bottom: 40px;
+}
+.contact-form label {
+    font-weight: 500;
+    margin-bottom: 5px;
+    display: block;
+    color: #222;
+}
+.contact-form input,
+.contact-form textarea {
+    width: 96%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    font-size: 15px;
+    transition: .2s;
+    font-family: "Poppins", sans-serif;
+    outline: none;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #0D9488;
+    box-shadow: 0 0 5px rgba(13,148,136,0.5);
+}
+.contact-form textarea {
+    height: 120px;
+    resize: none;
+}
+.contact-form button {
+    width: 100%;
+    padding: 14px;
+    background: #0D9488;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s;
+}
+.contact-form button:hover {
+    background: #05776e;
+}
+/* Store Info */
+.store-info {
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+    display: grid;
+    grid-template-rows: 30px 40px 40px 60px;
+    row-gap: 15px;
+}
+.store-info h2 {
+    font-size: 24px;
+    color: #222;
+}
+.store-info p {
+    color: #444;
+}
+.num-span:hover{
+    color: #0073e6;
+    cursor: pointer;
+}
+.email-span:hover{
+    color: #0073e6;
+    cursor: pointer;
+}
+.sun-span{
+    color: red;
+}
