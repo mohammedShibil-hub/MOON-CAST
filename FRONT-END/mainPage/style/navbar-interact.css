@@ -288,7 +288,7 @@
     overflow: hidden;
 }
 .wProduct-img{
-    height: 134px;
+    overflow: hidden;
 }
 .wProduct-img img{
     width: 100%;
@@ -297,8 +297,9 @@
 }
 .wProduct-details{
     display: grid;
-    grid-template-rows: 1fr 25px;
-    padding: 24px;
+    grid-template-rows: 1fr 20px 30px;
+    row-gap: 7px;
+    padding: 15px 24px;
 }
 .p-cost-button{
     display: flex;
@@ -307,10 +308,10 @@
 .w-offer{
     display: inline-block;
     font-size: 16px;
-    padding: 3px 3px 2px;
     border-radius: 17px;
     color: rgb(255, 0, 0);
     font-weight: 600;
+    margin-right: 5px;
 }
 .p-remove{
     color: #0065ca;
@@ -326,7 +327,6 @@
     border: none;
     padding: 7px 13px;
     border-radius: 3px;
-    margin-left: 12px;
     cursor: pointer;
 }
 
