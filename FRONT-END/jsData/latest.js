@@ -82,5 +82,4 @@ export const lProducts = [{
     mrp : 5499,
     price : 5156,
     offer : 6,
-},
-]
+},]
