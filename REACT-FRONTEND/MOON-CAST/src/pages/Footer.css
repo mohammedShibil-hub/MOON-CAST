@@ -1,0 +1,245 @@
+.footer-div{
+    margin-top: 100px;
+    background-color: white;
+    border-top: 1px solid rgb(42, 42, 42);
+    display: grid;
+    grid-template-rows: 90px 90px 155px 45px;
+    padding: 15px 15px 0;
+    row-gap: 10px;
+}
+.services-div{
+    background-color: #4e635c;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.service-box{
+   display: flex;
+   align-items: center; 
+}
+.service-box img{
+    display: inline-block;
+    width: 65px;
+    margin-right: 10px;
+} 
+.services-dscr{
+    color: white;
+    display: inline-block;
+}
+.page-discription{
+    display: flex;
+    align-items: center;
+}
+.page-discription img{
+    width: 150px;
+    display: inline-block;
+}
+.page-discription p{
+    display: inline-block;
+    font-size: 12px;
+}
+.connect-us-div{
+    display: grid;
+    grid-template-columns: 180px 1fr 1fr 1fr;
+    column-gap: 20px;
+}
+.consumer-policy{
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+}
+.policy{
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+}
+.policy:hover{
+    color: #0065ca;
+}
+.address-div p{
+    font-size: 14px;
+    margin: 10px 0 5px;
+}
+.address-div h6{
+    display: inline-block;
+}
+.address-div a{
+    text-decoration: none;
+    font-size: 14px;
+    color: #0073e6;
+}
+.address-div a:hover{
+    color: #ff6600;
+}
+.mobile-version-ph{
+    display: none;
+}
+.mobile-version h5{
+    text-align: center;
+}
+.app-div{
+    display: flex;
+    justify-content: space-evenly;
+}
+.app-div img{
+    width: 80px;
+    margin-top: 8px;
+}
+.newsletter p{
+    font-size: 14px;
+    margin: 8px 0;
+    width: 80%;
+}
+.newsletter-inp{
+    display: flex;
+    column-gap: 5px;
+    align-items: center;
+}
+.newsletter-inp input{
+    flex: 1;
+    height: 35px;
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+.letter-submitt{
+    height: 35px;
+    padding: 8px;
+    border-radius: 5px;
+    background-color: #4e635c;
+    color: white;
+    border: none;
+}
+.social-connection{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+.social-media h5{
+    text-align: center;
+    margin-bottom: 10px;
+}
+.social-img-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.social-img{
+    width: 30px;
+}
+.social-img:nth-child(1):hover {
+    background-color: #1877f2;
+    border-radius: 50%;
+}
+.social-img:nth-child(2):hover {
+    background-color: #d62976;
+    border-radius: 9px;
+}
+.social-img:nth-child(3):hover {
+    background-color: #ebebeb;
+    border-radius: 3px;
+}
+.social-img:nth-child(4):hover{
+    background-color: #ff0000;
+    border-radius: 9px;
+}
+.social-img:nth-child(5):hover {
+    background-color: #25d366;
+    border-radius: 17px 17px 17px 0px;
+}
+.footer-box{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-top: 1px solid black;
+}
+.copywrite-div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 10px;
+}
+.copywrite-div img{
+    width: 19px;
+    margin-right: 3px;
+}
+.pay-div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 50%;
+}
+.pay-div img{
+    width: 50px;
+    object-fit: contain;
+}
+ 
+@media (max-width: 500px) {
+    .footer-div{
+        grid-template-rows: 45px 145px 120px 25px;
+    }
+    .service-box img{
+        width: 28px;
+        margin-right: 5px;
+    }
+    .services-dscr{
+        font-size: 7px;
+    }
+    .page-discription{
+        flex-direction: column;
+    }
+    .page-discription img{
+        width: 100px;
+    }
+    .page-discription p{
+        font-size: 10px;
+        text-align: justify;
+        line-height: 1.2;
+    }
+    .connect-us-div{
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 6px;
+    }
+    .consumer-policy{
+        row-gap: 7px;
+    }
+    h5, .policy, .address-div p, .newsletter p{
+        font-size: 9px;
+    }
+    .address-div a{
+        font-size: 8px;
+    }
+    .address-div h6{
+        font-size: 9px;
+        display: block;
+    }
+    .newsletter{
+        display: none;
+    }
+    .social-connection{
+        grid-template-rows:56px 56px ;
+    }
+    .social-img{
+        width: 16px;
+    }
+    .app-div img{
+        width: 50px;
+    }
+    .footer-box{
+        
+    }
+    .copywrite-div{
+        padding-left: 0;
+    }
+    .copywrite-div img{
+        width: 14px;
+    }
+    .copywrite-div p{
+        font-size: 8px;
+    }
+    .pay-div img{
+        width: 20px;
+    }
+}
