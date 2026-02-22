@@ -1,0 +1,165 @@
+.checkoutPage{
+    padding: 0px 82px;
+}
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between ; 
+    height: 60px;
+    align-items: center;
+}
+.left{
+    width: 165px;
+}
+.left img{
+    width: 100%;
+}
+.center{
+    flex: 1;
+    text-align: center;
+}
+.check{
+    display: inline-block;
+    font-size: 25px;
+    font-weight: 600;
+}
+.count{
+    color: rgb(0, 86, 184);
+    font-weight: 500;
+    font-size: 23px;
+}
+.review{
+    font-size: 22px;
+    font-weight: 700;
+    margin: 81PX 0 20PX 0;
+}
+.grid-checkout{
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    column-gap: 12px;
+}
+.order-box{
+    border: 1px solid rgb(222, 222, 222);
+    padding: 15px;
+    width: 738px;
+    margin-bottom: 12px;
+    background-color: white;
+    border-radius: 5px;
+}
+.time{
+    color: rgb(0, 118, 0);
+    font-weight: 700;
+    font-size: 19px;
+    margin-top: 5px;
+    margin-bottom: 22px;
+}
+.grid{
+    display: grid;
+    grid-template-columns: 130px 1fr 1fr;
+    column-gap: 25px;
+    width: 700px;
+}
+.pic img{
+    width: 100%;
+}
+.description{
+    font-weight: 700;
+    margin-bottom: 8px;
+    width: 290px;
+}
+.amound{
+    color: rgb(177, 39, 4);
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+.quantity{
+    display: inline-block;
+}
+.button{
+    color: rgb(1, 124, 182);
+    margin-left: 7px;
+    cursor: pointer;
+    display: inline-block;
+}
+.button:hover{
+    color: rgb(155, 0, 0);
+}
+.op{
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.op1{
+    margin-bottom: 12px;
+    cursor: pointer;
+}
+.op1 input{
+    width: 19px;
+    height: 37px;
+    margin: 3px 5px 0 0;
+    cursor: pointer;
+}
+.details{
+    display: inline-block;
+}
+.day1{
+    color: rgb(0, 118, 0);
+    font-weight: 600;
+    margin-bottom: 3px;
+    font-size: 17px;
+}
+.cost{
+    color: rgb(120, 120, 120);
+    font-size: 15px;
+}
+.order-summery{
+    background-color: white;
+    padding: 18px;
+    height: 265px;
+    border-radius: 5px;
+}
+.h1{
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+.summery-row{
+    display: grid;
+    grid-template-columns: 1fr auto;
+    font-size: 15px;
+    margin-bottom: 9px;
+}
+.tax{
+    padding-top:9px ;
+}
+.summery-money{
+    text-align: right;
+}
+.summery-money1{
+    text-align: right;
+    padding-top: 9px;
+    border-top: 1px solid rgb(222, 222, 222);
+}
+.summery-row1{
+    color: rgb(177, 39, 4);
+    font-weight: 700;
+    font-size: 18px;
+    padding-top: 18px;
+    border-top: 1px solid rgb(222, 222, 222);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    margin-bottom: 9px;
+}
+.button-order button{
+    width: 100%;
+    padding: 12px 6px;
+    margin: 20px 0;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    background-color: #4e635c;
+}
+.button-order button:hover{
+    background-color: #68857b;
+}
