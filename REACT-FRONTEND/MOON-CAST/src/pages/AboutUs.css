@@ -1,8 +1,4 @@
-body{
-    margin: 0;
-    background-color: #ebebeb;
-    font-family: "Poppins", sans-serif;
-}
+
 .about-section{
     padding: 50px;
 }
@@ -16,17 +12,17 @@ body{
 h1{
     margin: 22px 0 30px;
 }
-.login-close{
+.about-close{
     position: absolute;
-    top: 5px;
-    right: 7px;
+    top: 10px;
+    right: 10px;
     background-color: rgb(255, 0, 0);
     border: none;
     cursor: pointer;
     border-radius: 7px;
     padding: 3px 0 0 1px;
 }
-.login-close img{
+.about-close img{
     width: 25px;
 }
 h3{

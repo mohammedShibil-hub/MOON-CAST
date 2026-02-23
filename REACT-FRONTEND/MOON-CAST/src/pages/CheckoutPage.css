@@ -8,13 +8,13 @@ header{
     height: 60px;
     align-items: center;
 }
-.left{
+.left-section{
     width: 165px;
 }
-.left img{
+.left-section img{
     width: 100%;
 }
-.center{
+.middle-section{
     flex: 1;
     text-align: center;
 }

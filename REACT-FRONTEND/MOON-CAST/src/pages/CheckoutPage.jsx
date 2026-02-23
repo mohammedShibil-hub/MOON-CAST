@@ -6,10 +6,10 @@ export function CheckoutPage() {
         <div className="checkoutPage">
             <title>Checkout</title>
             <header>
-                <div className="left">
+                <div className="left-section">
                     <Link to="/"><img src="/images/icons/Picsart_25-08-19_15-17-59-2482.png" /></Link>
                 </div>
-                <div className="center">
+                <div className="middle-section">
                     <div className="check">Checkout (<span className="count">5 items</span>)</div>
                 </div>
             </header>

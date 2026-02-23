@@ -85,12 +85,12 @@ export function Header() {
                         </div>
                     </div>
                 </div>
-                <a className="about-us" href="/aboutPage/aboutPage.html">
+                <Link className="about-us" to="/aboutus">
                     About-us
-                </a>
-                <a className="contact-us" href="/contactUs/contact-us.html">
+                </Link>
+                <Link className="contact-us" to="/contactus">
                     Contact-us
-                </a>
+                </Link>
                 <Link to="/" className="phBrand-logo">
                     <img src="/images/icons/Picsart_25-08-19_15-17-59-2482.png" />
                 </Link>
