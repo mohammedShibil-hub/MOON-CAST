@@ -75,11 +75,11 @@ export function HomePage() {
                 </div>
                 <div className="latest">Latest Collection</div>
                 <div className="product-grid-latest">
-                    {lProducts.map((lproduct) => {
+                    {lProducts.map((lproduct) => { 
                         return (
                             <div key={lproduct.id} className="product-container">
                                 <div className="img-box">
-                                    <img className="product-image" src={lproduct.Image} />
+                                    <img className="product-image" src={lproduct.Image[0]} />
                                     <div className="best-seller">Best Seller</div>
                                     <div className="offer">{lproduct.offer}</div>
                                     <input type="checkbox" id="wishlist1" className="wishlist-checkBox" />
@@ -104,7 +104,7 @@ export function HomePage() {
                         return (
                             <div key={tproduct.id} className="product-container">
                                 <div className="img-box">
-                                    <img className="product-image" src={tproduct.Image} />
+                                    <img className="product-image" src={tproduct.Image[0]} />
                                     <div className="best-seller">Best Seller</div>
                                     <div className="offer">{tproduct.offer}</div>
                                     <input type="checkbox" id="wishlist1" className="wishlist-checkBox" />
@@ -154,7 +154,7 @@ export function HomePage() {
                         return (
                             <div key={dproduct.id} className="product-container">
                                 <div className="img-box">
-                                    <img className="product-image" src={dproduct.Image} />
+                                    <img className="product-image" src={dproduct.Image[0]} />
                                     <div className="best-seller">Best Seller</div>
                                     <div className="offer">{dproduct.offer}</div>
                                     <input type="checkbox" id="wishlist1" className="wishlist-checkBox" />
