@@ -8,7 +8,7 @@ export function Header() {
                 <Link to="/" className="brand-logo">
                     <img src="/images/icons/Picsart_25-08-19_15-17-59-2482.png" />
                 </Link>
-                <div className="hamburger-menu" onclick="openNav()">
+                <div className="hamburger-menu" /*onclick="openNav()"*/>
                     <img src="/images/icons/icons8-hamburger-menu-100.png" alt="" />
                 </div>
             </div>
@@ -96,21 +96,21 @@ export function Header() {
                 </Link>
             </div>
             <div className="right-portion">
-                <button className="search-icon" onclick="openSearch()">
+                <button className="search-icon" /*onclick="openSearch()"*/>
                     <img src="/images/icons/icons8-search-10.png" />
                 </button>
                 <div className="search-overlay" id="search-overlay">
                     <div className="search-box">
                         <input className="search-bar" type="text" placeholder="Search Your Dreams..." name="search1" />
-                        <button className="search-close" onclick="closeSearch()">
+                        <button className="search-close" /*onclick="closeSearch()"*/>
                             <img src="/images/icons/icons8-multiply-96.png" alt="search-close" />
                         </button>
                     </div>
                 </div>
-                <button className="login-icon" onclick="openLogin()">
+                <button className="login-icon" /*onclick="openLogin()"*/>
                     <img src="/images/icons/icons8-login-96.png" />
                 </button>
-                <div className="wishlist-icon" onclick="openWishlist()">
+                <div className="wishlist-icon" /*onclick="openWishlist()"*/>
                     <img src="/images/icons/icons8-favorite-60.png" />
                     <div className="cound">0</div>
                 </div>

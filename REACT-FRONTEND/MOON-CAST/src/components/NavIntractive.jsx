@@ -5,7 +5,7 @@ export function NavIntractive() {
         <div className="navbar-popup">
             <div className="login-overlay" id="login-overlay">
                 <div className="login-page">
-                    <button className="login-close" onclick="closeLogin()">
+                    <button className="login-close" /*onclick="closeLogin()"*/>
                         <img src="/images/icons/icons8-multiply-96.png" alt="log-close" />
                     </button>
                     <div className="log-head">
@@ -57,7 +57,7 @@ export function NavIntractive() {
             </div>
             <div className="wishlist-overlay" id="whishlist-overlay">
                 <div className="wishlist-popup">
-                    <div className="wish-close" onclick="closeWishlist()">
+                    <div className="wish-close" /*onclick="closeWishlist()"*/>
                         <img src="/images/icons/icons8-multiply-96.png" alt="wish-close" />
                     </div>
                     <div className="wishlist-head">

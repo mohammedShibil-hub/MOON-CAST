@@ -57,8 +57,20 @@ const productSchema = new mongoose.Schema(
             min: 0
         }
     },
-    { timestamps: true }
+    {
+        timestamps: true,
+        toJSON: { virtuals: true },
+        toObject: { virtuals: true }
+    }
 );
+
+//auto-calculated offer percentage
+productSchema.virtual("offer").get(function () {
+    if (this.mrp && this.price) {
+        return Math.round(((this.mrp - this.price) / this.mrp) * 100);
+    }
+    return 0;
+});
 
 productSchema.index({
     name : "text",

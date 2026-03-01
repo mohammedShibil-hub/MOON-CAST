@@ -1,14 +1,46 @@
 import './HomePage.css';
 import { Link } from 'react-router'
+import { useEffect, useState } from 'react';
 import { Header } from '../components/header';
 import { Footer } from '../components/Footer';
 import { NavIntractive } from '../components/NavIntractive';
-import { lProducts } from '../../../../FRONT-END/jsData/latest';
-import { tProducts } from '../../../../FRONT-END/jsData/trenting';
-import { dProducts } from '../../../../FRONT-END/jsData/diorama';
-import { hProducts } from '../../../../FRONT-END/jsData/hotwheels';
+import axios from 'axios';
+
 
 export function HomePage() {
+    //const [loading, setLoading] = useState(true)
+    const [latestProducts, setLatestProducts] = useState([]);
+    const [trendingProducts, setTrendingProducts] = useState([]);
+    const [hotwheelProducts, setHotwheelProducts] = useState([]);
+    const [dioramaProducts, setDioramaProducts] = useState([]);
+    useEffect(() => {
+
+        /*axios.get('http://localhost:6004/api/products')
+        .then((response) => {
+            setProducts(response.data);
+            setLoading(false);
+        })
+        .catch(() => setLoading(false));
+        */
+        
+        axios.get('http://localhost:6004/api/products?latest=true')
+            .then(res => setLatestProducts(res.data));
+        
+        axios.get('http://localhost:6004/api/products?trending=true')
+            .then(res => setTrendingProducts(res.data));
+        
+        axios.get('http://localhost:6004/api/products?category=hotwheels')
+            .then(res => setHotwheelProducts(res.data));
+
+        axios.get('http://localhost:6004/api/products?category=diorama')
+            .then(res => setDioramaProducts(res.data));
+
+    },[]);
+    //if (loading) {
+    //    return (<div>Loading.....</div>)
+    //}
+
+
     return (
         <>
             <title>MOON CAST</title>
@@ -75,20 +107,20 @@ export function HomePage() {
                 </div>
                 <div className="latest">Latest Collection</div>
                 <div className="product-grid-latest">
-                    {lProducts.map((lproduct) => { 
+                    {latestProducts.map((product) => {
                         return (
-                            <div key={lproduct.id} className="product-container">
+                            <div key={product._id} className="product-container">
                                 <div className="img-box">
-                                    <img className="product-image" src={lproduct.Image[0]} />
+                                    <img className="product-image" src={product.images?.[0]|| "/images/placeholder.png"} alt={product.name} />
                                     <div className="best-seller">Best Seller</div>
-                                    <div className="offer">{lproduct.offer}</div>
+                                    <div className="offer">{product.offer}</div>
                                     <input type="checkbox" id="wishlist1" className="wishlist-checkBox" />
-                                    <label for="wishlist1" className="wishlist-label"></label>
+                                    <label className="wishlist-label"></label>
                                 </div>
-                                <div className="name">{lproduct.name}</div>
+                                <div className="name">{product.name}</div>
                                 <div className="price-div">
-                                    <div className="mrp">₹{lproduct.mrp}</div>
-                                    <div className="offer-price">₹{lproduct.price}</div>
+                                    <div className="mrp">₹{product.mrp}</div>
+                                    <div className="offer-price">₹{product.price}</div>
                                 </div>
                             </div>
                         )
@@ -100,20 +132,20 @@ export function HomePage() {
                 <hr className="product-partition" />
                 <div className="trending">Trending Now</div>
                 <div className="product-grid-trending">
-                    {tProducts.map((tproduct) => {
+                    {trendingProducts.map((product) => {
                         return (
-                            <div key={tproduct.id} className="product-container">
+                            <div key={product._id} className="product-container">
                                 <div className="img-box">
-                                    <img className="product-image" src={tproduct.Image[0]} />
+                                    <img className="product-image" src={product.images?.[0] || "/images/placeholder.png"} alt={product.name} />
                                     <div className="best-seller">Best Seller</div>
-                                    <div className="offer">{tproduct.offer}</div>
+                                    <div className="offer">{product.offer}</div>
                                     <input type="checkbox" id="wishlist1" className="wishlist-checkBox" />
-                                    <label for="wishlist1" className="wishlist-label"></label>
+                                    <label className="wishlist-label"></label>
                                 </div>
-                                <div className="name">{tproduct.name}</div>
+                                <div className="name">{product.name}</div>
                                 <div className="price-div">
-                                    <div className="mrp">₹{tproduct.mrp}</div>
-                                    <div className="offer-price">₹{tproduct.price}</div>
+                                    <div className="mrp">₹{product.mrp}</div>
+                                    <div className="offer-price">₹{product.price}</div>
                                 </div>
                             </div>
                         )
@@ -125,20 +157,20 @@ export function HomePage() {
                 <hr className="product-partition" />
                 <div className="trending">Hot Wheels</div>
                 <div className="product-grid-hot-wheels">
-                    {hProducts.map((hproduct) => {
+                    {hotwheelProducts.map((product) => {
                         return (
-                            <div key={hproduct.id} className="product-container">
+                            <div key={product._id} className="product-container">
                                 <div className="img-box">
-                                    <img className="product-image" src={hproduct.Image} />
+                                    <img className="product-image" src={product.images?.[0] || "/images/placeholder.png"} alt={product.name} />
                                     <div className="best-seller">Best Seller</div>
-                                    <div className="offer">{hproduct.offer}</div>
+                                    <div className="offer">{product.offer}</div>
                                     <input type="checkbox" id="wishlist1" className="wishlist-checkBox" />
-                                    <label for="wishlist1" className="wishlist-label"></label>
+                                    <label className="wishlist-label"></label>
                                 </div>
-                                <div className="name">{hproduct.name}</div>
+                                <div className="name">{product.name}</div>
                                 <div className="price-div">
-                                    <div className="mrp">₹{hproduct.mrp}</div>
-                                    <div className="offer-price">₹{hproduct.price}</div>
+                                    <div className="mrp">₹{product.mrp}</div>
+                                    <div className="offer-price">₹{product.price}</div>
                                 </div>
                             </div>
                         )
@@ -150,20 +182,20 @@ export function HomePage() {
                 <hr className="product-partition" />
                 <div className="trending">Diorama</div>
                 <div className="product-grid-diorama">
-                    {dProducts.map((dproduct) => {
+                    {dioramaProducts.map((product) => {
                         return (
-                            <div key={dproduct.id} className="product-container">
+                            <div key={product._id} className="product-container">
                                 <div className="img-box">
-                                    <img className="product-image" src={dproduct.Image[0]} />
+                                    <img className="product-image" src={product.images?.[0] || "/images/placeholder.png"} alt={product.name} />
                                     <div className="best-seller">Best Seller</div>
-                                    <div className="offer">{dproduct.offer}</div>
+                                    <div className="offer">{product.offer}</div>
                                     <input type="checkbox" id="wishlist1" className="wishlist-checkBox" />
-                                    <label for="wishlist1" className="wishlist-label"></label>
+                                    <label className="wishlist-label"></label>
                                 </div>
-                                <div className="name">{dproduct.name}</div>
+                                <div className="name">{product.name}</div>
                                 <div className="price-div">
-                                    <div className="mrp">₹{dproduct.mrp}</div>
-                                    <div className="offer-price">₹{dproduct.price}</div>
+                                    <div className="mrp">₹{product.mrp}</div>
+                                    <div className="offer-price">₹{product.price}</div>
                                 </div>
                             </div>
                         )
