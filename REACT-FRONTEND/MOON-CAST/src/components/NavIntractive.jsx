@@ -1,11 +1,29 @@
 import './NavIntractive.css'
+import { useState } from 'react'
 
-export function NavIntractive() {
+export function SearchIntract({ searchOpen, setSearchOpen }) {
     return (
-        <div className="navbar-popup">
+        searchOpen && (
+            <div className="search-overlay">
+                <div className="search-box">
+                    <input className="search-bar" type="text" placeholder="Search Your Dreams..." name="search1" />
+                    <button className="search-close" onClick={() => setSearchOpen(false)}>
+                        <img src="/images/icons/icons8-multiply-96.png" alt="search-close" />
+                    </button>
+                </div>
+            </div>
+        )
+    )
+}
+
+export function LoginIntract({loginOpen, setLoginOpen}) {
+    const [isLogin, setIsLogin] = useState(true);
+
+    return (
+        loginOpen && (
             <div className="login-overlay" id="login-overlay">
                 <div className="login-page">
-                    <button className="login-close" /*onclick="closeLogin()"*/>
+                    <button className="login-close" onClick={() => setLoginOpen(false)}>
                         <img src="/images/icons/icons8-multiply-96.png" alt="log-close" />
                     </button>
                     <div className="log-head">
@@ -13,32 +31,40 @@ export function NavIntractive() {
                             <img src="/images/icons/Picsart_25-08-19_15-17-59-2482.png" alt="" />
                         </div>
                         <div className="login-signup">
-                            <div className="login" id="login-btn">Log In</div>
+                            <div className=
+                            {`login ${isLogin ? "active" : "" }`} onClick={() => setIsLogin(true)} >
+                                Log In</div>
                             <div className="vertical-line"></div>
-                            <div className="signup" id="signup-btn">Sign Up</div>
+                            <div className=
+                            {`signup ${!isLogin} ? "active" : ""`} onClick={() => setIsLogin(false)} >
+                                Sign Up</div>
                         </div>
-                        <div className="log-content" id="log-content">
-                            <div className="log-details">
-                                <h2>Login</h2>
-                                <input type="email" placeholder="Email" name="log-email" />
-                                <input type="password" placeholder="Password" name="log-password" />
+                        {isLogin && (
+                            <div className="log-content active">
+                                <div className="log-details">
+                                    <h2>Login</h2>
+                                    <input type="email" placeholder="Email" name="log-email" />
+                                    <input type="password" placeholder="Password" name="log-password" />
+                                </div>
+                                <a href="" className="forgot-pass">Forgot Your Password?</a>
+                                <div className="log-button">
+                                    <button>Sign In</button>
+                                </div>
                             </div>
-                            <a href="" className="forgot-pass">Forgot Your Password?</a>
-                            <div className="log-button">
-                                <button>Sign In</button>
+                        )}
+                        {!isLogin && (
+                            <div className="sign-content active">
+                                <div className="sign-details">
+                                    <h2>Sign up</h2>
+                                    <input type="text" placeholder="User Name" name="User-name" />
+                                    <input type="email" placeholder="Email" name="sign-email" />
+                                    <input type="password" placeholder="Password" name="sign-password" />
+                                </div>
+                                <div className="sign-button">
+                                    <button>Sign up</button>
+                                </div>
                             </div>
-                        </div>
-                        <div className="sign-content" id="sign-content">
-                            <div className="sign-details">
-                                <h2>Sign up</h2>
-                                <input type="text" placeholder="User Name" name="User-name" />
-                                <input type="email" placeholder="Email" name="sign-email" />
-                                <input type="password" placeholder="Password" name="sign-password" />
-                            </div>
-                            <div className="sign-button">
-                                <button>Sign up</button>
-                            </div>
-                        </div>
+                        )}
                         <div className="log-partition">
                             <hr /> or
                             <hr />
@@ -55,9 +81,16 @@ export function NavIntractive() {
                     </div>
                 </div>
             </div>
+        )
+    )
+}
+
+export function WishlistIntract({wishlistOpen, setWishlistOpen}) {
+    return (
+        wishlistOpen && (
             <div className="wishlist-overlay" id="whishlist-overlay">
                 <div className="wishlist-popup">
-                    <div className="wish-close" /*onclick="closeWishlist()"*/>
+                    <div className="wish-close" onClick={() => setWishlistOpen(false)}>
                         <img src="/images/icons/icons8-multiply-96.png" alt="wish-close" />
                     </div>
                     <div className="wishlist-head">
@@ -68,7 +101,7 @@ export function NavIntractive() {
                     <div className="wishlist-content">
                         <div className="wish-prodects">
                             <div className="wProduct-img">
-                                <img className="wishProduct-img" src="/images/product/71gxGks7MvL._SL1500_.jpg"
+                                <img className="wishProduct-img" src="/images/product/1-24-dodge-challenger.jpg"
                                     alt="wishProduct-img" />
                             </div>
                             <div className="wProduct-details">
@@ -88,12 +121,12 @@ export function NavIntractive() {
                         </div>
                         <div className="wish-prodects">
                             <div className="wProduct-img">
-                                <img className="wishProduct-img" src="/images/product/61HH0G5DoPL._SX569_.jpg"
+                                <img className="wishProduct-img" src="/images/product/rollys-royce-cullinen.jpg"
                                     alt="wishProduct-img" />
                             </div>
                             <div className="wProduct-details">
                                 <div className="p-name">
-                                    Rolls Royce Phantom Die-cast Car 1:32 Scale Model
+                                    1:32 Cullinan Diecast Metal Scale Model Car
                                 </div>
                                 <div className="p-price">
                                     <div className="w-offer">- 60</div>
@@ -108,12 +141,12 @@ export function NavIntractive() {
                         </div>
                         <div className="wish-prodects">
                             <div className="wProduct-img">
-                                <img className="wishProduct-img" src="/images/product/ford.png"
+                                <img className="wishProduct-img" src="/images/product/Land-Cruiser-diecast.jpg"
                                     alt="wishProduct-img" />
                             </div>
                             <div className="wProduct-details">
                                 <div className="p-name">
-                                    Ford Raptor F150 Model Car 1:28 diecast
+                                    Toyota Land Cruiser LC80 1:24 Diecast Metal Car
                                 </div>
                                 <div className="p-price">
                                     <div className="w-offer">- 67</div>
@@ -128,7 +161,7 @@ export function NavIntractive() {
                         </div>
                         <div className="wish-prodects">
                             <div className="wProduct-img">
-                                <img className="wishProduct-img" src="/images/product/royal enfild 350.png"
+                                <img className="wishProduct-img" src="/images/product/Royal-Enfield-Meteor-350.png"
                                     alt="wishProduct-img" />
                             </div>
                             <div className="wProduct-details">
@@ -149,7 +182,6 @@ export function NavIntractive() {
                     </div>
                 </div>
             </div>
-
-        </div>
+        )
     )
 }

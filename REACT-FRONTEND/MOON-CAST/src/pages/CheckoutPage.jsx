@@ -23,7 +23,7 @@ export function CheckoutPage() {
                             <div className="time">Delivery date: Tuesday, December 9</div>
                             <div className="grid">
                                 <div className="pic">
-                                    <img src="/images/product/toyota-tacoma-beige-1-64-gcd-licensed-toy-scale-model-car-collectible-1_750x.jpg" />
+                                    <img src="/images/product/toyota-tacoma-beige.jpg" />
                                 </div>
                                 <div className="center1">
                                     <div className="description">Toyota Tacoma sand 1:64 GCD diecast scale model</div>

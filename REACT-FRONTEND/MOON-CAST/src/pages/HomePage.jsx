@@ -1,14 +1,17 @@
 import './HomePage.css';
 import { Link } from 'react-router'
 import { useEffect, useState } from 'react';
-import { Header } from '../components/header';
+import { Header } from '../components/Header';
+import { LoginIntract, WishlistIntract } from '../components/NavIntractive';
 import { Footer } from '../components/Footer';
-import { NavIntractive } from '../components/NavIntractive';
+
 import axios from 'axios';
 
 
 export function HomePage() {
     //const [loading, setLoading] = useState(true)
+    const [loginOpen, setLoginOpen] = useState(false)
+    const [wishlistOpen, setWishlistOpen] = useState(false)
     const [latestProducts, setLatestProducts] = useState([]);
     const [trendingProducts, setTrendingProducts] = useState([]);
     const [hotwheelProducts, setHotwheelProducts] = useState([]);
@@ -44,10 +47,11 @@ export function HomePage() {
     return (
         <>
             <title>MOON CAST</title>
-
-            <Header />
+            <Header setLoginOpen={setLoginOpen} setWishlistOpen={setWishlistOpen} />
+            <LoginIntract loginOpen={loginOpen} setLoginOpen={setLoginOpen} />
+            <WishlistIntract wishlistOpen={wishlistOpen} setWishlistOpen={setWishlistOpen} />
             <main>
-                <NavIntractive />
+                
                 <div className="supporting-div"></div>
                 <div className="slider">
                     <div className="slides">

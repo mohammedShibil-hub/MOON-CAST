@@ -1,9 +1,31 @@
 import './Header.css'
 import { Link } from 'react-router'
+import { useState, useEffect } from 'react';
+import { SearchIntract } from './NavIntractive';
 
-export function Header() {
+export function Header({setLoginOpen, setWishlistOpen}) {
+    const [showNavbar, setShowNavbar] = useState(true);
+    const [searchOpen, setSearchOpen] = useState(false);
+
+    useEffect(() => {
+        let lastScroll = window.scrollY
+
+        const scrollMovement = () => {
+            if(window.scrollY < lastScroll) {
+                setShowNavbar(true);
+            } else {
+                setShowNavbar(false);
+            }
+            lastScroll = window.scrollY;
+        };
+
+        window.addEventListener("scroll", scrollMovement);
+        return () => window.removeEventListener("scroll", scrollMovement);
+
+    },[])
+
     return (
-        <header className="navbar" id="website-content">
+        <header className={`navbar ${showNavbar ? "show" : "hide"}`}>
             <div className="left-portion">
                 <Link to="/" className="brand-logo">
                     <img src="/images/icons/Picsart_25-08-19_15-17-59-2482.png" />
@@ -96,21 +118,15 @@ export function Header() {
                 </Link>
             </div>
             <div className="right-portion">
-                <button className="search-icon" /*onclick="openSearch()"*/>
+                <button className="search-icon" onClick={() => setSearchOpen(true)}>
                     <img src="/images/icons/icons8-search-10.png" />
                 </button>
-                <div className="search-overlay" id="search-overlay">
-                    <div className="search-box">
-                        <input className="search-bar" type="text" placeholder="Search Your Dreams..." name="search1" />
-                        <button className="search-close" /*onclick="closeSearch()"*/>
-                            <img src="/images/icons/icons8-multiply-96.png" alt="search-close" />
-                        </button>
-                    </div>
-                </div>
-                <button className="login-icon" /*onclick="openLogin()"*/>
+                <SearchIntract searchOpen={searchOpen} setSearchOpen={setSearchOpen}/>
+
+                <button className="login-icon" onClick={() => setLoginOpen(true)}>
                     <img src="/images/icons/icons8-login-96.png" />
                 </button>
-                <div className="wishlist-icon" /*onclick="openWishlist()"*/>
+                <div className="wishlist-icon" onClick={() => setWishlistOpen(true)}>
                     <img src="/images/icons/icons8-favorite-60.png" />
                     <div className="cound">0</div>
                 </div>

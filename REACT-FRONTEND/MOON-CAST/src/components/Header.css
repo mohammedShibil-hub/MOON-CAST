@@ -14,6 +14,13 @@
     left: 0;
     right: 0;
     z-index: 100;
+    transition: top 0.3s ease;
+}
+.navbar.hide{
+    top: -9vh;
+}
+.navbar.show{
+    top: 0;
 }
 .left-portion{
     width: 15.82%;

@@ -2,13 +2,13 @@
 
 .search-overlay{
     position: fixed;
-    display: none;
+    display: flex;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    backdrop-filter: blur(7px);
-    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(9px);
+    background: rgba(0, 0, 0, 0.4);
     justify-content: center;
     align-items: center;
     z-index: 100;
@@ -25,6 +25,7 @@
     border-radius: 10px;
     font-size: 16px;
     padding: 6px 10px;
+    letter-spacing: 1px;
 }
 .search-bar:focus{
     border: 0;
@@ -54,7 +55,7 @@
     justify-content: center;
     align-items: center;
     z-index: 200;
-    display: none;
+    display: flex;
 }
 .login-page{
     background-color: #ebebeb;
@@ -227,7 +228,7 @@
 
 .wishlist-overlay{
     position: fixed;
-    display: none;
+    display: flex;
     top: 0;
     left: 0;
     width: 100%;
@@ -257,7 +258,7 @@
     border: none;
     cursor: pointer;
     border-radius: 7px;
-    padding: 2px 0 0 1px;
+    padding: 3px 0 0 1px;
 }
 .wish-close img{
     width: 25px;
@@ -311,12 +312,13 @@
     border-radius: 17px;
     color: rgb(255, 0, 0);
     font-weight: 600;
-    margin-right: 5px;
+    margin-right: 17px;
 }
 .p-remove{
     color: #0065ca;
     display: inline-block;
     cursor: pointer;
+    margin-right: 20px;
 }
 .p-remove:hover{
     color: red;
