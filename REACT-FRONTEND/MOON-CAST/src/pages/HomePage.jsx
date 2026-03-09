@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { Header } from '../components/Header';
 import { LoginIntract, WishlistIntract } from '../components/NavIntractive';
 import { Footer } from '../components/Footer';
+import { SlidingBanner } from '../components/SlidingBanner';
 
 import axios from 'axios';
 
@@ -51,20 +52,8 @@ export function HomePage() {
             <LoginIntract loginOpen={loginOpen} setLoginOpen={setLoginOpen} />
             <WishlistIntract wishlistOpen={wishlistOpen} setWishlistOpen={setWishlistOpen} />
             <main>
-                
                 <div className="supporting-div"></div>
-                <div className="slider">
-                    <div className="slides">
-                        <div className="slide"><img src="/images/banner/rolls3.jpg" alt="Image 1" /></div>
-                        <div className="slide"><img src="/images/banner/defender3.jpg" alt="Image 2" /></div>
-                        <div className="slide"><img src="/images/banner/popRace.png" alt="Image 3" /></div>
-                        <div className="slide"><img src="/images/banner/mini gt.png" alt="Image 4" /></div>
-                        <div className="slide"><img src="/images/banner/kaidoHouse.jpg" alt="Image 5" /></div>
-                        <div className="slide"><img src="/images/banner/minigtsport.jpg" alt="Image 6" /></div>
-                    </div>
-                    <button className="arrow left">&#10094;</button>
-                    <button className="arrow right">&#10095;</button>
-                </div>
+                <SlidingBanner />
                 <div className="scale-div">
                     <div className="scale-container">
                         <div className="scale-size">
