@@ -120,7 +120,7 @@ export function HomePage() {
                     })}
                 </div>
                 <div className="more-div">
-                    <a className="explore" id="latest-explore">explore more</a>
+                    <Link className="explore" to={'/products'}>explore more</Link>
                 </div>
                 <hr className="product-partition" />
                 <div className="trending">Trending Now</div>
@@ -145,7 +145,7 @@ export function HomePage() {
                     })}
                 </div>
                 <div className="more-div">
-                    <a className="explore" id="trending-explore">explore more</a>
+                    <Link className="explore" to={'/products'}>explore more</Link>
                 </div>
                 <hr className="product-partition" />
                 <div className="trending">Hot Wheels</div>
@@ -170,7 +170,7 @@ export function HomePage() {
                     })}
                 </div>
                 <div className="more-div">
-                    <a className="explore" id="hotwheels-explore">explore more</a>
+                    <Link className="explore" to={'/products'}>explore more</Link>
                 </div>
                 <hr className="product-partition" />
                 <div className="trending">Diorama</div>
@@ -195,7 +195,7 @@ export function HomePage() {
                     })}
                 </div>
                 <div className="more-div">
-                    <a className="explore" id="hotwheels-explore">explore more</a>
+                    <Link className="explore" to={'/products'}>explore more</Link>
                 </div>
             </main>
             <Footer />

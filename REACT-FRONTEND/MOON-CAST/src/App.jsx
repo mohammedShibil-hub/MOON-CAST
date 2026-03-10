@@ -5,6 +5,7 @@ import { CheckoutPage } from './pages/CheckoutPage'
 import { AboutUs } from './pages/AboutUs'
 import { ContactUs } from './pages/ContactUs'
 import { Intro } from './components/Intro'
+import { ProductPage } from './pages/ProductPage'
 import './App.css'
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path='/checkout' element={<CheckoutPage />} />
         <Route path='/aboutus' element={<AboutUs />} />
         <Route path='/contactus' element={<ContactUs />} />
+        <Route path='/products' element={<ProductPage />} />
       </Routes>
     </>
   )

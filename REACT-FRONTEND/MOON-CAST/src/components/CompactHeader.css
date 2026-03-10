@@ -1,0 +1,91 @@
+.compact-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(78, 99, 92, 0.856);
+    backdrop-filter: blur(15px);
+    height: 55px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+.left-section{
+    padding-left: 25px;
+    display: flex;
+    align-items: center;
+}
+.cmp-hamburger-menu img{
+    width: 25px;
+    cursor: pointer;
+}
+
+.cmp-brand-logo img{
+    width: 180px;
+    padding: 7px;
+}
+.right-section{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    padding-right: 25px;
+    position: relative;
+    align-items: center;
+}
+.right-section img{
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+.cmp-search-icon, .cmp-cart-icon, .cmp-wishlist-icon{
+    position: relative;
+    cursor: pointer;
+    font-size: 12px;
+}
+.cmp-search-icon{
+    width: 28px;
+    background-color: transparent;
+    border: 0;
+}
+.cmp-wishlist-icon{
+    width: 27px;
+}
+.cmp-cart-icon{
+    width: 30px;
+}
+.cmp-cound{
+    background-color: #d97706;
+    position: absolute;
+    min-width: 15px;
+    min-height: 15px;
+    padding: 3px 2px 0px 2px;
+    border-radius: 50%;
+    font-size: 11px;
+    text-align: center;
+    top: -6px;
+    right: -9px;
+    font-weight: 600;
+    color: white;
+}
+.cmp-search-icon:hover::after, .cmp-cart-icon:hover::after, .cmp-wishlist-icon:hover::after{
+    position: absolute;
+    top: 47px;
+    background-color: gray;
+    padding: 2px 4px;
+    color: white;
+    border-radius: 2px;
+}
+.cmp-search-icon:hover::after{
+    content: "Search";
+    left: -2px;
+}
+.cmp-wishlist-icon:hover::after{
+    content: "Wishlist";
+    right: -4px;
+}
+.cmp-cart-icon:hover::after{
+    content: "Cart";
+    right: -4px;
+}

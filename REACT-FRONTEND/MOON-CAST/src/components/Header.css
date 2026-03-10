@@ -23,12 +23,12 @@
     top: 0;
 }
 .left-portion{
-    width: 15.82%;
+    width: 13.82%;
     display: flex;
 }
 .brand-logo{
     flex: 1;
-    margin: 4px 4px 4px 28px;
+    margin: 4px 4px 4px 15px;
 }
 .brand-logo img{
     width: 100%;
