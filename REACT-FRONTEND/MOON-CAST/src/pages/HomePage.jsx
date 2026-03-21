@@ -33,10 +33,10 @@ export function HomePage() {
         axios.get('http://localhost:6004/api/products?trending=true')
             .then(res => setTrendingProducts(res.data));
         
-        axios.get('http://localhost:6004/api/products?category=hotwheels')
+        axios.get('http://localhost:6004/api/products?category=Hotwheels')
             .then(res => setHotwheelProducts(res.data));
 
-        axios.get('http://localhost:6004/api/products?category=diorama')
+        axios.get('http://localhost:6004/api/products?category=Diorama')
             .then(res => setDioramaProducts(res.data));
 
     },[]);
@@ -120,7 +120,7 @@ export function HomePage() {
                     })}
                 </div>
                 <div className="more-div">
-                    <Link className="explore" to={'/products'}>explore more</Link>
+                    <Link className="explore" to="/products?latest=true">explore more</Link>
                 </div>
                 <hr className="product-partition" />
                 <div className="trending">Trending Now</div>
@@ -145,7 +145,7 @@ export function HomePage() {
                     })}
                 </div>
                 <div className="more-div">
-                    <Link className="explore" to={'/products'}>explore more</Link>
+                    <Link className="explore" to="/products?trending=true">explore more</Link>
                 </div>
                 <hr className="product-partition" />
                 <div className="trending">Hot Wheels</div>
@@ -170,7 +170,7 @@ export function HomePage() {
                     })}
                 </div>
                 <div className="more-div">
-                    <Link className="explore" to={'/products'}>explore more</Link>
+                    <Link className="explore" to="/products?category=Hotwheels">explore more</Link>
                 </div>
                 <hr className="product-partition" />
                 <div className="trending">Diorama</div>
@@ -195,7 +195,7 @@ export function HomePage() {
                     })}
                 </div>
                 <div className="more-div">
-                    <Link className="explore" to={'/products'}>explore more</Link>
+                    <Link className="explore" to="/products?category=Diorama">explore more</Link>
                 </div>
             </main>
             <Footer />

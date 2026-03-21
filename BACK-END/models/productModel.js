@@ -30,7 +30,7 @@ const productSchema = new mongoose.Schema(
         category: {
             type: String,
             required: true,
-            enum: ["diorama", "diecast", "hotwheels"],
+            enum: ["Diorama", "Diecast", "Hotwheels"],
             index: true
         },
         scale: {

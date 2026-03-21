@@ -1,42 +1,79 @@
 import './ProductPage.css';
 import { CompactHeader } from '../components/CompactHeader';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { HamburgerIntract, WishlistIntract } from '../components/CmpIntractive';
+import { useLocation } from 'react-router';
 
 
 
 export function ProductPage() {
+    const location = useLocation();
+
     const [hamOpen, setHamOpen] = useState(false)
     const [wishlistOpen, setWishlistOpen] = useState(false)
+    const [products, setProducts] = useState([])
+
+    const fetchProducts = async (query) => {
+        const res = await fetch(
+            `http://localhost:6004/api/products${query}`
+        );
+
+        return res.json();
+    }
+
+    useEffect(() => {
+        fetchProducts(location.search)
+            .then(data => setProducts(data));
+    }, [location.search]);
+
+    const query = new URLSearchParams(location.search);
+
+    const latest = query.get("latest");
+    const trending = query.get("trending");
+    const brand = query.get("brand");
+    const category = query.get("category");
+
+    let heading = "Products";
+
+    if (latest) heading = "Latest";
+    else if (trending) heading = "Trending";
+    else if (brand) heading = `${brand}`;
+    else if (category) heading = `${category}`;
 
     return (
         <>
             <title>products</title>
-            
-            <CompactHeader setHamOpen={setHamOpen} setWishlistOpen={setWishlistOpen}/>
+
+            <CompactHeader setHamOpen={setHamOpen} setWishlistOpen={setWishlistOpen} />
             <HamburgerIntract hamOpen={hamOpen} setHamOpen={setHamOpen} />
             <WishlistIntract wishlistOpen={wishlistOpen} setWishlistOpen={setWishlistOpen} />
 
             <div className="supporting-div"></div>
+            <div className="product-head">
+                 <div className="product-category">{heading}</div>
+                 <div className="product-filter">kkk</div>
+            </div>
             <div className="productPage-container">
-                <div className="box-div">
-                    <div className="pics">
-                        <img src="/images/product/1-24-dodge-challenger.jpg" />
-                            <div className="P-offer">- 63%</div>
-                    </div>
-                    <div className="discription">
-                        Dodge Challenger SRT Hellcat 1:24 Diecast
-                    </div>
-                    <div className="amound">
-                        <div className="product-mrp">2999</div>
-                        <div className="offer-price">₹ 1103</div>
-                    </div>
-                    <div className="added">
-                        <img src="/images/icons/checkmark.png" alt="add-checkmark" />
+                {products.map(product => (
+                    <div className="box-div">
+                        <div className="pics">
+                            <img src={product.images[0]} />
+                            <div className="P-offer">{product.offer}%</div>
+                        </div>
+                        <div className="discription">
+                            {product.name}
+                        </div>
+                        <div className="amound">
+                            <div className="product-mrp">₹{product.mrp}</div>
+                            <div className="offer-price">₹{product.price}</div>
+                        </div>
+                        <div className="added">
+                            <img src="/images/icons/checkmark.png" alt="add-checkmark" />
                             Added
+                        </div>
+                        <button className="js-addCart" data-product-id="${product.id}">Add to Cart</button>
                     </div>
-                    <button className="js-addCart" data-product-id="${product.id}">Add to Cart</button>
-                </div>
+                ))}
             </div>
         </>
     )
