@@ -2,12 +2,15 @@ import './CompactHeader.css';
 import { useState } from 'react';
 import { SearchIntract } from './CmpIntractive';
 import { Link } from 'react-router';
+import { useScrollEffect } from '../../utils/HeaderScroll';
 
 export function CompactHeader({setHamOpen, setWishlistOpen}) {
     const [searchOpen, setSearchOpen] = useState(false);
 
+    const showNavbar = useScrollEffect();
+
     return (
-        <header className="compact-header">
+        <header className={`compact-header ${showNavbar ? "show" : "hide"}`}>
             <div className="left-section">
                 <div className="cmp-hamburger-menu" onClick={() => setHamOpen(true)}>
                     <img src="/images/icons/icons8-hamburger-menu-100.png" alt="" />
@@ -15,7 +18,7 @@ export function CompactHeader({setHamOpen, setWishlistOpen}) {
             </div>
             <div className="middle-section">
                 <div className="cmp-brand-logo">
-                    <Link to="/"><img src="/images/icons/Picsart_25-08-19_15-17-59-2482.png" /></Link>
+                    <Link to="/"><img src="/images/icons/moon-cast-brand-logo.png" /></Link>
                 </div>
             </div>
             <div className="right-section">

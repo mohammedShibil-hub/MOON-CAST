@@ -11,7 +11,16 @@
 .product-category{
     font-weight: 600;
     font-size: 25px;
-    display: inline-block;
+}
+.product-filter{
+    display: flex;
+    width: 10%;
+    justify-content: space-between;
+}
+.product-filter img{
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
 }
 .productPage-container{
     display: grid;

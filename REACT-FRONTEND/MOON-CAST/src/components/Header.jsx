@@ -1,34 +1,19 @@
 import './Header.css'
 import { Link } from 'react-router'
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { SearchIntract } from './NavIntractive';
+import { useScrollEffect } from '../../utils/HeaderScroll';
 
-export function Header({setLoginOpen, setWishlistOpen}) {
-    const [showNavbar, setShowNavbar] = useState(true);
+export function Header({ setLoginOpen, setWishlistOpen }) {
     const [searchOpen, setSearchOpen] = useState(false);
 
-    useEffect(() => {
-        let lastScroll = window.scrollY
-
-        const scrollMovement = () => {
-            if(window.scrollY < lastScroll) {
-                setShowNavbar(true);
-            } else {
-                setShowNavbar(false);
-            }
-            lastScroll = window.scrollY;
-        };
-
-        window.addEventListener("scroll", scrollMovement);
-        return () => window.removeEventListener("scroll", scrollMovement);
-
-    },[])
+    const showNavbar = useScrollEffect();
 
     return (
         <header className={`navbar ${showNavbar ? "show" : "hide"}`}>
             <div className="left-portion">
                 <Link to="/" className="brand-logo">
-                    <img src="/images/icons/Picsart_25-08-19_15-17-59-2482.png" />
+                    <img src="/images/icons/moon-cast-brand-logo.png" />
                 </Link>
                 <div className="hamburger-menu" /*onclick="openNav()"*/>
                     <img src="/images/icons/icons8-hamburger-menu-100.png" alt="" />
@@ -75,26 +60,26 @@ export function Header({setLoginOpen, setWishlistOpen}) {
                     <div className="nav-popup">
                         <div className="brand-popup">
                             <a href="">
-                                <img src="/images/banner/03.jpg" alt="hotwheels brand" />
+                                <img src="/images/banner/hotwheels-logo.jpg" alt="hotwheels brand" />
                             </a>
                             <a href="">
-                                <img src="/images/banner/04.jpg" alt="greenlight brand" />
+                                <img src="/images/banner/greenlight-logo.jpg" alt="greenlight brand" />
                             </a>
                             <a href="">
-                                <img src="/images/banner/05.jpg" alt="majorette brand" />
+                                <img src="/images/banner/majorette-logo.jpg" alt="majorette brand" />
                             </a>
                             <a href="">
-                                <img src="/images/banner/10.jpg" alt="matchbox brand" />
+                                <img src="/images/banner/matchbox-logo.jpg" alt="matchbox brand" />
                             </a>
                             <a href="">
-                                <img src="/images/banner/brand-logo-intro__jada_320x160.avif" alt="jada brand" />
+                                <img src="/images/banner/jada-logo.avif" alt="jada brand" />
                             </a>
                             <a href="">
-                                <img src="/images/banner/brand-logo-intro__m2machines_320x192.avif"
+                                <img src="/images/banner/m2machine-logo.avif"
                                     alt="m2 machine brand" />
                             </a>
                             <a href="">
-                                <img src="/images/banner/Untitled_300_x_300_px_2.webp" alt="minigt-brand" />
+                                <img src="/images/banner/mini-gt-logo.webp" alt="minigt-brand" />
                             </a>
                         </div>
                     </div>
@@ -114,14 +99,14 @@ export function Header({setLoginOpen, setWishlistOpen}) {
                     Contact-us
                 </Link>
                 <Link to="/" className="phBrand-logo">
-                    <img src="/images/icons/Picsart_25-08-19_15-17-59-2482.png" />
+                    <img src="/images/icons/moon-cast-brand-logo.png" />
                 </Link>
             </div>
             <div className="right-portion">
                 <button className="search-icon" onClick={() => setSearchOpen(true)}>
                     <img src="/images/icons/icons8-search-10.png" />
                 </button>
-                <SearchIntract searchOpen={searchOpen} setSearchOpen={setSearchOpen}/>
+                <SearchIntract searchOpen={searchOpen} setSearchOpen={setSearchOpen} />
 
                 <button className="login-icon" onClick={() => setLoginOpen(true)}>
                     <img src="/images/icons/icons8-login-96.png" />

@@ -50,8 +50,12 @@ export function ProductPage() {
 
             <div className="supporting-div"></div>
             <div className="product-head">
-                 <div className="product-category">{heading}</div>
-                 <div className="product-filter">kkk</div>
+                <div className="product-category">{heading}</div>
+                <div className="product-filter">
+                    <img src="\images\icons\icons8-sorting-arrows-96.png" alt="" />
+                    <img src="\images\icons\icons8-filtering-96.png" alt="" />
+                    <img src="\images\icons\icons8-table-of-content-96.png" alt="" />
+                </div>
             </div>
             <div className="productPage-container">
                 {products.map(product => (

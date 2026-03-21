@@ -11,6 +11,14 @@
     left: 0;
     right: 0;
     z-index: 100;
+    transition: top 0.3s;
+}
+.compact-header.hide {
+    top: -60px;
+}
+
+.compact-header.show {
+    top: 0;
 }
 .left-section{
     padding-left: 25px;
