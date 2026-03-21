@@ -7,7 +7,7 @@ export function CheckoutPage() {
             <title>Checkout</title>
             <header>
                 <div className="left-section">
-                    <Link to="/"><img src="/images/icons/Picsart_25-08-19_15-17-59-2482.png" /></Link>
+                    <Link to="/"><img src="/images/icons/moon-cast-brand-logo.png" /></Link>
                 </div>
                 <div className="middle-section">
                     <div className="check">Checkout (<span className="count">5 items</span>)</div>

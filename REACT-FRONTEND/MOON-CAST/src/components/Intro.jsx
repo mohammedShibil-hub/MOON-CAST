@@ -5,7 +5,7 @@ export function Intro() {
         <div className="intro" id="logo-intro">
             <div className="logo-container">
                 <img className="image js-img" src="/images/icons/moon.png" />
-                <img className="image js-img" src="/images/icons/van5.png" />
+                <img className="image js-img" src="/images/icons/van-without-tireg" />
                 <img className="image js-img" src="/images/icons/tire.png" />
                 <img className="image js-img" src="/images/icons/die.png" />
                 <img className="image js-img" src="/images/icons/cast.png" />

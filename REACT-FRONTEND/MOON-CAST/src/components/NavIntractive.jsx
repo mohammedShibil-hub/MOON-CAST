@@ -28,7 +28,7 @@ export function LoginIntract({loginOpen, setLoginOpen}) {
                     </button>
                     <div className="log-head">
                         <div className="log-logo">
-                            <img src="/images/icons/Picsart_25-08-19_15-17-59-2482.png" alt="" />
+                            <img src="/images/icons/moon-cast-brand-logo.png" alt="" />
                         </div>
                         <div className="login-signup">
                             <div className=
@@ -71,10 +71,10 @@ export function LoginIntract({loginOpen, setLoginOpen}) {
                         </div>
                         <div className="log-options">
                             <button className="log-google">
-                                <img src="/images/icons/7123953_logo_google_g_icon.png" alt="google-img" />
+                                <img src="/images/icons/logo_google_icon.png" alt="google-img" />
                             </button>
                             <button className="log-facebook">
-                                <img src="/images/icons/5296499_fb_facebook_facebook logo_icon.png"
+                                <img src="/images/icons/facebook logo_icon.png"
                                     alt="facebook-img" />
                             </button>
                         </div>

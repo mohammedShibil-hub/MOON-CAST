@@ -57,43 +57,43 @@ export function HomePage() {
                 <div className="scale-div">
                     <div className="scale-container">
                         <div className="scale-size">
-                            <img className="scale-icon" src="/images/icons/mercedes-benz-300sl-roadster-blue.jpg" alt="" />
-                            <img className="hover-over" src="/images/icons/benz-classic1.png" alt="" />
+                            <img className="scale-icon" src="/images/icons/mercedes-roadster.jpg" alt="" />
+                            <img className="hover-over" src="/images/icons/benz-scalesize.png" alt="" />
                         </div>
                         <div className="scale-discription">1:64</div>
                     </div>
                     <div className="scale-container">
                         <div className="scale-size">
-                            <img className="scale-icon" src="/images/icons/ferrari.png" alt="" />
-                            <img className="hover-over" src="/images/icons/ferrari22.png" alt="" />
+                            <img className="scale-icon" src="/images/icons/ferrari-spots.png" alt="" />
+                            <img className="hover-over" src="/images/icons/ferrari-spots-scalesize.png" alt="" />
                         </div>
                         <div className="scale-discription">1:43</div>
                     </div>
                     <div className="scale-container">
                         <div className="scale-size">
                             <img className="scale-icon" src="/images/icons/bentley-flying-spur-plum.jpg" alt="" />
-                            <img className="hover-over" src="/images/icons/bentley22.png" alt="" />
+                            <img className="hover-over" src="/images/icons/bentley_scalesize.png" alt="" />
                         </div>
                         <div className="scale-discription">1:32</div>
                     </div>
                     <div className="scale-container">
                         <div className="scale-size">
                             <img className="scale-icon" src="/images/icons/ferrari-f40-red.jpg" alt="" />
-                            <img className="hover-over" src="/images/icons/ferarri-red1.png" alt="" />
+                            <img className="hover-over" src="/images/icons/ferarri-red-scalesize.png" alt="" />
                         </div>
                         <div className="scale-discription">1:24</div>
                     </div>
                     <div className="scale-container">
                         <div className="scale-size">
                             <img className="scale-icon" src="/images/icons/volvo rally.png" alt="" />
-                            <img className="hover-over" src="/images/icons/volvo-rally1.png" alt="" />
+                            <img className="hover-over" src="/images/icons/volvo-rally-scalesize.png" alt="" />
                         </div>
                         <div className="scale-discription">1:18</div>
                     </div>
                     <div className="scale-container">
                         <div className="scale-size">
-                            <img className="scale-icon" src="/images/icons/bmw.png" alt="" />
-                            <img className="hover-over" src="/images/icons/bmw2.png" alt="" />
+                            <img className="scale-icon" src="/images/icons/bmw_bike.png" alt="" />
+                            <img className="hover-over" src="/images/icons/bmw_bike_scalesize.png" alt="" />
                         </div>
                         <div className="scale-discription">1:12</div>
                     </div>

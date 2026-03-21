@@ -18,7 +18,7 @@ export function Footer() {
                 </div>
             </div>
             <div className="page-discription">
-                <img src="/images/icons/Picsart_25-08-19_15-17-59-2482.png" alt="" />
+                <img src="/images/icons/moon-cast-brand-logo.png" alt="" />
                 <p>
                     At Moon Cast, we are more than just a store – we’re a community built for diecast enthusiasts.
                     From rare diecast cars and detailed dioramas to unique collectibles, we bring together everything a true
@@ -62,10 +62,10 @@ export function Footer() {
                     <div className="social-media">
                         <h5>FOLLOW MOON CAST HERE</h5>
                         <div className="social-img-div">
-                            <img className="social-img" src="/images/icons/icons8-facebook-logo-100 (1).png" alt="" />
-                            <img className="social-img" src="/images/icons/icons8-instagram-logo-100 (1).png" alt="" />
-                            <img className="social-img" src="/images/icons/icons8-x-logo-90 (1).png" alt="" />
-                            <img className="social-img" src="/images/icons/icons8-youtube-logo-100.png" alt="" />
+                            <img className="social-img" src="/images/icons/icons8-facebook-logo.png" alt="" />
+                            <img className="social-img" src="/images/icons/icons8-instagram-logo.png" alt="" />
+                            <img className="social-img" src="/images/icons/icons8-x-logo.png" alt="" />
+                            <img className="social-img" src="/images/icons/icons8-youtube-logo.png" alt="" />
                             <img className="social-img" src="/images/icons/icons8-whatsapp-100.png" alt="" />
                         </div>
                     </div>
@@ -73,7 +73,7 @@ export function Footer() {
                         <h5>EXPERIENCE MOONCAST ON MOBILE</h5>
                         <div className="app-div">
                             <img className="andriod-img" src="/images/icons/playstoreapp.png" alt="" />
-                            <img className="ios-img" src="/images/icons/5a902db97f96951c82922874.png" alt="" />
+                            <img className="ios-img" src="/images/icons/app_store.png" alt="" />
                         </div>
                     </div>
                 </div>
@@ -92,7 +92,7 @@ export function Footer() {
                         <img src="/images/icons/bhim-upi-icon.png" alt="" />
                     </div>
                     <div className="payment-platform">
-                        <img src="/images/icons/money.png" alt="" />
+                        <img src="/images/icons/master-card.png" alt="" />
                     </div>
                     <div className="payment-platform">
                         <img src="/images/icons/google-pay.png" alt="" />

@@ -54,23 +54,23 @@ export function AboutUs() {
                     <p>Customer satisfaction is at the core of what we do. We ensure:</p>
                     <div className="promise-content">
                         <div className="promise-img">
-                            <img src="/images/icons/car_2417126.png" alt="promise-" />
+                            <img src="/images/icons/premium-quality-logo.png" alt="promise-" />
                                 <div>Premium-quality diecasts</div>
                         </div>
                         <div className="promise-img">
-                            <img src="/images/icons/shield_3639704.png" alt="promise-" />
+                            <img src="/images/icons/shield-pack.png" alt="promise-" />
                                 <div>Safe and secure packaging</div>
                         </div>
                         <div className="promise-img">
-                            <img src="/images/icons/fast-delivery_15345801.png" alt="promise-" />
+                            <img src="/images/icons/fast-delivery.png" alt="promise-" />
                                 <div>Fast dispatch & reliable delivery</div>
                         </div>
                         <div className="promise-img">
-                            <img src="/images/icons/download.png" alt="promise-" />
+                            <img src="/images/icons/customer-service.png" alt="promise-" />
                                 <div>Clear communication and friendly support</div>
                         </div>
                         <div className="promise-img">
-                            <img src="/images/icons/original_5579727.png" alt="promise-" />
+                            <img src="/images/icons/original_tag.png" alt="promise-" />
                                 <div>Authentic, original licensed products</div>
                         </div>
                     </div>

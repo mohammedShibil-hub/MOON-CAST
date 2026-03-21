@@ -4,12 +4,12 @@ import { useEffect, useRef, useState } from 'react'
 export function SlidingBanner() {
 
     const slides = [
-        "/images/banner/rolls3.jpg",
+        "/images/banner/rolls-banner.jpg",
         "/images/banner/minigtsport.jpg",
         "/images/banner/kaidoHouse.jpg",
-        "/images/banner/mini gt.png",
+        "/images/banner/mini-gt-banner.png",
         "/images/banner/popRace.png",
-        "/images/banner/defender3.jpg"
+        "/images/banner/defender-banner.jpg"
     ]
 
     const [index, setIndex] = useState(0);

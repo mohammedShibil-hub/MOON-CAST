@@ -21,7 +21,7 @@ export function HamburgerIntract({ hamOpen, setHamOpen }) {
             <div className="sideNav-overlay">
                 <div className="side-nav">
                     <button className="hamClose" onClick={() => setHamOpen(false)}>
-                        <img src="/images/icons/icons8-multiply-100.png" />
+                        <img src="/images/icons/icons8-multiply.png" />
                     </button>
                     <div className="hamburger-options">
                         <div className="cmp-category">
@@ -64,26 +64,26 @@ export function HamburgerIntract({ hamOpen, setHamOpen }) {
                             <div className="cmp-nav-popup">
                                 <div className="cmp-brand-popup">
                                     <a href="">
-                                        <img src="/images/banner/03.jpg" alt="hotwheels brand" />
+                                        <img src="/images/banner/hotwheels-logo.jpg" alt="hotwheels brand" />
                                     </a>
                                     <a href="">
-                                        <img src="/images/banner/04.jpg" alt="greenlight brand" />
+                                        <img src="/images/banner/greenlight-logo.jpg" alt="greenlight brand" />
                                     </a>
                                     <a href="">
-                                        <img src="/images/banner/05.jpg" alt="majorette brand" />
+                                        <img src="/images/banner/majorette-logo.jpg" alt="majorette brand" />
                                     </a>
                                     <a href="">
-                                        <img src="/images/banner/10.jpg" alt="matchbox brand" />
+                                        <img src="/images/banner/matchbox-logo.jpg" alt="matchbox brand" />
                                     </a>
                                     <a href="">
-                                        <img src="/images/banner/brand-logo-intro__jada_320x160.avif" alt="jada brand" />
+                                        <img src="/images/banner/jada-logo.avif" alt="jada brand" />
                                     </a>
                                     <a href="">
-                                        <img src="/images/banner/brand-logo-intro__m2machines_320x192.avif"
+                                        <img src="/images/banner/m2machine-logo.avif"
                                             alt="m2 machine brand" />
                                     </a>
                                     <a href="">
-                                        <img src="/images/banner/Untitled_300_x_300_px_2.webp" alt="minigt-brand" />
+                                        <img src="/images/banner/mini-gt-logo.webp" alt="minigt-brand" />
                                     </a>
                                 </div>
                             </div>
