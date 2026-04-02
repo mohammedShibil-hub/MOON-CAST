@@ -102,7 +102,7 @@ export function HomePage() {
                 <div className="product-grid-latest">
                     {latestProducts.map((product) => {
                         return (
-                            <div key={product._id} className="product-container">
+                            <Link key={product._id} className="product-container" to={`/product/${product._id}`}>
                                 <div className="img-box">
                                     <img className="product-image" src={product.images?.[0]|| "/images/placeholder.png"} alt={product.name} />
                                     <div className="best-seller">Best Seller</div>
@@ -115,7 +115,7 @@ export function HomePage() {
                                     <div className="mrp">₹{product.mrp}</div>
                                     <div className="offer-price">₹{product.price}</div>
                                 </div>
-                            </div>
+                            </Link>
                         )
                     })}
                 </div>
@@ -127,7 +127,7 @@ export function HomePage() {
                 <div className="product-grid-trending">
                     {trendingProducts.map((product) => {
                         return (
-                            <div key={product._id} className="product-container">
+                            <Link key={product._id} className="product-container" to={`/product/${product._id}`}>
                                 <div className="img-box">
                                     <img className="product-image" src={product.images?.[0] || "/images/placeholder.png"} alt={product.name} />
                                     <div className="best-seller">Best Seller</div>
@@ -140,7 +140,7 @@ export function HomePage() {
                                     <div className="mrp">₹{product.mrp}</div>
                                     <div className="offer-price">₹{product.price}</div>
                                 </div>
-                            </div>
+                            </Link>
                         )
                     })}
                 </div>
@@ -152,7 +152,7 @@ export function HomePage() {
                 <div className="product-grid-hot-wheels">
                     {hotwheelProducts.map((product) => {
                         return (
-                            <div key={product._id} className="product-container">
+                            <Link key={product._id} className="product-container" to={`/product/${product._id}`}>
                                 <div className="img-box">
                                     <img className="product-image" src={product.images?.[0] || "/images/placeholder.png"} alt={product.name} />
                                     <div className="best-seller">Best Seller</div>
@@ -165,7 +165,7 @@ export function HomePage() {
                                     <div className="mrp">₹{product.mrp}</div>
                                     <div className="offer-price">₹{product.price}</div>
                                 </div>
-                            </div>
+                            </Link>
                         )
                     })}
                 </div>
@@ -177,20 +177,22 @@ export function HomePage() {
                 <div className="product-grid-diorama">
                     {dioramaProducts.map((product) => {
                         return (
-                            <div key={product._id} className="product-container">
-                                <div className="img-box">
-                                    <img className="product-image" src={product.images?.[0] || "/images/placeholder.png"} alt={product.name} />
-                                    <div className="best-seller">Best Seller</div>
-                                    <div className="offer">{product.offer}</div>
-                                    <input type="checkbox" id="wishlist1" className="wishlist-checkBox" />
-                                    <label className="wishlist-label"></label>
+                            <Link key={product._id} className="product-container" to={`/product/${product._id}`}>
+                                <div className="sold-out">
+                                    <div className="img-box">
+                                        <img className="product-image" src={product.images?.[0] || "/images/placeholder.png"} alt={product.name} />
+                                        <div className="best-seller">Best Seller</div>
+                                        <div className="offer">{product.offer}</div>
+                                        <input type="checkbox" id="wishlist1" className="wishlist-checkBox" />
+                                        <label className="wishlist-label"></label>
+                                    </div>
+                                    <div className="name">{product.name}</div>
+                                    <div className="price-div">
+                                        <div className="mrp">₹{product.mrp}</div>
+                                        <div className="offer-price">₹{product.price}</div>
+                                    </div>
                                 </div>
-                                <div className="name">{product.name}</div>
-                                <div className="price-div">
-                                    <div className="mrp">₹{product.mrp}</div>
-                                    <div className="offer-price">₹{product.price}</div>
-                                </div>
-                            </div>
+                            </Link>
                         )
                     })}
                 </div>

@@ -1,0 +1,251 @@
+.card-detail-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 90px 20px 0;
+}
+
+.path {
+    display: flex;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    align-items: center;
+}
+
+.path img {
+    width: 13px;
+    margin: 0 10px;
+}
+
+.product-dtl-page {
+    display: flex;
+    gap: 40px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px 10px 0 0;
+    align-items: flex-start;
+}
+
+.dtl-left-section {
+    flex: 1;
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+}
+
+.main-image {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.thumbnail-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.thumbnail-row img {
+    width: 70px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.dtl-right-section {
+    flex: 1;
+    display: grid;
+    grid-template-rows: 1fr 69px 68px 91px 135px 304px;
+    row-gap: 30px;
+}
+
+.product-title {
+    margin-top: 22px;
+}
+
+.product-title h1 {
+    font-size: 19px;
+    margin-bottom: 10px;
+}
+
+.brand-name {
+    text-decoration: none;
+    color: #0073e6;
+}
+
+.price-section{
+    position: relative;
+}
+
+.dtl-offer {
+    width: 70px;
+    background: red;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+
+}
+
+.price {
+    font-size: 26px;
+    font-weight: bold;
+    color: #e63946;
+}
+
+.dtl-mrp {
+    text-decoration: line-through;
+    color: gray;
+    margin-left: 10px;
+}
+
+.stock-detail {
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.stock-detail.in{
+    color: rgb(42 154 42);
+}
+
+.stock-detail.low{
+    color: #ff9800;
+}
+
+.stock-detail.out{
+    color: red;
+}
+
+.quantity {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    gap: 10px;
+    border: 2px black solid;
+    border-radius: 25px;
+}
+
+.quantity button {
+    padding: 5px 12px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+
+.add-cart {
+    width: 100%;
+    padding: 12px;
+    background: #4e635c;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+    margin-bottom: 12px;
+}
+
+.buy-now {
+    width: 100%;
+    padding: 12px;
+    background: #d97706;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+.dtl-service-div {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 45px;
+    padding-bottom: 15px;
+    border-bottom: 1px lightgrey solid;
+}
+
+.dtl-service-div div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+}
+
+.dtl-service-div img {
+    width: 40px;
+    margin-bottom: 7px;
+}
+
+.emi-box{
+    border: 1px rgb(194 194 194) solid;
+    border-radius: 10px;
+    padding: 5px;
+    width: fit-content;
+}
+
+.emi-head{
+    font-size: 16px;
+    padding: 8px;
+    border-bottom: 1px grey solid;
+    text-align: center;
+}
+
+.finance-box{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    font-size: 14px;
+    padding: 8px;
+    gap: 5px;
+    margin-top: 5px;
+}
+.finance-box img{
+    width: 100%;
+}
+
+.fdrl-bank, .hdfc-bank, .icic-bank, .bajaj-finance{
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    border-bottom: 1px rgb(194 194 194) solid;
+    padding: 10px;
+    gap: 25px;
+}
+
+.bank-detail{
+    line-height: 19px;
+}
+
+.bank-detail span{
+    color: #d00202;
+}
+
+.product-specification-review{
+    background: #fff;
+    padding: 30px 40px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.product-description ul{
+    margin-left: 14px;
+}
+
+.product-description h3, .product-review-container h3 {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+}
+.product-description li{
+    margin-bottom: 5px;
+    font-size: 13px;
+}
+
+.similar-products-card{
+    height: 500px;
+    background: #fff;
+    padding: 80px 20px 20px;
+    
+}
+
+.similar-products-card h2{
+    text-align: center;
+}

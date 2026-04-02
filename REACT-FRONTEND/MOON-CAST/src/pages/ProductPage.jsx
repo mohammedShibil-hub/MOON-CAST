@@ -2,7 +2,8 @@ import './ProductPage.css';
 import { CompactHeader } from '../components/CompactHeader';
 import { useEffect, useState } from 'react';
 import { HamburgerIntract, WishlistIntract } from '../components/CmpIntractive';
-import { useLocation } from 'react-router';
+import { Link, useLocation } from 'react-router';
+import { Footer } from '../components/Footer';
 
 
 
@@ -59,7 +60,7 @@ export function ProductPage() {
             </div>
             <div className="productPage-container">
                 {products.map(product => (
-                    <div className="box-div">
+                    <Link key={product._id} className="box-div" to={`/product/${product._id}`} >
                         <div className="pics">
                             <img src={product.images[0]} />
                             <div className="P-offer">{product.offer}%</div>
@@ -76,9 +77,10 @@ export function ProductPage() {
                             Added
                         </div>
                         <button className="js-addCart" data-product-id="${product.id}">Add to Cart</button>
-                    </div>
+                    </Link>
                 ))}
             </div>
+            <Footer />
         </>
     )
 }

@@ -27,6 +27,7 @@
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     gap: 25px;
     padding: 25px;
+    margin-bottom: 150px;
 }
 .box-div{
     width: auto;
@@ -37,6 +38,8 @@
     flex-direction: column;
     background-color: white;
     border-radius: 9px;
+    text-decoration: none;
+    color: black;
 }
 .pics{
     display: flex;
