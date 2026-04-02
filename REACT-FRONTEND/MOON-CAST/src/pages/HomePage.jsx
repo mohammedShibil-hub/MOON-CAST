@@ -105,7 +105,7 @@ export function HomePage() {
                             <Link key={product._id} className="product-container" to={`/product/${product._id}`}>
                                 <div className="img-box">
                                     <img className="product-image" src={product.images?.[0]|| "/images/placeholder.png"} alt={product.name} />
-                                    <div className="offer">{product.offer}</div>
+                                    <div className="offer">{product.offer}%</div>
                                     <input type="checkbox" id="wishlist1" className="wishlist-checkBox" />
                                     <label className="wishlist-label"></label>
                                 </div>
@@ -129,7 +129,7 @@ export function HomePage() {
                             <Link key={product._id} className="product-container" to={`/product/${product._id}`}>
                                 <div className="img-box">
                                     <img className="product-image" src={product.images?.[0] || "/images/placeholder.png"} alt={product.name} />
-                                    <div className="offer">{product.offer}</div>
+                                    <div className="offer">{product.offer}%</div>
                                     <input type="checkbox" id="wishlist1" className="wishlist-checkBox" />
                                     <label className="wishlist-label"></label>
                                 </div>
@@ -153,7 +153,7 @@ export function HomePage() {
                             <Link key={product._id} className="product-container" to={`/product/${product._id}`}>
                                 <div className="img-box">
                                     <img className="product-image" src={product.images?.[0] || "/images/placeholder.png"} alt={product.name} />
-                                    <div className="offer">{product.offer}</div>
+                                    <div className="offer">{product.offer}%</div>
                                     <input type="checkbox" id="wishlist1" className="wishlist-checkBox" />
                                     <label className="wishlist-label"></label>
                                 </div>
@@ -179,7 +179,7 @@ export function HomePage() {
                                     <div className="img-box">
                                         <img className="product-image" src={product.images?.[0] || "/images/placeholder.png"} alt={product.name} />
 
-                                        <div className="offer">{product.offer}</div>
+                                        <div className="offer">{product.offer}%</div>
                                         <input type="checkbox" id="wishlist1" className="wishlist-checkBox" />
                                         <label className="wishlist-label"></label>
                                     </div>

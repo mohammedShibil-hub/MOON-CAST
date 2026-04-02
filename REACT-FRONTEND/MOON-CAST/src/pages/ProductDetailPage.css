@@ -49,6 +49,12 @@
     width: 70px;
     cursor: pointer;
     border-radius: 5px;
+    border: 2px solid transparent;
+    border-radius: 6px;
+}
+
+.thumbnail-row img.active{
+    border: 2px solid black;
 }
 
 .dtl-right-section {

@@ -13,7 +13,6 @@ app.use(express.json());
 
 app.use("/images", express.static(path.join(__dirname, "images")));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
-app.use('/images', express.static('public/images'));
 app.use("/api/products", require('./routes/productRoutes'));
 
 

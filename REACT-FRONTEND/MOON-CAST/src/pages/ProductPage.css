@@ -51,15 +51,16 @@
 }
 .P-offer{
     position: absolute;
-    top: -10px;
-    right: -1px;
-    font-size: 15px;
-    padding: 5px 5px 4px;
-    color: rgb(255, 0, 0);
+    top: -8px;
+    left: -10px;
+    font-size: 13px;
+    padding: 3px 15px 2px 7px;
+    background-color: rgb(255, 0, 0);
+    color: white;
     font-weight: 600;
     letter-spacing: 1px;
-    background-color: #ffffff;
-    border-radius: 10px;
+    border-top-right-radius: 4px;
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
 }
 .pics img{
     max-width: 100%;
