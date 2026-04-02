@@ -1,5 +1,4 @@
 .footer-div{
-    margin-top: 100px;
     background-color: white;
     border-top: 1px solid rgb(42, 42, 42);
     display: grid;
@@ -137,7 +136,7 @@
     border-radius: 9px;
 }
 .social-img:nth-child(3):hover {
-    background-color: #ebebeb;
+    background-color: #b0b0b0;
     border-radius: 3px;
 }
 .social-img:nth-child(4):hover{

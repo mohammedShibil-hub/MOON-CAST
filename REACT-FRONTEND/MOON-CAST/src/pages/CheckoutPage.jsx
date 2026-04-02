@@ -46,7 +46,7 @@ export function CheckoutPage() {
                         </div>
                     </div>
                     <div className="order-summery">
-                        <div className="h1">Order Summary</div>
+                        <div className="order-title">Order Summary</div>
                         <div className="summery-row">
                             <div>Items (6):</div>
                             <div className="summery-money">$60.90</div>

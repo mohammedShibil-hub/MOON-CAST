@@ -7,7 +7,7 @@ export function AboutUs() {
             <title>aboutus</title>
             <div className="about-section">
                 <div className="about-container">
-                    <h1>About Us</h1>
+                    <h1 className="about-title">About Us</h1>
                     <Link className="about-close" to="/">
                         <img src="/images/icons/icons8-multiply-96.png" alt="about-close" />
                     </Link>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Product Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .product-page {
+            display: flex;
+            gap: 40px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        /* LEFT */
+        .product-left {
+            flex: 1;
+        }
+
+        .main-image {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .thumbnail-row {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .thumbnail-row img {
+            width: 70px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        /* RIGHT */
+        .product-right {
+            flex: 1;
+        }
+
+        .product-title {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .sale-badge {
+            display: inline-block;
+            background: red;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .price-section {
+            margin: 15px 0;
+        }
+
+        .price {
+            font-size: 26px;
+            font-weight: bold;
+            color: #e63946;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: gray;
+            margin-left: 10px;
+        }
+
+        /* Quantity */
+        .quantity {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .quantity button {
+            padding: 5px 12px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* Buttons */
+        .add-cart {
+            width: 100%;
+            padding: 12px;
+            background: black;
+            color: white;
+            border: none;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .buy-now {
+            width: 100%;
+            padding: 12px;
+            background: orange;
+            color: white;
+            border: none;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        /* Bundle */
+        .bundle {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+
+        .bundle h3 {
+            margin-bottom: 10px;
+        }
+
+        .bundle-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+        }
+
+        .bundle-btn {
+            width: 100%;
+            padding: 10px;
+            background: green;
+            color: white;
+            border: none;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .product-page {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="product-page">
+
+            <!-- LEFT: IMAGE -->
+            <div class="product-left">
+                <img src="Gemini_Generated_Image_ga0z2bga0z2bga0z.png" alt="RC Car" class="main-image">
+
+                <div class="thumbnail-row">
+                    <img src="Gemini_Generated_Image_ga0z2bga0z2bga0z.png">
+                    <img src="Gemini_Generated_Image_ga0z2bga0z2bga0z.png">
+                    <img src="Gemini_Generated_Image_ga0z2bga0z2bga0z.png">
+                </div>
+            </div>
+
+            <!-- RIGHT: DETAILS -->
+            <div class="product-right">
+
+                <h1 class="product-title">
+                    1/16 4 Wheel Drive RC Car 1200mah 7.4v 2.4ghz LED Drift Model
+                </h1>
+
+                <div class="sale-badge">55% OFF</div>
+
+                <div class="price-section">
+                    <span class="price">₹10,899</span>
+                    <span class="old-price">₹23,999</span>
+                </div>
+
+                <!-- Quantity -->
+                <div class="quantity">
+                    <button>-</button>
+                    <span>1</span>
+                    <button>+</button>
+                </div>
+
+                <!-- Buttons -->
+                <button class="add-cart">Add to Cart</button>
+                <button class="buy-now">Buy It Now</button>
+
+                <!-- Bundle -->
+                <div class="bundle">
+                    <h3>Buy Together Offer</h3>
+
+                    <div class="bundle-item">
+                        <input type="checkbox" checked>
+                        <span>RC Car</span>
+                        <span class="bundle-price">₹10,463</span>
+                    </div>
+
+                    <div class="bundle-item">
+                        <input type="checkbox" checked>
+                        <span>Toyota AE86</span>
+                        <span class="bundle-price">₹3,455</span>
+                    </div>
+
+                    <button class="bundle-btn">
+                        Claim Offer - ₹14,233
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
