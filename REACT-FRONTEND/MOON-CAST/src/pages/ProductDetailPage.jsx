@@ -6,7 +6,7 @@ import { Link } from 'react-router';
 import { ProductReview } from '../components/ProductReview';
 import { useParams } from 'react-router';
 import { Footer } from '../components/Footer';
-const API_URL = import.meta.env.REACT_APP_BACKEND_API_URL || 'http://localhost:6004';
+const API_URL = import.meta.env.VITE_BACKEND_API_URL || 'http://localhost:6004';
 
 
 export function ProductDetailPage() {

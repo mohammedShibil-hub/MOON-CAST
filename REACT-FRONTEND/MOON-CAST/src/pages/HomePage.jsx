@@ -5,7 +5,7 @@ import { Header } from '../components/Header';
 import { LoginIntract, WishlistIntract } from '../components/NavIntractive';
 import { Footer } from '../components/Footer';
 import { SlidingBanner } from '../components/SlidingBanner';
-const API_URL = import.meta.env.REACT_APP_BACKEND_API_URL || 'http://localhost:6004';
+const API_URL = import.meta.env.VITE_BACKEND_API_URL || 'http://localhost:6004';
 
 import axios from 'axios';
 
