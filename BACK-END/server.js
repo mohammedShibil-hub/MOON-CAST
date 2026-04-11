@@ -16,5 +16,5 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use("/api/products", require('./routes/productRoutes'));
 
 
-const PORT = process.env.PORT
-app.listen(PORT, () => console.log(`server running on ${PORT}`));
+const PORT = process.env.PORT || 6004;
+app.listen(PORT, "0.0.0.0",() => console.log(`server running on ${PORT}`));

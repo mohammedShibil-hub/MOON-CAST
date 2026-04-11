@@ -5,6 +5,7 @@ import { Header } from '../components/Header';
 import { LoginIntract, WishlistIntract } from '../components/NavIntractive';
 import { Footer } from '../components/Footer';
 import { SlidingBanner } from '../components/SlidingBanner';
+const API_URL = import.meta.env.REACT_APP_BACKEND_API_URL || 'http://localhost:6004';
 
 import axios from 'axios';
 
@@ -27,16 +28,16 @@ export function HomePage() {
         .catch(() => setLoading(false));
         */
         
-        axios.get('http://localhost:6004/api/products?latest=true')
+        axios.get(`${API_URL}/api/products?latest=true`)
             .then(res => setLatestProducts(res.data));
         
-        axios.get('http://localhost:6004/api/products?trending=true')
+        axios.get(`${API_URL}/api/products?trending=true`)
             .then(res => setTrendingProducts(res.data));
         
-        axios.get('http://localhost:6004/api/products?category=Hotwheels')
+        axios.get(`${API_URL}/api/products?category=Hotwheels`)
             .then(res => setHotwheelProducts(res.data));
 
-        axios.get('http://localhost:6004/api/products?category=Diorama')
+        axios.get(`${API_URL}/api/products?category=Diorama`)
             .then(res => setDioramaProducts(res.data));
 
     },[]);
