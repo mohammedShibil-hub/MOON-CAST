@@ -2,11 +2,17 @@ const mongoose = require('mongoose');
 
 const connectDB = async () => {
     try {
-        await mongoose.connect(process.env.DB_URL)
-        console.log("database is connected")
+        const dbURL =
+            process.env.NODE_ENV === "production"
+                ? process.env.DB_URL   // Atlas (Render)
+                : "mongodb://localhost:27017/moonCast"; // Local
+
+        await mongoose.connect(dbURL);
+
+        console.log(`Database connected: ${process.env.NODE_ENV || "development"}`);
     } catch (err) {
-        console.log("database connected failed", err.message)
-        process.exit(1)
+        console.log("Database connection failed:", err.message);
+        process.exit(1);
     }
 };
 

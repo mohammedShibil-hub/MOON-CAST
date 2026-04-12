@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { HamburgerIntract, WishlistIntract } from '../components/CmpIntractive';
 import { Link, useLocation } from 'react-router';
 import { Footer } from '../components/Footer';
-const API_URL = import.meta.env.REACT_APP_BACKEND_API_URL || 'http://localhost:6004';
+const API_URL = import.meta.env.VITE_BACKEND_API_URL || 'http://localhost:6004';
 
 
 
