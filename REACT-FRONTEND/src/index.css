@@ -4,6 +4,7 @@
 }
 
 body {
-    background-color: #ebebeb;
+    background-color: #ebebeb !important;
     font-family: "Poppins", sans-serif;
+    color: black !important;
 }
