@@ -2,12 +2,12 @@
     background-color: white;
     border-top: 1px solid rgb(42, 42, 42);
     display: grid;
-    grid-template-rows: 90px 90px 155px 45px;
     padding: 15px 15px 0;
-    row-gap: 10px;
+    row-gap: 25px;
 }
 .services-div{
     background-color: #4e635c;
+    padding: 12px 0;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -56,7 +56,7 @@
 .policy:hover{
     color: #0065ca;
 }
-.address-div p{
+.address{
     font-size: 14px;
     margin: 10px 0 5px;
 }
@@ -67,6 +67,7 @@
     text-decoration: none;
     font-size: 14px;
     color: #0073e6;
+    display: inline-block;
 }
 .address-div a:hover{
     color: #ff6600;
@@ -176,9 +177,10 @@
 }
  
 @media (max-width: 500px) {
-    .footer-div{
-        grid-template-rows: 45px 145px 120px 25px;
+    .services-div{
+        padding: 9px 0;
     }
+
     .service-box img{
         width: 28px;
         margin-right: 5px;
@@ -204,11 +206,12 @@
     .consumer-policy{
         row-gap: 7px;
     }
-    h5, .policy, .address-div p, .newsletter p{
+    h5, .policy, .address, .newsletter p{
         font-size: 9px;
     }
     .address-div a{
         font-size: 8px;
+        width: 45px;
     }
     .address-div h6{
         font-size: 9px;
@@ -241,4 +244,8 @@
     .pay-div img{
         width: 20px;
     }
+}
+
+@media (max-width: 1000px) {
+    
 }

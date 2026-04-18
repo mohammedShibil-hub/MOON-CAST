@@ -262,3 +262,9 @@
     }
 
 }
+
+@media (max-width: 1000px) {
+    .middle-portion{
+        font-size: 12px;
+    }
+}

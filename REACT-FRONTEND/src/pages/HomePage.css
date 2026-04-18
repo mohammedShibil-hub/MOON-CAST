@@ -200,13 +200,4 @@ main{
     .supporting-div{
         height: 4vh;
     }
-    .slider{
-        height: 30vh;
-    }
-    .slide{
-        width: 100%;
-    }
-    .slide img{
-        width: 100%;
-    }
 }

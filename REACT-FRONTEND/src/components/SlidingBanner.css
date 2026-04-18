@@ -41,3 +41,24 @@
 .right {
     right: 15px;
 }
+
+@media (max-width: 500px ) {
+    .slider{
+        height: 13vh;
+        width: 95%;
+        margin: 10px 10px 25px;
+        border-radius: 6px
+    }
+
+    .arrow{
+        font-size: 30px;
+    }
+
+    .right{
+        right: 10px;
+    }
+
+    .left{
+        left: 10px;
+    }
+}

@@ -44,11 +44,12 @@ export function Footer() {
                 </div>
                 <div className="address-div">
                     <h5>REGISTERED OFFICE ADDRESS</h5>
-                    <p>
+                    <div className="address">
                         Moon cast,<br />3rd floor, LULU mall, <br />
                         Govindapuram, Kozhikode(Calicut), Kerala 676521 <br />
-                    </p>
-                    <h6>TELEPHONE: </h6> <a href="">+91 9876543210</a> / <a href="">0495-234678</a>
+                    </div>
+                    <h6>TELEPHONE: </h6> 
+                    <a href="">+91 9876543210</a> / <a href="">0495-234678</a>
                 </div>
                 <div className="newsletter">
                     <h5>NEWSLETTER</h5>

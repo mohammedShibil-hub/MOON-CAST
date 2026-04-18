@@ -50,7 +50,7 @@ export function ProductPage() {
             <HamburgerIntract hamOpen={hamOpen} setHamOpen={setHamOpen} />
             <WishlistIntract wishlistOpen={wishlistOpen} setWishlistOpen={setWishlistOpen} />
 
-            <div className="supporting-div"></div>
+            <div className="pp-supporting-div"></div>
             <div className="product-head">
                 <div className="product-category">{heading}</div>
                 <div className="product-filter">
