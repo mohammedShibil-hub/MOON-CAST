@@ -5,7 +5,7 @@ const connectDB = async () => {
         const dbURL =
             process.env.NODE_ENV === "production"
                 ? process.env.DB_URL   // Atlas (Render)
-                : "mongodb://localhost:27017/moonCast"; // Local
+                : "mongodb://localhost:27017/moonCast"; 
 
         await mongoose.connect(dbURL);
 
