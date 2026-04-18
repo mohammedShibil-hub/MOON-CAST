@@ -27,20 +27,33 @@ export function HomePage() {
         })
         .catch(() => setLoading(false));
         */
-        
+
         axios.get(`${API_URL}/api/products?latest=true`)
-            .then(res => setLatestProducts(res.data));
-        
+            .then(res => setLatestProducts(res.data))
+            .catch(err => {
+                if (err.response) {
+                    // Server responded with a status other than 2xx
+                    console.error("Error Status:", err.response.status);
+                    console.error("Error Data:", err.response.data);
+                } else if (err.request) {
+                    // Request was made but no response
+                    console.error("No response from server:", err.request);
+                } else {
+                    // Something else happened
+                    console.error("Error:", err.message);
+                }
+            });
+
         axios.get(`${API_URL}/api/products?trending=true`)
             .then(res => setTrendingProducts(res.data));
-        
+
         axios.get(`${API_URL}/api/products?category=Hotwheels`)
             .then(res => setHotwheelProducts(res.data));
 
         axios.get(`${API_URL}/api/products?category=Diorama`)
             .then(res => setDioramaProducts(res.data));
 
-    },[]);
+    }, []);
     //if (loading) {
     //    return (<div>Loading.....</div>)
     //}
@@ -105,7 +118,7 @@ export function HomePage() {
                         return (
                             <Link key={product._id} className="product-container" to={`/product/${product._id}`}>
                                 <div className="img-box">
-                                    <img className="product-image" src={product.images?.[0]|| "/images/placeholder.png"} alt={product.name} />
+                                    <img className="product-image" src={product.images?.[0] || "/images/placeholder.png"} alt={product.name} />
                                     <div className="offer">{product.offer}%</div>
                                     <input type="checkbox" id="wishlist1" className="wishlist-checkBox" />
                                     <label className="wishlist-label"></label>
