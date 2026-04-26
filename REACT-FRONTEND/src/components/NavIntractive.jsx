@@ -1,5 +1,11 @@
 import './NavIntractive.css'
 import { useState } from 'react'
+import axios from 'axios';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+const API_URL = import.meta.env.VITE_BACKEND_API_URL || 'http://localhost:6004';
+axios.defaults.baseURL = API_URL;
+
 
 export function SearchIntract({ searchOpen, setSearchOpen }) {
     return (
@@ -16,10 +22,64 @@ export function SearchIntract({ searchOpen, setSearchOpen }) {
     )
 }
 
-export function LoginIntract({loginOpen, setLoginOpen}) {
+export function LoginIntract({ loginOpen, setLoginOpen }) {
     const [isLogin, setIsLogin] = useState(true);
+    const [loginData, setLoginData] = useState({
+        email: "",
+        password: "",
+    });
+    const [signupData, setSignupData] = useState({
+        name: "",
+        email: "",
+        password: "",
+    });
 
+    const handleLoginChange = (e) => {
+        setLoginData({ ...loginData, [e.target.name]: e.target.value });
+    };
+
+    const handleSignupChange = (e) => {
+        setSignupData({ ...signupData, [e.target.name]: e.target.value });
+    };
+
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        try {
+            const res = await axios.post('/api/auth/login', loginData);
+
+            localStorage.setItem('token', res.data.token);
+            localStorage.setItem('user', JSON.stringify(res.data.user));
+
+            alert('Login successful!');
+            setLoginOpen(false);
+
+        } catch (err) {
+            const message =
+                err.response?.data?.message ||
+                err.message ||
+                "Something went wrong";
+            toast.error('Login failed: ' + message);
+        }
+    };
+
+    const handleSignup = async (e) => {
+        e.preventDefault();
+        try {
+            await axios.post('/api/auth/register', signupData);
+
+            toast.success('Signup successful!');
+            setIsLogin(true);
+
+        } catch (error) {
+            const message =
+                error.response?.data?.message ||
+                error.message ||
+                "Something went wrong";
+            toast.error('Signup failed: ' + message);
+        }
+    };
     return (
+
         loginOpen && (
             <div className="login-overlay" id="login-overlay">
                 <div className="login-page">
@@ -32,23 +92,23 @@ export function LoginIntract({loginOpen, setLoginOpen}) {
                         </div>
                         <div className="login-signup">
                             <div className=
-                            {`login ${isLogin ? "active" : "" }`} onClick={() => setIsLogin(true)} >
+                                {`login ${isLogin ? "active" : ""}`} onClick={() => setIsLogin(true)} >
                                 Log In</div>
                             <div className="vertical-line"></div>
                             <div className=
-                            {`signup ${!isLogin} ? "active" : ""`} onClick={() => setIsLogin(false)} >
+                                {`signup ${!isLogin ? "active" : ""}`} onClick={() => setIsLogin(false)} >
                                 Sign Up</div>
                         </div>
                         {isLogin && (
                             <div className="log-content active">
                                 <div className="log-details">
                                     <h2>Login</h2>
-                                    <input type="email" placeholder="Email" name="log-email" />
-                                    <input type="password" placeholder="Password" name="log-password" />
+                                    <input type="email" placeholder="Email" name="email" onChange={handleLoginChange} />
+                                    <input type="password" placeholder="Password" name="password" onChange={handleLoginChange} />
                                 </div>
                                 <a href="" className="forgot-pass">Forgot Your Password?</a>
                                 <div className="log-button">
-                                    <button>Sign In</button>
+                                    <button onClick={handleLogin}>Sign In</button>
                                 </div>
                             </div>
                         )}
@@ -56,12 +116,12 @@ export function LoginIntract({loginOpen, setLoginOpen}) {
                             <div className="sign-content active">
                                 <div className="sign-details">
                                     <h2>Sign up</h2>
-                                    <input type="text" placeholder="User Name" name="User-name" />
-                                    <input type="email" placeholder="Email" name="sign-email" />
-                                    <input type="password" placeholder="Password" name="sign-password" />
+                                    <input type="text" placeholder="User Name" name="name" onChange={handleSignupChange} />
+                                    <input type="email" placeholder="Email" name="email" onChange={handleSignupChange} />
+                                    <input type="password" placeholder="Password" name="password" onChange={handleSignupChange} />
                                 </div>
                                 <div className="sign-button">
-                                    <button>Sign up</button>
+                                    <button onClick={handleSignup}>Sign up</button>
                                 </div>
                             </div>
                         )}
@@ -80,12 +140,13 @@ export function LoginIntract({loginOpen, setLoginOpen}) {
                         </div>
                     </div>
                 </div>
+                <ToastContainer />
             </div>
         )
     )
 }
 
-export function WishlistIntract({wishlistOpen, setWishlistOpen}) {
+export function WishlistIntract({ wishlistOpen, setWishlistOpen }) {
     return (
         wishlistOpen && (
             <div className="wishlist-overlay" id="whishlist-overlay">

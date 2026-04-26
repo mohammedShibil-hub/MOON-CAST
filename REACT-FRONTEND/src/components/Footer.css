@@ -229,9 +229,6 @@
     .app-div img{
         width: 50px;
     }
-    .footer-box{
-        
-    }
     .copywrite-div{
         padding-left: 0;
     }
@@ -247,5 +244,5 @@
 }
 
 @media (max-width: 1000px) {
-    
+
 }
