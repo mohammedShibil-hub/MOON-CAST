@@ -15,6 +15,10 @@ app.use("/images", express.static(path.join(__dirname, "images")));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use("/api/products", require('./routes/productRoutes'));
 
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "server.html"));
+});
+
 
 const PORT = process.env.PORT || 6004;
 app.listen(PORT, "0.0.0.0",() => console.log(`server running on ${PORT}`));
