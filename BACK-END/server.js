@@ -14,6 +14,8 @@ app.use(express.json());
 app.use("/images", express.static(path.join(__dirname, "images")));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use("/api/products", require('./routes/productRoutes'));
+const authRoutes = require("./routes/auth");
+app.use("/api/auth", authRoutes);
 
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "public", "server.html"));
