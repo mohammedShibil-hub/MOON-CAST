@@ -1,20 +1,16 @@
 import './Header.css'
 import { Link } from 'react-router'
-import { useState, useEffect } from 'react';
+import { useState, } from 'react';
 import { SearchIntract } from './NavIntractive';
 import { useScrollEffect } from '../../utils/HeaderScroll';
 
 export function Header({ setLoginOpen, setWishlistOpen }) {
     const [searchOpen, setSearchOpen] = useState(false);
 
-    const [user, setUser] = useState(null);
-
-    useEffect(() => {
+    const [user, setUser] = useState(() => {
         const savedUser = localStorage.getItem('user');
-        if (savedUser) {
-            setUser(JSON.parse(savedUser));
-        }
-    }, []);
+        return savedUser ? JSON.parse(savedUser) : null;
+    });
 
     const logout = () => {
         localStorage.removeItem('token');
