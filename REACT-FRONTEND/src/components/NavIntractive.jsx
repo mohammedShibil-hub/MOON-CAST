@@ -45,13 +45,13 @@ export function LoginIntract({ loginOpen, setLoginOpen }) {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post('/api/auth/login', loginData);
+            const res = await axios.post(`${API_URL}/api/auth/login`, loginData);
 
             localStorage.setItem('token', res.data.token);
             localStorage.setItem('user', JSON.stringify(res.data.user));
 
             alert('Login successful!');
-            setLoginOpen(false);
+            window.location.reload();
 
         } catch (err) {
             const message =
@@ -65,7 +65,7 @@ export function LoginIntract({ loginOpen, setLoginOpen }) {
     const handleSignup = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('/api/auth/register', signupData);
+            await axios.post(`${API_URL}/api/auth/register`, signupData);
 
             toast.success('Signup successful!');
             setIsLogin(true);

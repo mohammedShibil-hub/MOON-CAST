@@ -1,11 +1,28 @@
 import './Header.css'
 import { Link } from 'react-router'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { SearchIntract } from './NavIntractive';
 import { useScrollEffect } from '../../utils/HeaderScroll';
 
 export function Header({ setLoginOpen, setWishlistOpen }) {
     const [searchOpen, setSearchOpen] = useState(false);
+
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        const savedUser = localStorage.getItem('user');
+        if (savedUser) {
+            setUser(JSON.parse(savedUser));
+        }
+    }, []);
+
+    const logout = () => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        setUser(null);
+
+        window.location.reload()
+    }
 
     const showNavbar = useScrollEffect();
 
@@ -108,9 +125,21 @@ export function Header({ setLoginOpen, setWishlistOpen }) {
                 </button>
                 <SearchIntract searchOpen={searchOpen} setSearchOpen={setSearchOpen} />
 
-                <button className="login-icon" onClick={() => setLoginOpen(true)}>
-                    <img src="/images/icons/icons8-login-96.png" />
-                </button>
+                {
+                    user ? (
+                        <div className="user-info">
+                            <span className="user-name">Hello, {user.name}</span>
+                            <button className="logout-button" onClick={logout}>
+                                Logout
+                            </button>
+                        </div>
+                    ) : (
+                        <button className="login-icon" onClick={() => setLoginOpen(true)}>
+                            <img src="/images/icons/icons8-login-96.png" />
+                        </button>
+                    )
+                }
+
                 <div className="wishlist-icon" onClick={() => setWishlistOpen(true)}>
                     <img src="/images/icons/icons8-favorite-60.png" />
                     <div className="cound">0</div>
