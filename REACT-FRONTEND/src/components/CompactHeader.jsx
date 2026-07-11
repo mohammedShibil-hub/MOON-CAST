@@ -2,7 +2,7 @@ import './CompactHeader.css';
 import { useState } from 'react';
 import { SearchIntract } from './CmpIntractive';
 import { Link } from 'react-router';
-import { useScrollEffect } from '../../utils/HeaderScroll';
+import { useScrollEffect } from '../utils/HeaderScroll';
 
 export function CompactHeader({setHamOpen, setWishlistOpen}) {
     const [searchOpen, setSearchOpen] = useState(false);

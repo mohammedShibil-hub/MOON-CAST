@@ -153,6 +153,20 @@
     height: auto;
     object-fit: contain;
 }
+
+.user-avatar{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #4B5563;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 .search-icon,.login-icon ,.wishlist-icon ,.cart-icon{
     width: 25px;
     position: relative;

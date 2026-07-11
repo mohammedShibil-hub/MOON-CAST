@@ -15,7 +15,7 @@ export function AboutUs() {
                         Welcome to <strong>Moon Diecast</strong>
                         — where passion meets precision.
                     </p>
-                    <p>
+                    <p className="about-p">
                         Our journey began with one belief : every great car deserves to be admired,
                         even in miniature form. What started as a small collection of diecast models
                         soon evolved into a dedicated platform for enthusiasts, collectors, and car lovers across India.
@@ -39,7 +39,7 @@ export function AboutUs() {
                         nostalgia, and pride to your collection.
                     </p>
                     <h3>More Than a Store — A Community</h3>
-                    <p>
+                    <p className="community-p">
                         Moon Diecast is built for collectors, by collectors.We understand the excitement of receiving
                         a new model, the thrill of finding a rare piece, and the pride of building a dream collection.
                         Through our platform, we aim to connect enthusiasts, share knowledge, and celebrate the beautiful
@@ -51,7 +51,7 @@ export function AboutUs() {
                         Where every model tells a story.
                     </p>
                     <h3>Our Promise to You</h3>
-                    <p>Customer satisfaction is at the core of what we do. We ensure:</p>
+                    <p className="promise-p">Customer satisfaction is at the core of what we do. We ensure:</p>
                     <div className="promise-content">
                         <div className="promise-img">
                             <img src="/images/icons/premium-quality-logo.png" alt="promise-" />

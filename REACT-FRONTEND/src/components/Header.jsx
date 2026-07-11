@@ -2,23 +2,15 @@ import './Header.css'
 import { Link } from 'react-router'
 import { useState, } from 'react';
 import { SearchIntract } from './NavIntractive';
-import { useScrollEffect } from '../../utils/HeaderScroll';
+import { useScrollEffect } from '../utils/HeaderScroll';
+import { avatorColor } from '../utils/avatorColor';
 
-export function Header({ setLoginOpen, setWishlistOpen }) {
+export function Header({ setLoginOpen, setWishlistOpen, setAccountOpen }) {
     const [searchOpen, setSearchOpen] = useState(false);
 
-    const [user, setUser] = useState(() => {
-        const savedUser = localStorage.getItem('user');
-        return savedUser ? JSON.parse(savedUser) : null;
-    });
+    const user = JSON.parse(localStorage.getItem("user"));
 
-    const logout = () => {
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
-        setUser(null);
-
-        window.location.reload()
-    }
+    const firstLetter = user?.name?.charAt(0).toUpperCase() || '';
 
     const showNavbar = useScrollEffect();
 
@@ -122,12 +114,10 @@ export function Header({ setLoginOpen, setWishlistOpen }) {
                 <SearchIntract searchOpen={searchOpen} setSearchOpen={setSearchOpen} />
 
                 {
+                    
                     user ? (
-                        <div className="user-info">
-                            <span className="user-name">Hello, {user.name}</span>
-                            <button className="logout-button" onClick={logout}>
-                                Logout
-                            </button>
+                        <div className="user-avatar" style={{ backgroundColor: avatorColor(user?.name) }} onClick={() => setAccountOpen(true)} >
+                            {firstLetter}
                         </div>
                     ) : (
                         <button className="login-icon" onClick={() => setLoginOpen(true)}>

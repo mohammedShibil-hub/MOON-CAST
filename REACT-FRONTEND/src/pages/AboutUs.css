@@ -28,17 +28,15 @@
 h3{
     margin: 30px 0 20px;
 }
-p{
+.about-p, .community-p, .promise-p, .collection-p {
     font-size: 15px;
     line-height: 19px;
+    letter-spacing: 0.5px;
     margin: 0;
 }
 .welcome-p{
     font-size: 17px;
     margin-bottom: 20px;
-}
-.collection-p{
-    margin: 0;
 }
 .promise-content{
     margin-top: 15px;

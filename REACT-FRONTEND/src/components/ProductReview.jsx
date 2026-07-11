@@ -77,7 +77,7 @@ export function ProductReview() {
                         <div className="customer-dp">
                             R
                         </div>
-                        <div className="account-name">
+                        <div className="commenter-name">
                             Rameesh chandra
                             <div className="review-posted-time">2 days ago</div>
                         </div>
@@ -109,7 +109,7 @@ export function ProductReview() {
                         <div className="customer-dp">
                             S
                         </div>
-                        <div className="account-name">
+                        <div className="commenter-name">
                             Shibil mohammed
                             <div className="review-posted-time">1 month ago</div>
                         </div>
@@ -141,7 +141,7 @@ export function ProductReview() {
                         <div className="customer-dp">
                             N
                         </div>
-                        <div className="account-name">
+                        <div className="commenter-name">
                             Nishva sana
                             <div className="review-posted-time">1 year ago</div>
                         </div>

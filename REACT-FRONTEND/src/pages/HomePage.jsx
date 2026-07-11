@@ -2,7 +2,7 @@ import './HomePage.css';
 import { Link } from 'react-router'
 import { useEffect, useState } from 'react';
 import { Header } from '../components/Header';
-import { LoginIntract, WishlistIntract } from '../components/NavIntractive';
+import { LoginIntract, WishlistIntract, UserAccountIntract } from '../components/NavIntractive';
 import { Footer } from '../components/Footer';
 import { SlidingBanner } from '../components/SlidingBanner';
 const API_URL = import.meta.env.VITE_BACKEND_API_URL || 'http://localhost:6004';
@@ -13,6 +13,7 @@ import axios from 'axios';
 export function HomePage() {
     //const [loading, setLoading] = useState(true)
     const [loginOpen, setLoginOpen] = useState(false)
+    const [accountOpen, setAccountOpen] = useState(false)
     const [wishlistOpen, setWishlistOpen] = useState(false)
     const [latestProducts, setLatestProducts] = useState([]);
     const [trendingProducts, setTrendingProducts] = useState([]);
@@ -62,9 +63,10 @@ export function HomePage() {
     return (
         <>
             <title>MOON CAST</title>
-            <Header setLoginOpen={setLoginOpen} setWishlistOpen={setWishlistOpen} />
+            <Header setLoginOpen={setLoginOpen} setWishlistOpen={setWishlistOpen} setAccountOpen={setAccountOpen} />
             <LoginIntract loginOpen={loginOpen} setLoginOpen={setLoginOpen} />
             <WishlistIntract wishlistOpen={wishlistOpen} setWishlistOpen={setWishlistOpen} />
+            <UserAccountIntract accountOpen={accountOpen} setAccountOpen={setAccountOpen} />
             <main>
                 <div className="supporting-div"></div>
                 <SlidingBanner />

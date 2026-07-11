@@ -3,8 +3,8 @@ import { useState } from 'react'
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-const API_URL = import.meta.env.VITE_BACKEND_API_URL || 'http://localhost:6004';
-axios.defaults.baseURL = API_URL;
+import { avatorColor } from '../utils/avatorColor';
+const apiUrl = import.meta.env.VITE_BACKEND_API_URL || 'http://localhost:6004';
 
 
 export function SearchIntract({ searchOpen, setSearchOpen }) {
@@ -45,13 +45,20 @@ export function LoginIntract({ loginOpen, setLoginOpen }) {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post(`${API_URL}/api/auth/login`, loginData);
+            const res = await axios.post(`${apiUrl}/api/auth/login`, loginData);
 
             localStorage.setItem('token', res.data.token);
             localStorage.setItem('user', JSON.stringify(res.data.user));
 
             alert('Login successful!');
+            setLoginOpen(false);
             window.location.reload();
+
+            /* 
+            chandra@gmail.com
+            asdf34
+            */
+           
 
         } catch (err) {
             const message =
@@ -65,7 +72,7 @@ export function LoginIntract({ loginOpen, setLoginOpen }) {
     const handleSignup = async (e) => {
         e.preventDefault();
         try {
-            await axios.post(`${API_URL}/api/auth/register`, signupData);
+            await axios.post(`${apiUrl}/api/auth/register`, signupData);
 
             toast.success('Signup successful!');
             setIsLogin(true);
@@ -140,7 +147,49 @@ export function LoginIntract({ loginOpen, setLoginOpen }) {
                         </div>
                     </div>
                 </div>
-                <ToastContainer />
+                <ToastContainer />                                                                
+            </div>
+        )
+    )
+}
+
+export function UserAccountIntract({ accountOpen, setAccountOpen, }) {
+
+    
+    const [user, setUser] = useState(() => {
+        const savedUser = localStorage.getItem('user');
+        return savedUser ? JSON.parse(savedUser) : null;
+    });
+
+    const logout = () => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        setUser(null);
+        setAccountOpen(false)
+    }
+
+    return (
+        accountOpen && (
+            <div className="account-overlay" id="account-overlay">
+                <div className="account-popup">
+                    <div className="account-close" onClick={() => setAccountOpen(false)}>
+                        <img src="/images/icons/icons8-multiply-96.png" alt="account-close" />
+                    </div>
+                    <div className="account-head">
+                        <div className="useracct-ava" style={{ backgroundColor: avatorColor(user?.name) }}>
+                            {user?.name ? user.name.charAt(0).toUpperCase() : 'G'}
+                        </div>
+                        <div className="account-name">
+                            <h1>{user?.name}</h1>
+                            <p>{user?.email}</p>
+                        </div>
+                        
+                    </div>
+                    <button className="logout-btn" onClick={logout}>Logout</button>
+                    <div className="account-content">
+                        <p></p>
+                    </div>
+                </div>
             </div>
         )
     )
