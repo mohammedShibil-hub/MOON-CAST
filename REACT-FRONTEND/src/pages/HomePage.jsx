@@ -19,6 +19,10 @@ export function HomePage() {
     const [trendingProducts, setTrendingProducts] = useState([]);
     const [hotwheelProducts, setHotwheelProducts] = useState([]);
     const [dioramaProducts, setDioramaProducts] = useState([]);
+    const [loadingLatest, setLoadingLatest] = useState(true);
+    const [loadingTrending, setLoadingTrending ] = useState(true);
+    const [loadingHotwheels, setLoadingHotwheels ] = useState(true);
+    const [loadingDiorama, setLoadingDiorama ] = useState(true);
     useEffect(() => {
 
         /*axios.get('http://localhost:6004/api/products')
@@ -30,7 +34,10 @@ export function HomePage() {
         */
 
         axios.get(`${API_URL}/api/products?latest=true`)
-            .then(res => setLatestProducts(res.data))
+            .then(res => {
+                setLatestProducts(res.data);
+                setLoadingLatest(false);
+            })
             .catch(err => {
                 if (err.response) {
                     // Server responded with a status other than 2xx
@@ -46,18 +53,33 @@ export function HomePage() {
             });
 
         axios.get(`${API_URL}/api/products?trending=true`)
-            .then(res => setTrendingProducts(res.data));
+            .then(res => {
+                setTrendingProducts(res.data);
+                setLoadingTrending(false);
+            });
 
         axios.get(`${API_URL}/api/products?category=Hotwheels`)
-            .then(res => setHotwheelProducts(res.data));
+            .then(res => {
+                setHotwheelProducts(res.data);
+                setLoadingHotwheels(false);
+            });
 
         axios.get(`${API_URL}/api/products?category=Diorama`)
-            .then(res => setDioramaProducts(res.data));
+            .then(res => {
+                setDioramaProducts(res.data);
+                setLoadingDiorama(false);
+            });
 
     }, []);
-    //if (loading) {
-    //    return (<div>Loading.....</div>)
-    //}
+
+    const renderSkeletons = (count = 12) =>
+    Array.from({ length: count }).map((_, index) => (
+        <div className="product-container" key={index}>
+            <div className="img-box skeleton"></div>
+            <div className="name skeleton"></div>
+            <div className="price-div skeleton"></div>
+        </div>
+    ));
 
 
     return (
@@ -116,7 +138,9 @@ export function HomePage() {
                 </div>
                 <div className="latest">Latest Collection</div>
                 <div className="product-grid-latest">
-                    {latestProducts.map((product) => {
+                    {loadingLatest 
+                    ? renderSkeletons(12)
+                    : latestProducts.map((product) => {
                         return (
                             <Link key={product._id} className="product-container" to={`/product/${product._id}`}>
                                 <div className="img-box">
@@ -140,7 +164,9 @@ export function HomePage() {
                 <hr className="product-partition" />
                 <div className="trending">Trending Now</div>
                 <div className="product-grid-trending">
-                    {trendingProducts.map((product) => {
+                    {loadingTrending 
+                    ? renderSkeletons(12)
+                    :trendingProducts.map((product) => {
                         return (
                             <Link key={product._id} className="product-container" to={`/product/${product._id}`}>
                                 <div className="img-box">
@@ -164,7 +190,9 @@ export function HomePage() {
                 <hr className="product-partition" />
                 <div className="trending">Hot Wheels</div>
                 <div className="product-grid-hot-wheels">
-                    {hotwheelProducts.map((product) => {
+                    {loadingHotwheels 
+                    ? renderSkeletons(12)
+                    : hotwheelProducts.map((product) => {
                         return (
                             <Link key={product._id} className="product-container" to={`/product/${product._id}`}>
                                 <div className="img-box">
@@ -188,7 +216,10 @@ export function HomePage() {
                 <hr className="product-partition" />
                 <div className="trending">Diorama</div>
                 <div className="product-grid-diorama">
-                    {dioramaProducts.map((product) => {
+                    {
+                    loadingDiorama 
+                    ? renderSkeletons(12)
+                    : dioramaProducts.map((product) => {
                         return (
                             <Link key={product._id} className="product-container" to={`/product/${product._id}`}>
                                 <div className="sold-out">
