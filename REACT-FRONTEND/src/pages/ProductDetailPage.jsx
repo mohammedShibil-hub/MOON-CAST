@@ -6,6 +6,7 @@ import { Link } from 'react-router';
 import { ProductReview } from '../components/ProductReview';
 import { useParams } from 'react-router';
 import { Footer } from '../components/Footer';
+import { useCart } from '../context/CartContext';
 const API_URL = import.meta.env.VITE_BACKEND_API_URL || 'http://localhost:6004';
 
 
@@ -16,6 +17,8 @@ export function ProductDetailPage() {
     const [product, setProduct] = useState(null)
     const [selectedImage, setSelectedImage] = useState(null)
 
+
+    const { addToCart } = useCart();
     const { id } = useParams();
 
     useEffect(() => {
@@ -78,14 +81,16 @@ export function ProductDetailPage() {
                                         : "In Stock"
                                 }
                             </div>
-                            <div className="quantity">
+                            <div className="itm-quantity">
                                 <button>-</button>
                                 <span>1</span>
                                 <button>+</button>
                             </div>
                         </div>
                         <div className="purchace-btn">
-                            <button className="add-cart">Add to Cart</button>
+                            <button className="add-cart" onClick={() => addToCart(product)}>
+                                Add to Cart
+                            </button>
                             <button className="buy-now">Buy It Now</button>
                         </div>
                         <div className="dtl-service-div">

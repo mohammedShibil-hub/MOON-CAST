@@ -1,7 +1,12 @@
 import './CheckoutPage.css'
 import { Link } from 'react-router'
+import { useCart } from '../context/CartContext'
 
 export function CheckoutPage() {
+
+    const { cart } = useCart();
+    const cartItemCount = cart.reduce((total, item) => total + item.quantity, 0);
+
     return (
         <div className="checkoutPage">
             <title>Checkout</title>
@@ -10,40 +15,44 @@ export function CheckoutPage() {
                     <Link to="/"><img src="/images/icons/moon-cast-brand-logo.png" /></Link>
                 </div>
                 <div className="middle-section">
-                    <div className="check">Checkout (<span className="count">5 items</span>)</div>
+                    <div className="check">Checkout (<span className="count">{cartItemCount} items</span>)</div>
                 </div>
             </header>
             <div className="review">
                 Your garage is almost ready
             </div>
             <main>
-                <div className="grid-checkout">
-                    <div className="js-order-container">
-                        <div className="order-box">
-                            <div className="time">Delivery date: Tuesday, December 9</div>
-                            <div className="grid">
-                                <div className="pic">
-                                    <img src="/images/product/toyota-tacoma-beige.jpg" />
-                                </div>
-                                <div className="center1">
-                                    <div className="description">Toyota Tacoma sand 1:64 GCD diecast scale model</div>
-                                    <div className="amound">₹ 3649</div>
-                                    <div className="quantity">Quantity: 2</div>
-                                    <div className="button"> Update</div>
-                                    <div className="button"> Delete</div>
-                                </div>
-                                <div className="option">
-                                    <div className="op">Choose a delivery option:</div>
-                                    <div className="op1">
-                                        <input type="radio" />
-                                            <div className="details">
-                                                <div className="day1"></div>
-                                                <div className="cost"></div>
+                <div className="checkout-page">
+                    <div className="checkout-grid">
+                        {cart.map((item) => (
+                            <div className="js-order-container" key={item._id}>
+                                <div className="order-box">
+                                    <div className="time">Delivery date: Tuesday, December 9</div>
+                                    <div className="grid">
+                                        <div className="pic">
+                                            <img src={item.images[0]} />
+                                        </div>
+                                        <div className="center1">
+                                            <div className="description">{item.name}</div>
+                                            <div className="amound">₹ {item.price * item.quantity}</div>
+                                            <div className="quantity">Quantity: {item.quantity}</div>
+                                            <div className="button"> Update</div>
+                                            <div className="button"> Delete</div>
+                                        </div>
+                                        <div className="option">
+                                            <div className="op">Choose a delivery option:</div>
+                                            <div className="op1">
+                                                <input type="radio" />
+                                                <div className="details">
+                                                    <div className="day1"></div>
+                                                    <div className="cost"></div>
+                                                </div>
                                             </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        ))}
                     </div>
                     <div className="order-summery">
                         <div className="order-title">Order Summary</div>
@@ -76,3 +85,14 @@ export function CheckoutPage() {
         </div>
     )
 }
+
+/* 
+
+const totalPrice = cart.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+);
+
+<h2>Total : ₹{totalPrice}</h2>
+
+*/

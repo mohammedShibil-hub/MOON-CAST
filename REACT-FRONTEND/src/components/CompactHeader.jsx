@@ -3,9 +3,13 @@ import { useState } from 'react';
 import { SearchIntract } from './CmpIntractive';
 import { Link } from 'react-router';
 import { useScrollEffect } from '../utils/HeaderScroll';
+import { useCart } from '../context/CartContext';
 
 export function CompactHeader({setHamOpen, setWishlistOpen}) {
     const [searchOpen, setSearchOpen] = useState(false);
+
+    const { cart } = useCart();
+    const cartItemCount = cart.reduce((total, item) => total + item.quantity, 0);
 
     const showNavbar = useScrollEffect();
 
@@ -33,7 +37,7 @@ export function CompactHeader({setHamOpen, setWishlistOpen}) {
                 </div>
                 <Link to="/checkout" className="cmp-cart-icon">
                     <img src="/images/icons/icons8-cart-96.png" />
-                        <div className="cmp-cound">20</div>
+                        <div className="cmp-cound">{cartItemCount}</div>
                 </Link>
             </div>
         </header>

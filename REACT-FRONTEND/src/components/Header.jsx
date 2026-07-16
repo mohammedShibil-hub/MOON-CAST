@@ -4,9 +4,13 @@ import { useState, } from 'react';
 import { SearchIntract } from './NavIntractive';
 import { useScrollEffect } from '../utils/HeaderScroll';
 import { avatorColor } from '../utils/avatorColor';
+import { useCart } from '../context/CartContext';
 
 export function Header({ setLoginOpen, setWishlistOpen, setAccountOpen }) {
     const [searchOpen, setSearchOpen] = useState(false);
+
+    const { cart } = useCart();
+    const cartItemCount = cart.reduce((total, item) => total + item.quantity, 0);
 
     const user = JSON.parse(localStorage.getItem("user"));
 
@@ -132,7 +136,7 @@ export function Header({ setLoginOpen, setWishlistOpen, setAccountOpen }) {
                 </div>
                 <Link to="/checkout" className="cart-icon">
                     <img src="/images/icons/icons8-cart-96.png" />
-                    <div className="cound">20</div>
+                    <div className="cound">{cartItemCount}</div>
                 </Link>
             </div>
         </header>

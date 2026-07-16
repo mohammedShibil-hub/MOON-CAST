@@ -8,6 +8,7 @@ import { Intro } from './components/Intro'
 import { ProductPage } from './pages/ProductPage'
 import { ProductDetailPage } from './pages/ProductDetailPage'
 import './App.css'
+import { CartProvider } from './context/CartContext'
 
 function App() {
   const [showIntro, setShowIntro] = useState(true);
@@ -23,7 +24,7 @@ function App() {
     <>
 
     {showIntro && <Intro />}
-
+    <CartProvider>
       <Routes>
         <Route index element={<HomePage />} />
         <Route path='/checkout' element={<CheckoutPage />} />
@@ -32,6 +33,7 @@ function App() {
         <Route path='/products' element={<ProductPage />} />
         <Route path='/product/:id' element={<ProductDetailPage />} />
       </Routes>
+    </CartProvider>
     </>
   )
 }

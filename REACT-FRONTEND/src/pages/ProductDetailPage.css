@@ -122,7 +122,7 @@
     color: red;
 }
 
-.quantity {
+.itm-quantity {
     display: flex;
     width: fit-content;
     align-items: center;
