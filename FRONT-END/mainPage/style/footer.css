@@ -8,7 +8,7 @@
     row-gap: 10px;
 }
 .services-div{
-    background-color: #4e635c;
+    background-color: #4e6356;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -108,7 +108,7 @@
     height: 35px;
     padding: 8px;
     border-radius: 5px;
-    background-color: #4e635c;
+    background-color: #4e6356;
     color: white;
     border: none;
 }

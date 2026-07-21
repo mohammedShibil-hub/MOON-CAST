@@ -9,7 +9,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color:#4e635c;
+    background-color:#4e6356;
     /*overflow: hidden;*/
 }
 .logo-container{
@@ -52,7 +52,7 @@
     margin-left: 50px;
 }
 .invisible-box{
-    background-color: #4e635c;
+    background-color: #4e6356;
     width: 37vh;
     height: 10%;
     margin-top: -22px;
