@@ -333,7 +333,7 @@
     overflow: auto;
     height: 421px;
 }
-.wish-prodects{
+.wish-products{
     background-color: white;
     display: grid;
     grid-template-columns: 170px 1fr;

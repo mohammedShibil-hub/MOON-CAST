@@ -44,7 +44,7 @@ body{
     align-content: center;
     height: 100%;
 }
-.sell-prodect, .about-us, .contact-us{
+.sell-product, .about-us, .contact-us{
     align-content: center;
     height: 82%;
 }
@@ -114,10 +114,10 @@ body{
 .brand-popup img{
     width: 100%;
 }
-.sell-prodect:hover{
+.sell-product:hover{
     border-bottom: 3px #22C55E solid;
 }
-.sell-prodect .nav-popup{
+.sell-product .nav-popup{
     background-color: #ECFDF5;
 }
 .about-us{

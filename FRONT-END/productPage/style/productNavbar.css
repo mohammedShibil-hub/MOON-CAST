@@ -70,7 +70,7 @@
     text-decoration: none;
     color: black;
 }
-.category, .kids, .brand, .sell-prodect, .about-us, .contact-us{
+.category, .kids, .brand, .sell-product, .about-us, .contact-us{
     padding: 21px 0;
     align-content: center;
     border-bottom: 1px solid black;
@@ -134,10 +134,10 @@
 .brand-popup img{
     width: 100%;
 }
-.sell-prodect:hover{
+.sell-product:hover{
     border-bottom: 3px #22C55E solid;
 }
-.sell-prodect .nav-popup{
+.sell-product .nav-popup{
     background-color: #ECFDF5;
 }
 .about-us{

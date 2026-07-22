@@ -93,14 +93,9 @@ export function Header({ setLoginOpen, setWishlistOpen, setAccountOpen }) {
                         </div>
                     </div>
                 </div>
-                <div className="sell-prodect">
+                <Link className="sell-product" to="/startSelling" >
                     Start Selling
-                    <div className="nav-popup">
-                        <div className="sell-popup">
-
-                        </div>
-                    </div>
-                </div>
+                </Link>
                 <Link className="about-us" to="/aboutus">
                     About-us
                 </Link>

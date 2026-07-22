@@ -1,3 +1,4 @@
+import './App.css'
 import { Routes, Route } from 'react-router'
 import { useState, useEffect } from 'react'
 import { HomePage } from './pages/HomePage'
@@ -7,8 +8,8 @@ import { ContactUs } from './pages/ContactUs'
 import { Intro } from './components/Intro'
 import { ProductPage } from './pages/ProductPage'
 import { ProductDetailPage } from './pages/ProductDetailPage'
-import './App.css'
 import { CartProvider } from './context/CartContext'
+import { SellerPage } from './pages/SellerPage'
 
 function App() {
   const [showIntro, setShowIntro] = useState(true);
@@ -32,6 +33,7 @@ function App() {
         <Route path='/contactus' element={<ContactUs />} />
         <Route path='/products' element={<ProductPage />} />
         <Route path='/product/:id' element={<ProductDetailPage />} />
+        <Route path='/startSelling' element={<SellerPage />} />
       </Routes>
     </CartProvider>
     </>

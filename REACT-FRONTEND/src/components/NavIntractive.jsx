@@ -209,7 +209,7 @@ export function WishlistIntract({ wishlistOpen, setWishlistOpen }) {
                         <hr />
                     </div>
                     <div className="wishlist-content">
-                        <div className="wish-prodects">
+                        <div className="wish-products">
                             <div className="wProduct-img">
                                 <img className="wishProduct-img" src="/images/product/1-24-dodge-challenger.jpg"
                                     alt="wishProduct-img" />
@@ -229,7 +229,7 @@ export function WishlistIntract({ wishlistOpen, setWishlistOpen }) {
                                 </div>
                             </div>
                         </div>
-                        <div className="wish-prodects">
+                        <div className="wish-products">
                             <div className="wProduct-img">
                                 <img className="wishProduct-img" src="/images/product/rollys-royce-cullinen.jpg"
                                     alt="wishProduct-img" />
@@ -249,7 +249,7 @@ export function WishlistIntract({ wishlistOpen, setWishlistOpen }) {
                                 </div>
                             </div>
                         </div>
-                        <div className="wish-prodects">
+                        <div className="wish-products">
                             <div className="wProduct-img">
                                 <img className="wishProduct-img" src="/images/product/Land-Cruiser-diecast.jpg"
                                     alt="wishProduct-img" />
@@ -269,7 +269,7 @@ export function WishlistIntract({ wishlistOpen, setWishlistOpen }) {
                                 </div>
                             </div>
                         </div>
-                        <div className="wish-prodects">
+                        <div className="wish-products">
                             <div className="wProduct-img">
                                 <img className="wishProduct-img" src="/images/product/Royal-Enfield-Meteor-350.png"
                                     alt="wishProduct-img" />
