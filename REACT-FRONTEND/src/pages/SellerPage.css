@@ -1,6 +1,376 @@
-.seller-page{
+.seller-page {
     margin: 10px;
 }
-.firstlook-poster{
-    margin-top: 50px;
+
+.firstlook-poster {
+    margin-top: 60px;
+}
+
+.firstlook-poster img {
+    width: 100%;
+    position: relative;
+}
+
+.seller-quote {
+    position: absolute;
+    top: 236px;
+    left: 70px;
+}
+
+.quote-1 {
+    font-size: 60px;
+    width: 620px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #1c2e21;
+}
+
+.qoute-2 {
+    font-size: 20px;
+}
+
+.seller-btn {
+    padding: 15px 40px;
+    border-radius: 35px;
+    border: solid #2b3e31;
+    background-color: #baa98e;
+    margin-top: 30px;
+    font-size: 17px;
+    cursor: pointer;
+    transition:.3s;
+}
+
+.seller-btn:hover {
+    background: #988970;
+}
+
+.sell-highlights {
+    width: 100%;
+    background-color: #2b3e31;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 43px 0 0;
+    border-bottom: 1px solid black;
+}
+
+.highlights {
+    width: 20%;
+    position: relative;
+    border-radius: 24px 24px 0 0;
+    height: 277px;
+    overflow: hidden;
+}
+
+.highlights:nth-child(1) {
+    background-color: #70a541;
+}
+
+.highlights:nth-child(2) {
+    background-color: #e8f0e6;
+}
+
+.highlights:nth-child(3) {
+    background-color: #e6e7e1;
+}
+
+.highlights:nth-child(4) {
+    background-color: #19501e;
+}
+
+.highlights img {
+    width: 100%;
+    border-radius: 24px 24px 0 0;
+}
+
+.hglgt-content {
+    position: absolute;
+    width: 83%;
+    left: 10px;
+    bottom: -8px;
+    padding: 10px;
+    height: 39px;
+    overflow: hidden;
+    background-color: white;
+    border-radius: 24px 24px 0 0;
+    box-shadow: 0px -1px 5px 0px #000000;
+    text-align: center;
+    transition: height .4s ease;
+    cursor: pointer;
+}
+
+.hglgt-content:hover {
+    height: 225px;
+}
+
+.hglgt-content p {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.sub-point {
+    opacity: 0;
+    transform: translateY(15px);
+    transition: .3s ease;
+}
+
+.hglgt-content:hover .sub-point {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.sub-point p {
+    font-size: 14px;
+    font-weight: 100;
+    margin: 23px 0;
+    text-align: start;
+}
+
+.tutorial-section {
+    padding: 50px;
+}
+
+.tutorial-title {
+    text-align: center;
+    font-size: 45px;
+    font-weight: 700;
+    margin: 40px 0 70px;
+    color: #1f2937;
+}
+
+.tutorials {
+    width: 100%;
+    background-color: #e8f0e6;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 100px;
+    row-gap: 75px;
+}
+
+
+
+
+.tutorial {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.tutorial-img {
+    width: 150px;
+    border-radius: 50%;
+    background-color: #4e6356;
+}
+
+.tutorial-img img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.tutorial-txt h2 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #1d1d1f;
+    margin-bottom: 13px;
+}
+
+.tutorial-txt p {
+    font-size: 15px;
+    line-height: 1.5;
+    color: #555;
+}
+
+.reminder{
+    width:92%;
+    min-height:550px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:60px 4%;
+    background:#efebe4;
+    overflow:hidden;
+    position:relative;
+}
+
+/* White blob behind image */
+.reminder::after{
+    content:"";
+    position:absolute;
+    right: 331px;
+    top: 11px;
+    width: 380px;
+    height: 250px;
+    background: #efebe4;
+    z-index: 3;
+}
+.reminder::after{
+    clip-path: polygon(
+        0 0,
+        100% 0, 
+        100% 39%, 
+        26% 90%, 
+        11% 100%, 
+        0% 100%,
+        0 75%
+    );
+}
+
+
+.reminder-content{
+    width:45%;
+    z-index:2;
+}
+
+.reminder-content h1{
+    font-size:60px;
+    line-height:1;
+    font-weight:800;
+    color:#1d2740;
+    margin-bottom:25px;
+}
+
+.reminder-content p{
+    font-size:20px;
+    color:#333;
+    line-height:1.5;
+    max-width:520px;
+    margin-bottom:15px;
+}
+
+.btn{
+    display:inline-block;
+    text-decoration:none;
+    padding: 15px 40px;
+    border-radius: 35px;
+    border: solid #2b3e31;
+    background-color: #baa98e;
+    color:black;
+    margin-top: 30px;
+    font-size: 17px;
+    cursor: pointer;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:#988970;
+}
+
+.reminder-image{
+    width:50%;
+    text-align:right;
+    z-index:2;
+}
+
+.reminder-image img{
+    width:100%;
+    max-width:700px;
+}
+
+/* Responsive */
+
+@media(max-width:992px){
+
+    .reminder{
+        flex-direction:column;
+        text-align:center;
+        padding:50px 25px;
+    }
+
+    .reminder-content,
+    .reminder-image{
+        width:100%;
+    }
+
+    .reminder-content h1{
+        font-size:54px;
+    }
+
+    .reminder-content p{
+        font-size:22px;
+        margin:auto auto 35px;
+    }
+
+    .reminder-image{
+        margin-top:40px;
+    }
+}
+
+@media(max-width:600px){
+
+    .reminder{
+        min-height:auto;
+        padding:40px 20px;
+    }
+
+    .reminder-content h1{
+        font-size:42px;
+    }
+
+    .reminder-content p{
+        font-size:18px;
+    }
+
+    .btn{
+        font-size:18px;
+        padding:16px 35px;
+    }
+}
+
+
+
+
+
+@media(max-width:992px) {
+
+    .tutorials {
+        grid-template-columns: 1fr;
+    }
+
+    .tutorial-title {
+        font-size: 42px;
+    }
+
+    .tutorial-txt h2 {
+        font-size: 30px;
+    }
+
+    .tutorial-txt p {
+        font-size: 18px;
+    }
+
+    .tutorial-img {
+        width: 130px;
+        height: 130px;
+        min-width: 130px;
+    }
+
+}
+
+@media(max-width:600px) {
+
+
+    .tutorial {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .tutorial-title {
+        font-size: 30px;
+    }
+
+    .tutorial-txt h2 {
+        font-size: 22px;
+    }
+
+    .tutorial-txt p {
+        font-size: 16px;
+    }
+
+    .tutorial-img {
+        width: 110px;
+        height: 110px;
+        min-width: 110px;
+    }
+
 }
