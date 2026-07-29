@@ -158,6 +158,8 @@
     border: 1px solid #a8a8a8;
     background-color: #4e6356;
     color: white;
+    cursor: pointer;
+    transition:.3s;
 }
 .log-button button:hover{
     background-color: #354a43;
@@ -196,6 +198,8 @@
     border: 1px solid #a8a8a8;
     background-color: #4e6356;
     color: white;
+    cursor: pointer;
+    transition:.3s;
 }
 .sign-button button:hover{
     background-color: #354a43;

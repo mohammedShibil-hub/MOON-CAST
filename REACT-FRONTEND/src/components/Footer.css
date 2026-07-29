@@ -85,6 +85,7 @@
 .app-div img{
     width: 80px;
     margin-top: 8px;
+    cursor: pointer;
 }
 .newsletter p{
     font-size: 14px;
@@ -111,6 +112,7 @@
     background-color: #4e6356;
     color: white;
     border: none;
+    cursor: pointer;
 }
 .social-connection{
     display: grid;
@@ -127,6 +129,7 @@
 }
 .social-img{
     width: 30px;
+    cursor: pointer;
 }
 .social-img:nth-child(1):hover {
     background-color: #1877f2;
@@ -228,6 +231,7 @@
     }
     .app-div img{
         width: 50px;
+
     }
     .copywrite-div{
         padding-left: 0;
