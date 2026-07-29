@@ -238,7 +238,7 @@
     margin-bottom:15px;
 }
 
-.btn{
+.reminder-btn{
     display:inline-block;
     text-decoration:none;
     padding: 15px 40px;
@@ -252,7 +252,7 @@
     transition:.3s;
 }
 
-.btn:hover{
+.reminder-btn:hover{
     background:#988970;
 }
 
@@ -311,7 +311,7 @@
         font-size:18px;
     }
 
-    .btn{
+    .reminder-btn{
         font-size:18px;
         padding:16px 35px;
     }

@@ -3,12 +3,14 @@ import { useState } from 'react';
 import { CompactHeader } from '../components/CompactHeader';
 import { HamburgerIntract, WishlistIntract } from '../components/CmpIntractive';
 import { Footer } from '../components/Footer';
+import { SellerIntract } from '../components/SellerIntract';
 
 
 export function SellerPage() {
 
     const [hamOpen, setHamOpen] = useState(false);
     const [wishlistOpen, setWishlistOpen] = useState(false);
+    const [sellerIntractOpen, setSellerIntractOpen] = useState(false);
 
     return (
         <div className="seller-page">
@@ -16,13 +18,16 @@ export function SellerPage() {
             <CompactHeader setHamOpen={setHamOpen} setWishlistOpen={setWishlistOpen} />
             <HamburgerIntract hamOpen={hamOpen} setHamOpen={setHamOpen} />
             <WishlistIntract wishlistOpen={wishlistOpen} setWishlistOpen={setWishlistOpen} />
+            <SellerIntract sellerIntractOpen={sellerIntractOpen} setSellerIntractOpen={setSellerIntractOpen} />
 
             <div className="firstlook-poster">
                 <img src="\images\banner\firstlookposter.png" alt="" />
                 <div className="seller-quote">
                     <p className="quote-1">From creator's desk to collector's display.</p>
                     <p className="qoute-2">Turn your passion into products collectors love.</p>
-                    <button className="seller-btn" >Start Selling</button>
+                    <button className="seller-btn" onClick={() => setSellerIntractOpen(true)}>
+                        Start Selling
+                    </button>
                 </div>
 
             </div>
@@ -133,7 +138,9 @@ export function SellerPage() {
                         Put your creations in front of passionate collectors across India.
                     </p>
 
-                    <a href="#" className="btn">Start Selling</a>
+                    <button className="reminder-btn" onClick={() => setSellerIntractOpen(true)}>
+                        Start Selling
+                    </button>
                 </div>
 
                 <div className="reminder-image">
