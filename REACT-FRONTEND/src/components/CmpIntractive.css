@@ -35,6 +35,7 @@
     height: 42px;
     border-radius: 8px;
     background-color: red;
+    cursor: pointer;
 }
 .cmp-search-close img{
     padding-top: 3px;

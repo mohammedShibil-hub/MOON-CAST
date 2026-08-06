@@ -6,7 +6,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(78, 99, 92, 0.856);
+    background-color: rgb(78 99 86 / 93%);
     backdrop-filter: blur(15px);
     height: 9vh;
     position: fixed;

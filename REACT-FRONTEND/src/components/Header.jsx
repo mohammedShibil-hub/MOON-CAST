@@ -133,6 +133,8 @@ export function Header({ setLoginOpen, setWishlistOpen, setAccountOpen }) {
                     <img src="/images/icons/icons8-cart-96.png" />
                     <div className="cound">{cartItemCount}</div>
                 </Link>
+                {// main color code = #506E50
+                }
             </div>
         </header>
     )
