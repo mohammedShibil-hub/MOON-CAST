@@ -54,17 +54,47 @@
     font-weight:400;
 }
 
-.login-box input{
+.login-input{
+    position: relative;
+}
+
+.login-input input{
+    width: 100%;
     padding: 15px 10px;
-    font-size: 16px;
+    font-size: 15px;
     border: 1px solid #a8a8a8;
     border-radius: 4px;
     outline: none;
 }
 
-.login-box input:focus{
-    border-color:#007185;
-    box-shadow:0 0 5px rgba(0,113,133,.4);
+.login-input label{
+    position: absolute;
+    top: 50%;
+    left: 11px;
+    transform: translateY(-50%);
+    color: #757575;
+    font-size: 15px;
+    pointer-events: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.login-input input:focus + label,
+.log-input input:not(:placeholder-shown) + label {
+    top: 0;
+    left: 11px;
+    font-size: 14px;
+    color: #005438;
+    padding: 0 5px;
+    background: linear-gradient(
+        to bottom,
+        #ebebeb 50%,
+        #ffffff 50%
+    );
+}
+
+.login-input input:focus{
+    border-color: #007f31;
+    box-shadow: 0 0 5px rgba(0, 128, 85, 0.4);
 }
 
 .continue-btn{
@@ -157,17 +187,56 @@
     gap: 15px;
 }
 
-.register-box input{
+.register-input{
+    position: relative;
+}
+
+.register-input input{
+    width: 100%;
     padding: 15px 10px;
-    font-size: 16px;
+    font-size: 15px;
     border: 1px solid #a8a8a8;
     border-radius: 4px;
     outline: none;
 }
 
-.register-box input:focus{
-    border-color:#007185;
-    box-shadow:0 0 5px rgba(0,113,133,.4);
+.register-input input::placeholder{
+    opacity: 0;
+    color: #a3a3a3;
+}
+
+.register-input label{
+    position: absolute;
+    top: 50%;
+    left: 11px;
+    transform: translateY(-50%);
+    color: #757575;
+    font-size: 15px;
+    pointer-events: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.register-input input:focus + label,
+.register-input input:not(:placeholder-shown) + label {
+    top: 0;
+    left: 11px;
+    font-size: 14px;
+    color: #005438;
+    padding: 0 5px;
+    background: linear-gradient(
+        to bottom,
+        #ebebeb 50%,
+        #ffffff 50%
+    );
+}
+
+.register-input input:focus::placeholder{
+    opacity: 1;
+}
+
+.register-input input:focus{
+    border-color: #007f31;
+    box-shadow: 0 0 5px rgba(0, 128, 85, 0.4);
 }
 
 .password-info{

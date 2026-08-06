@@ -4,6 +4,18 @@ export function SellerIntract({ sellerIntractOpen, setSellerIntractOpen }) {
 
     const [authPage, setAuthPage] = useState('login');
 
+    const [identifier, setIdentifier] = useState("");
+
+    const handleContinue = () => {
+        if (!identifier.trim()) {
+            alert("Please enter a valid email or mobile number.");
+            return;
+        }
+        console.log(identifier);
+    };
+
+    
+
     return (
         sellerIntractOpen && (
             <div className="seller-overlay">
@@ -18,8 +30,15 @@ export function SellerIntract({ sellerIntractOpen, setSellerIntractOpen }) {
                         <>
                             <div className="login-box">
                                 <h1>Sign in</h1>
-                                <input type="text" placeholder="Enter mobile number or email" />
-                                <button className="continue-btn">Continue</button>
+                                <div className="login-input">
+                                    <input type="text"
+                                        placeholder=""
+                                        value={identifier}
+                                        onChange={(e) => setIdentifier(e.target.value)}
+                                    />
+                                    <label htmlFor="">Enter mobile number or email</label>
+                                </div>                             
+                                <button className="continue-btn" onClick={handleContinue} >Continue</button>
                                 <p className="login-terms">
                                     By continuing, you agree to MoonCast's
                                     <a href="#"> Conditions of Use</a> and
@@ -44,11 +63,22 @@ export function SellerIntract({ sellerIntractOpen, setSellerIntractOpen }) {
                             <div className="register-container">
                                 <div className="register-box">
                                     <h2>Create account</h2>
-                                    <input type="text" placeholder="First and last name" />
-                                    <input type="email" placeholder="Email" />
-                                    <input type="password" placeholder="Password" />
-                                    <input type="password" placeholder="Password again" />
-
+                                    <div className="register-input">
+                                        <input type="text" placeholder="First and last Name" />
+                                        <label htmlFor="name">Name</label>
+                                    </div>
+                                    <div className="register-input">
+                                        <input type="email" placeholder="" />
+                                        <label htmlFor="email">Email</label>
+                                    </div>
+                                    <div className="register-input">
+                                        <input type="password" placeholder="" />
+                                        <label htmlFor="password">Password</label>
+                                    </div>
+                                    <div className="register-input">
+                                        <input type="password" placeholder="" />
+                                        <label htmlFor="password">Password again</label>
+                                    </div>                                                                                                                                              
                                     <button className="register-btn" >Create your MoonCast account</button>
                                     <p className="regi-terms">
                                         By continuing, you agree to MoonCast's
@@ -66,7 +96,22 @@ export function SellerIntract({ sellerIntractOpen, setSellerIntractOpen }) {
 
                     {authPage === "password" && (
                         <>
+                            <h1>Enter Password</h1>
 
+                            <p>{email}</p>
+
+                            <input
+                                type="password"
+                                placeholder="Password"
+                            />
+
+                            <button>Sign In</button>
+
+                            <button
+                                onClick={() => setAuthPage("login")}
+                            >
+                                Change Email
+                            </button>
                         </>
                     )}
                 </div>

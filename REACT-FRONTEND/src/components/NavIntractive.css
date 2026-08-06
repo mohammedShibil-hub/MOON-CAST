@@ -25,7 +25,7 @@
     border-radius: 10px;
     font-size: 16px;
     padding: 6px 10px;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
 }
 .search-bar:focus{
     border: 0;
@@ -36,6 +36,7 @@
     border: 0;
     border-radius: 8px;
     background-color: red;
+    cursor: pointer;
 }
 .search-close img{
     width: 80%;
@@ -126,24 +127,54 @@
     grid-template-rows: 37px 1fr 1fr;
     row-gap: 15px;
 }
-.log-details input{
+.log-input{
+    position: relative;
+}
+
+.log-input input{
+    width: 100%;
     padding: 15px 10px;
     font-size: 16px;
     border: 1px solid #a8a8a8;
     border-radius: 4px;
     outline: none;
 }
-.log-details input:focus{
-    border-color: #4e6356;
-    box-shadow: 0 0 5px rgba(53, 74, 67,0.5);
+.log-input label{
+    position: absolute;
+    top: 50%;
+    left: 11px;
+    transform: translateY(-50%);
+    color: #757575;
+    font-size: 15px;
+    pointer-events: none;
+    transition: all 0.2s ease-in-out;
 }
+
+.log-input input:focus + label,
+.log-input input:not(:placeholder-shown) + label {
+    top: 0;
+    left: 11px;
+    font-size: 14px;
+    color: #005438;
+    padding: 0 5px;
+    background: linear-gradient(
+        to bottom,
+        #ebebeb 50%,
+        #ffffff 50%
+    );
+}
+.log-input input:focus{
+    border-color: #007f31;
+    box-shadow: 0 0 5px rgba(0, 128, 85, 0.4);
+}
+
 .forgot-pass{
     text-decoration: none;
     color: #0073e6;
     cursor: pointer;
     width: 150px;
     font-size: 14px;
-    margin-top: 5px;
+    margin-top: 7px;
 }
 .forgot-pass:hover{
     color: red;
@@ -177,16 +208,48 @@
     grid-template-rows: 37px 1fr 1fr 1fr;
     row-gap: 15px;
 }
-.sign-details input{
+
+.sign-input{
+    position: relative;
+}
+
+.sign-input input{
+    width: 100%;
     padding: 15px 10px;
     font-size: 16px;
     border: 1px solid #a8a8a8;
     border-radius: 4px;
     outline: none;
 }
-.sign-details input:focus{
-    border-color: #4e6356;
-    box-shadow: 0 0 5px rgba(53, 74, 67,0.5);
+
+.sign-input label{
+    position: absolute;
+    top: 50%;
+    left: 11px;
+    transform: translateY(-50%);
+    color: #757575;
+    font-size: 15px;
+    pointer-events: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.sign-input input:focus + label,
+.sign-input input:not(:placeholder-shown) + label {
+    top: 0;
+    left: 11px;
+    font-size: 14px;
+    color: #005438;
+    padding: 0 5px;
+    background: linear-gradient(
+        to bottom,
+        #ebebeb 50%,
+        #ffffff 50%
+    );
+}
+
+.sign-input input:focus{
+    border-color: #007f31;
+    box-shadow: 0 0 5px rgba(0, 128, 85, 0.4);
 }
 .sign-button{
     margin: 25px 0 0;

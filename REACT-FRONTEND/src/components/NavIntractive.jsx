@@ -110,8 +110,14 @@ export function LoginIntract({ loginOpen, setLoginOpen }) {
                             <div className="log-content active">
                                 <div className="log-details">
                                     <h2>Login</h2>
-                                    <input type="email" placeholder="Email" name="email" onChange={handleLoginChange} />
-                                    <input type="password" placeholder="Password" name="password" onChange={handleLoginChange} />
+                                    <div className="log-input">
+                                        <input type="email" placeholder="" name="email" onChange={handleLoginChange} />
+                                        <label htmlFor="email">Email</label>
+                                    </div>
+                                    <div className="log-input">
+                                        <input type="password" placeholder="" name="password" onChange={handleLoginChange} />
+                                        <label htmlFor="password">Password</label>
+                                    </div>
                                 </div>
                                 <a href="" className="forgot-pass">Forgot Your Password?</a>
                                 <div className="log-button">
@@ -123,9 +129,18 @@ export function LoginIntract({ loginOpen, setLoginOpen }) {
                             <div className="sign-content active">
                                 <div className="sign-details">
                                     <h2>Sign up</h2>
-                                    <input type="text" placeholder="User Name" name="name" onChange={handleSignupChange} />
-                                    <input type="email" placeholder="Email" name="email" onChange={handleSignupChange} />
-                                    <input type="password" placeholder="Password" name="password" onChange={handleSignupChange} />
+                                    <div className="sign-input">
+                                        <input type="text" placeholder="" name="username" onChange={handleSignupChange} />
+                                        <label htmlFor="username">User Name</label>
+                                    </div>
+                                    <div className="sign-input">
+                                        <input type="email" placeholder="" name="email" onChange={handleSignupChange} />
+                                        <label htmlFor="email">Email</label>
+                                    </div>
+                                    <div className="sign-input">
+                                        <input type="password" placeholder="" name="password" onChange={handleSignupChange} />
+                                        <label htmlFor="password">Password</label>
+                                    </div>
                                 </div>
                                 <div className="sign-button">
                                     <button onClick={handleSignup}>Sign up</button>
