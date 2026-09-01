@@ -72,7 +72,7 @@ main{
 .product-grid-hot-wheels,
 .product-grid-diorama {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
     column-gap: 30px;
     row-gap: 30px;
     padding: 20px 30px;
