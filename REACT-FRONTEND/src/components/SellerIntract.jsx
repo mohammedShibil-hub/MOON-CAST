@@ -1,20 +1,38 @@
 import './SellerIntract.css';
 import { useState } from 'react';
+import axios from 'axios';
+const apiUrl = import.meta.env.VITE_BACKEND_API_URL || 'http://localhost:6004';
+
+
 export function SellerIntract({ sellerIntractOpen, setSellerIntractOpen }) {
 
     const [authPage, setAuthPage] = useState('login');
 
     const [identifier, setIdentifier] = useState("");
 
-    const handleContinue = () => {
+    const handleContinue = async() => {
         if (!identifier.trim()) {
             alert("Please enter a valid email or mobile number.");
             return;
         }
-        console.log(identifier);
+
+        try {
+
+            const res = await axios.post(`${apiUrl}/api/auth/check-user`, {
+                identifier,
+            });
+
+            if (res.data.exists) {
+                setAuthPage("password");
+            }
+
+        } catch (err) {
+            alert(err.response?.data?.message || "Account not found");
+        }
+
     };
 
-    
+
 
     return (
         sellerIntractOpen && (
@@ -37,7 +55,7 @@ export function SellerIntract({ sellerIntractOpen, setSellerIntractOpen }) {
                                         onChange={(e) => setIdentifier(e.target.value)}
                                     />
                                     <label htmlFor="">Enter mobile number or email</label>
-                                </div>                             
+                                </div>
                                 <button className="continue-btn" onClick={handleContinue} >Continue</button>
                                 <p className="login-terms">
                                     By continuing, you agree to MoonCast's
@@ -78,7 +96,7 @@ export function SellerIntract({ sellerIntractOpen, setSellerIntractOpen }) {
                                     <div className="register-input">
                                         <input type="password" placeholder="" />
                                         <label htmlFor="password">Password again</label>
-                                    </div>                                                                                                                                              
+                                    </div>
                                     <button className="register-btn" >Create your MoonCast account</button>
                                     <p className="regi-terms">
                                         By continuing, you agree to MoonCast's

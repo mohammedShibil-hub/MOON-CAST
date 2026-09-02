@@ -16,6 +16,7 @@ export function ProductDetailPage() {
     const [wishlistOpen, setWishlistOpen] = useState(false);
     const [product, setProduct] = useState(null)
     const [selectedImage, setSelectedImage] = useState(null)
+    const [quantity, setQuantity] = useState(1);
 
 
     const { addToCart } = useCart();
@@ -82,9 +83,9 @@ export function ProductDetailPage() {
                                 }
                             </div>
                             <div className="itm-quantity">
-                                <button>-</button>
-                                <span>1</span>
-                                <button>+</button>
+                                <button onClick={() => quantity > 1 && setQuantity(quantity - 1)}>-</button>
+                                <span>{quantity}</span>
+                                <button onClick={() => quantity < product.stock && setQuantity(quantity + 1)}>+</button>
                             </div>
                         </div>
                         <div className="purchace-btn">
