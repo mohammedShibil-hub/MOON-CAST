@@ -12,14 +12,14 @@ export function SellerIntract({ sellerIntractOpen, setSellerIntractOpen }) {
 
     const handleContinue = async() => {
         if (!identifier.trim()) {
-            alert("Please enter a valid email or mobile number.");
+            alert("Please enter a valid email.");
             return;
         }
 
         try {
 
             const res = await axios.post(`${apiUrl}/api/auth/check-user`, {
-                identifier,
+                identifier: identifier.trim().toLowerCase()
             });
 
             if (res.data.exists) {
@@ -54,9 +54,9 @@ export function SellerIntract({ sellerIntractOpen, setSellerIntractOpen }) {
                                         value={identifier}
                                         onChange={(e) => setIdentifier(e.target.value)}
                                     />
-                                    <label htmlFor="">Enter mobile number or email</label>
+                                    <label htmlFor="">Enter email</label>
                                 </div>
-                                <button className="continue-btn" onClick={handleContinue} >Continue</button>
+                                <button className="continue-btn" type="button" onClick={handleContinue} >Continue</button>
                                 <p className="login-terms">
                                     By continuing, you agree to MoonCast's
                                     <a href="#"> Conditions of Use</a> and
@@ -116,7 +116,7 @@ export function SellerIntract({ sellerIntractOpen, setSellerIntractOpen }) {
                         <>
                             <h1>Enter Password</h1>
 
-                            <p>{email}</p>
+                            <p></p>
 
                             <input
                                 type="password"
