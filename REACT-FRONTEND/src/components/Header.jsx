@@ -126,11 +126,11 @@ export function Header({ setLoginOpen, setWishlistOpen, setAccountOpen }) {
                 }
 
                 <div className="wishlist-icon" onClick={() => setWishlistOpen(true)}>
-                    <img src="/images/icons/icons8-favorite-60.png" />
+                    <img src="/images/icons/icons8-heart-100.png" />
                     <div className="cound">0</div>
                 </div>
                 <Link to="/checkout" className="cart-icon">
-                    <img src="/images/icons/icons8-cart-96.png" />
+                    <img src="/images/icons/icons8-cart-100.png" />
                     <div className="cound">{cartItemCount}</div>
                 </Link>
                 {// main color code = #506E50

@@ -33,12 +33,38 @@ main{
     transition: 1s;
     position: relative;
     margin-bottom: 10px;
+    cursor: pointer;
+
 }
 .scale-size:hover {
     width: 160px;
     height: 130px;
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
+}
+.scale-div .scale-container:nth-child(1) .scale-size:hover {
+    border: 1px solid rgb(92 135 182);
+    box-shadow: 0px 0px 10px rgb(92 135 182);
+}
+.scale-div .scale-container:nth-child(2) .scale-size:hover {
+    border: 1px solid rgb(189 104 71);
+    box-shadow: 0px 0px 10px rgb(189 104 71);
+}
+.scale-div .scale-container:nth-child(3) .scale-size:hover {
+    border: 1px solid rgb(69 58 64);
+    box-shadow: 0px 0px 10px rgb(69 58 64);
+}
+.scale-div .scale-container:nth-child(4) .scale-size:hover {
+    border: 1px solid rgb(154 53 57);
+    box-shadow: 0px 0px 10px rgb(154 53 57);
+}
+.scale-div .scale-container:nth-child(5) .scale-size:hover {
+    border: 1px solid rgb(173, 170, 183);
+    box-shadow: 0px 0px 10px rgb(173, 170, 183);
+}
+.scale-div .scale-container:nth-child(6) .scale-size:hover {
+    border: 1px solid rgb(234 177 26);
+    box-shadow: 0px 0px 10px rgb(234 177 26);
 }
 .hover-over {
     position: absolute;
@@ -72,7 +98,7 @@ main{
 .product-grid-hot-wheels,
 .product-grid-diorama {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     column-gap: 30px;
     row-gap: 30px;
     padding: 20px 30px;
@@ -243,8 +269,10 @@ main{
     .supporting-div{
         height: 4vh;
     }
-}
-
-.kk{
-    background-color: #546954;
+    .product-grid-latest,
+    .product-grid-trending,
+    .product-grid-hot-wheels,
+    .product-grid-diorama{
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    }
 }
