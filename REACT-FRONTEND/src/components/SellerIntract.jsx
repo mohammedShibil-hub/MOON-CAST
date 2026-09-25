@@ -7,10 +7,10 @@ const apiUrl = import.meta.env.VITE_BACKEND_API_URL || 'http://localhost:6004';
 export function SellerIntract({ sellerIntractOpen, setSellerIntractOpen }) {
 
     const [authPage, setAuthPage] = useState('login');
-
     const [identifier, setIdentifier] = useState("");
+    const [password, setPassword] = useState("");
 
-    const handleContinue = async() => {
+    const handleContinue = async () => {
         if (!identifier.trim()) {
             alert("Please enter a valid email.");
             return;
@@ -32,6 +32,36 @@ export function SellerIntract({ sellerIntractOpen, setSellerIntractOpen }) {
 
     };
 
+    const handleSellerLogin = async (e) => {
+        e.preventDefault();
+
+        if (!password.trim()) {
+            alert("Please enter your password.");
+            return;
+        }
+
+        try {
+            const res = await axios.post(`${apiUrl}/api/auth/login`, {
+                email: identifier.trim().toLowerCase(),
+                password: password,
+            });
+
+            localStorage.setItem("token", res.data.token);
+            localStorage.setItem("user", JSON.stringify(res.data.user));
+            alert("Login successful!");
+
+            setSellerIntractOpen(false);
+            window.location.reload();
+
+        } catch (err) {
+            const message =
+                err.response?.data?.message ||
+                err.message ||
+                "Invalid password";
+            alert(message);
+        }
+    };
+
 
 
     return (
@@ -47,7 +77,7 @@ export function SellerIntract({ sellerIntractOpen, setSellerIntractOpen }) {
                     {authPage === "login" && (
                         <>
                             <div className="login-box">
-                                <h1>Sign in</h1>
+                                <h2>Sign in</h2>
                                 <div className="login-input">
                                     <input type="text"
                                         placeholder=""
@@ -113,24 +143,33 @@ export function SellerIntract({ sellerIntractOpen, setSellerIntractOpen }) {
                     )}
 
                     {authPage === "password" && (
-                        <>
-                            <h1>Enter Password</h1>
-
-                            <p></p>
-
-                            <input
-                                type="password"
-                                placeholder="Password"
-                            />
-
-                            <button>Sign In</button>
-
-                            <button
-                                onClick={() => setAuthPage("login")}
-                            >
-                                Change Email
-                            </button>
-                        </>
+                        <div className="password-container">
+                            <div className="password-box">
+                                <h2>Enter Password</h2>
+                                <div className="password-input">
+                                    <input 
+                                        type="password" 
+                                        placeholder=""
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)} 
+                                    />
+                                    <label htmlFor="password">Password</label>
+                                </div>
+                                <button className="sign-in-btn" onClick={handleSellerLogin} >Sign In</button>
+                                <div className="forgot-password">
+                                    <a href="#">Forgot Password?</a>
+                                </div>
+                            </div>
+                            <p className="change-email">
+                                Switch Account?
+                                <span onClick={() => {
+                                    setAuthPage("login");
+                                    setPassword("");
+                                }}>
+                                    Change Email
+                                </span>
+                            </p>
+                        </div>
                     )}
                 </div>
             </div>

@@ -50,21 +50,22 @@
     gap: 15px;
 }
 
-.login-box h1{
-    font-weight:400;
-}
-
 .login-input{
     position: relative;
 }
 
 .login-input input{
-    width: 100%;
+    width: 95%;
     padding: 15px 10px;
     font-size: 15px;
     border: 1px solid #a8a8a8;
     border-radius: 4px;
     outline: none;
+}
+
+.login-input input::placeholder{
+    opacity: 0;
+    color: #a3a3a3;
 }
 
 .login-input label{
@@ -79,7 +80,7 @@
 }
 
 .login-input input:focus + label,
-.log-input input:not(:placeholder-shown) + label {
+.login-input input:not(:placeholder-shown) + label {
     top: 0;
     left: 11px;
     font-size: 14px;
@@ -90,6 +91,10 @@
         #ebebeb 50%,
         #ffffff 50%
     );
+}
+
+.login-input input:focus::placeholder{
+    opacity: 1;
 }
 
 .login-input input:focus{
@@ -168,11 +173,6 @@
     background-color: #354a43;
 }
 
-
-
-
-
-
 .register-container{
     width:100%;
     max-width:520px;
@@ -192,7 +192,7 @@
 }
 
 .register-input input{
-    width: 100%;
+    width: 95%;
     padding: 15px 10px;
     font-size: 15px;
     border: 1px solid #a8a8a8;
@@ -294,6 +294,114 @@
 }
 
 .regi-signin span:hover{
+    color:#b12f2f;
+}
+
+.password-container{
+    width:100%;
+    max-width:520px;
+}
+
+.password-box{
+    border:1px solid #d5d9d9;
+    border-radius:12px;
+    padding:30px;
+    display:grid;
+    grid-template-rows: 28px 1fr 1fr;
+    gap: 15px;
+}
+
+.password-input{
+    position: relative;
+}
+
+.password-input input{
+    width: 95%;
+    padding: 15px 10px;
+    font-size: 15px;
+    border: 1px solid #a8a8a8;
+    border-radius: 4px;
+    outline: none;
+}
+
+.password-input input::placeholder{
+    opacity: 0;
+    color: #a3a3a3;
+}
+
+.password-input label{
+    position: absolute;
+    top: 50%;
+    left: 11px;
+    transform: translateY(-50%);
+    color: #757575;
+    font-size: 15px;
+    pointer-events: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.password-input input:focus + label,
+.password-input input:not(:placeholder-shown) + label {
+    top: 0;
+    left: 11px;
+    font-size: 14px;
+    color: #005438;
+    padding: 0 5px;
+    background: linear-gradient(
+        to bottom,
+        #ebebeb 50%,
+        #ffffff 50%
+    );
+}
+
+.password-input input:focus::placeholder{
+    opacity: 1;
+}
+
+.password-input input:focus{
+    border-color: #007f31;
+    box-shadow: 0 0 5px rgba(0, 128, 85, 0.4);
+}
+
+.sign-in-btn{
+    padding: 10px 50px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #a8a8a8;
+    background-color: #4e6356;
+    color: white;
+    cursor: pointer;
+    transition:.3s;
+}
+
+.sign-in-btn:hover{
+    background-color: #354a43;
+}
+
+.forgot-password a{
+    font-size: 15px;
+    text-decoration: none;
+    color:#0066c0;
+    cursor: pointer;
+}
+
+.forgot-password a:hover{
+    color:#b12f2f;
+}
+
+.change-email{
+    font-size: 15px;
+    text-align: center;
+    margin-top: 23px;
+}
+
+.change-email span{
+    color:#0066c0;
+    text-decoration:none;
+    cursor: pointer;
+    margin-left: 2px;
+}
+.change-email span:hover{
     color:#b12f2f;
 }
 
