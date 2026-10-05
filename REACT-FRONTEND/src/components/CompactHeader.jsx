@@ -32,11 +32,11 @@ export function CompactHeader({setHamOpen, setWishlistOpen}) {
                 <SearchIntract searchOpen={searchOpen} setSearchOpen={setSearchOpen}/>
 
                 <div className="cmp-wishlist-icon" onClick={() => setWishlistOpen(true)}>
-                    <img src="/images/icons/icons8-favorite-60.png" />
+                    <img src="/images/icons/icons8-heart-100.png" />
                     <div className="cmp-cound">0</div>
                 </div>
                 <Link to="/checkout" className="cmp-cart-icon">
-                    <img src="/images/icons/icons8-cart-96.png" />
+                    <img src="/images/icons/icons8-cart-100.png" />
                         <div className="cmp-cound">{cartItemCount}</div>
                 </Link>
             </div>

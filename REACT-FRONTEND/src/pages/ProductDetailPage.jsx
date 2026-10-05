@@ -39,7 +39,7 @@ export function ProductDetailPage() {
             <WishlistIntract wishlistOpen={wishlistOpen} setWishlistOpen={setWishlistOpen} />
 
             <div className="card-detail-container">
-                <div className="path">Home
+                <div className="product-path">Home
                     <img src="\images\icons\icons8-right-arrow-90.png" alt="" />
                     {product.name}
                 </div>
