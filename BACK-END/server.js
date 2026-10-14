@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 const connectDB = require('./config/dbConnection')
 const path = require('path');
 const cors = require('cors');
+const authRoutes = require("./routes/authRoutes");
+const sellerRoutes = require("./routes/sellerRoutes");
 
 connectDB()
 const app = express()
@@ -14,9 +16,8 @@ app.use(express.json());
 app.use("/images", express.static(path.join(__dirname, "images")));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use("/api/products", require('./routes/productRoutes'));
-const authRoutes = require("./routes/authRoutes");
 app.use("/api/auth", authRoutes);
-
+app.use("/api/seller", sellerRoutes);
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "public", "server.html"));
 });
