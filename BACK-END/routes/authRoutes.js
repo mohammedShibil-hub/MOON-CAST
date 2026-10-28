@@ -75,8 +75,8 @@ router.post("/login", async (req, res) => {
             sellerExists: !!seller
         });
     } catch (error) {
-        consolle.error("Login error:", error);
-        
+        console.error("Login error:", error);
+
         res.status(500).json({ message: error.message });
     }
 });
