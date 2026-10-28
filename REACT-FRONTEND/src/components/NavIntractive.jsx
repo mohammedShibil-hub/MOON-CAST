@@ -130,8 +130,8 @@ export function LoginIntract({ loginOpen, setLoginOpen }) {
                                 <div className="sign-details">
                                     <h2>Sign up</h2>
                                     <div className="sign-input">
-                                        <input type="text" placeholder="" name="username" onChange={handleSignupChange} />
-                                        <label htmlFor="username">User Name</label>
+                                        <input type="text" placeholder="" name="name" onChange={handleSignupChange} />
+                                        <label htmlFor="name">User Name</label>
                                     </div>
                                     <div className="sign-input">
                                         <input type="email" placeholder="" name="email" onChange={handleSignupChange} />

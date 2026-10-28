@@ -34,7 +34,6 @@ main{
     position: relative;
     margin-bottom: 10px;
     cursor: pointer;
-
 }
 .scale-size:hover {
     width: 160px;
