@@ -19,7 +19,7 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use("/api/products", require('./routes/productRoutes'));
 app.use("/api/auth", authRoutes);
 app.use("/api/seller", sellerRoutes);
-app.use("/api/seller-setup", sellerregiRoutes);
+app.use("/api/seller-details", sellerregiRoutes);
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "public", "server.html"));
 });

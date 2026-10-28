@@ -63,7 +63,7 @@ export function SellerDtlsForm() {
             const bankDetails = { ...bankData };
             delete bankDetails.confirmAccountNumber;
 
-            const res = await axios.post(`${API_URL}/api/seller-setup/register`, bankDetails, {
+            const res = await axios.post(`${API_URL}/api/seller-details/register`, bankDetails, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
