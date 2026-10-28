@@ -6,6 +6,7 @@ const path = require('path');
 const cors = require('cors');
 const authRoutes = require("./routes/authRoutes");
 const sellerRoutes = require("./routes/sellerRoutes");
+const sellerregiRoutes = require("./routes/sellerregiRoutes");
 
 connectDB()
 const app = express()
@@ -18,6 +19,7 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use("/api/products", require('./routes/productRoutes'));
 app.use("/api/auth", authRoutes);
 app.use("/api/seller", sellerRoutes);
+app.use("/api/seller-setup", sellerregiRoutes);
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "public", "server.html"));
 });

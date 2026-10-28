@@ -47,6 +47,18 @@ const sellerSchema = new mongoose.Schema(
             },
         },
 
+        legal: {
+            pancardNumber: {
+                type: String,
+                required: true,
+                trim: true,
+            },
+            gstNumber: {
+                type: String,
+                required: true,
+                trim: true,
+            }
+        },
         isseller: {
             type: Boolean,
             default: true,

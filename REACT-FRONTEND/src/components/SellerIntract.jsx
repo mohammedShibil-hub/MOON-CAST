@@ -65,7 +65,7 @@ export function SellerIntract({ sellerIntractOpen, setSellerIntractOpen }) {
             ) {
                 navigate("/seller-dashboard");
             } else {
-                navigate("/bank-details");
+                navigate("/seller-details-form");
             }
 
             toast.success("Login successful!");

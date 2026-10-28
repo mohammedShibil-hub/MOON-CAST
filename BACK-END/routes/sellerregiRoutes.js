@@ -1,33 +1,35 @@
 const express = require("express");
 const router = express.Router();
 
+const User = require("../models/userSchema");
+const seller = require("../models/sellerSchema");
+const authMiddleware = require("../middleware/authMiddleware");
 
 
-router.post("/register", async (req, res) => {
+
+router.post("/register", authMiddleware, async (req, res) => {
     try {
-        const { 
-            userId, 
-            accountHolderName, 
-            accountNumber, 
+        const {
+            accountHolderName,
+            accountNumber,
             ifscCode,
             bankName,
+            pancardNumber,
+            gstNumber
         } = req.body;
 
         if (
-            !userId || 
             !accountHolderName ||
-            !accountNumber || 
-            !ifscCode || 
-            !bankName
-        ) { 
-            return res.status(400).json({ message: "All bank details are required" });
+            !accountNumber ||
+            !ifscCode ||
+            !bankName ||
+            !pancardNumber ||
+            !gstNumber
+        ) {
+            return res.status(400).json({ message: "All bank and legal details are required" });
         }
 
-        const existingSeller = await seller.findOne({ userId: req.user.id });
-
-        if (existingSeller) {
-            return res.status(400).json({ message: "you are already registered as a seller" });
-        }
+        const userId = req.user.id;
 
         const user = await User.findById(userId);
 
@@ -35,15 +37,26 @@ router.post("/register", async (req, res) => {
             return res.status(404).json({ message: "User not found" });
         }
 
-        const seller = await seller.create({
+        const existingSeller = await seller.findOne({userId });
+
+        if (existingSeller) {
+            return res.status(400).json({ message: "you are already registered as a seller" });
+        }
+
+        const newSeller = await seller.create({
             userId: user._id,
             sellerName: user.name,
-            phone: user.phone || '',
+            phone: user.phone || "",
             bank: {
                 accountHolderName,
                 accountNumber,
                 ifscCode,
                 bankName,
+            },
+
+            legal: {
+                pancardNumber,
+                gstNumber,
             },
 
             isSeller: true,
@@ -52,7 +65,7 @@ router.post("/register", async (req, res) => {
 
         res.status(201).json({
             message: "Seller registration successful",
-            seller: seller._id,
+            seller: newSeller._id,
         });
 
     } catch (error) {
@@ -60,3 +73,6 @@ router.post("/register", async (req, res) => {
         res.status(500).json({ message: "Failed to register seller" });
     }
 });
+
+
+module.exports = router;

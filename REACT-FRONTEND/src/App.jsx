@@ -10,6 +10,9 @@ import { ProductPage } from './pages/ProductPage'
 import { ProductDetailPage } from './pages/ProductDetailPage'
 import { CartProvider } from './context/CartContext'
 import { SellerPage } from './pages/SellerPage'
+import { SellerDemo } from './pages/SellerDemo'
+import { SellerDtlsForm } from './pages/SellerDtlsForm'
+import { SellerDashboard } from './pages/SellerDashboard'
 
 function App() {
   const [showIntro, setShowIntro] = useState(true);
@@ -35,6 +38,9 @@ function App() {
         <Route path='/products' element={<ProductPage />} />
         <Route path='/product/:id' element={<ProductDetailPage />} />
         <Route path='/startSelling' element={<SellerPage />} />
+        <Route path='/sellerDemo' element={<SellerDemo />} />
+        <Route path='/seller-details-form' element={<SellerDtlsForm />} />
+        <Route path='/seller-dashboard' element={<SellerDashboard />} />
       </Routes>
     </CartProvider>
     </>

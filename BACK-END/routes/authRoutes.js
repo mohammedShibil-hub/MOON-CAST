@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-
+const Seller = require("../models/sellerSchema");
 const User = require("../models/userSchema");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
@@ -14,6 +14,9 @@ router.get("/test", (req, res) => {
 
 router.post("/register", async (req, res) => {
     try {
+
+        console.log("register body:", req.body);
+
         const { name, email, password } = req.body;
 
         const existingUser = await User.findOne({ email });
@@ -47,7 +50,7 @@ router.post("/login", async (req, res) => {
     try {
         const { email, password } = req.body;
 
-        const user = await User.findOne({ email });
+        const user = await User.findOne({ email: email.trim().toLowerCase() });
         if (!user) {
             return res.status(404).json({ message: "User not found" });
         }
@@ -57,16 +60,23 @@ router.post("/login", async (req, res) => {
             return res.status(400).json({ message: "Invalid Password" });
         }
 
+        const seller = await Seller.findOne({ userId: user._id }) 
+
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: "1h" });
+
         res.json({
             token,
             user: {
                 id: user._id,
                 name: user.name,
                 email: user.email,
-            }
+            },
+
+            sellerExists: !!seller
         });
     } catch (error) {
+        consolle.error("Login error:", error);
+        
         res.status(500).json({ message: error.message });
     }
 });
@@ -101,6 +111,7 @@ router.post("/check-user", async (req, res) => {
         });
     }
 });
+
 
 
 module.exports = router;
