@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const User = require("../models/userSchema");
-const seller = require("../models/sellerSchema");
+const Seller = require("../models/sellerSchema");
 const authMiddleware = require("../middleware/authMiddleware");
 
 
@@ -12,6 +12,7 @@ router.post("/register", authMiddleware, async (req, res) => {
         const {
             accountHolderName,
             accountNumber,
+            confirmAccountNumber,
             ifscCode,
             bankName,
             pancardNumber,
@@ -21,12 +22,19 @@ router.post("/register", authMiddleware, async (req, res) => {
         if (
             !accountHolderName ||
             !accountNumber ||
+            !confirmAccountNumber ||
             !ifscCode ||
             !bankName ||
             !pancardNumber ||
             !gstNumber
         ) {
             return res.status(400).json({ message: "All bank and legal details are required" });
+        }
+
+        if (accountNumber !== confirmAccountNumber) {
+            return res.status(400).json({
+                message: "Account numbers do not match."
+            });
         }
 
         const userId = req.user.id;
@@ -37,16 +45,15 @@ router.post("/register", authMiddleware, async (req, res) => {
             return res.status(404).json({ message: "User not found" });
         }
 
-        const existingSeller = await seller.findOne({userId });
+        const existingSeller = await Seller.findOne({userId });
 
         if (existingSeller) {
             return res.status(400).json({ message: "you are already registered as a seller" });
         }
 
-        const newSeller = await seller.create({
+        const newSeller = await Seller.create({
             userId: user._id,
             sellerName: user.name,
-            phone: user.phone || "",
             bank: {
                 accountHolderName,
                 accountNumber,
@@ -59,7 +66,7 @@ router.post("/register", authMiddleware, async (req, res) => {
                 gstNumber,
             },
 
-            isSeller: true,
+            isseller: true,
             status: "pending",
         });
 
@@ -70,7 +77,7 @@ router.post("/register", authMiddleware, async (req, res) => {
 
     } catch (error) {
         console.error("Error in seller registration:", error);
-        res.status(500).json({ message: "Failed to register seller" });
+        res.status(500).json({ message: error.message || "Internal server error" });
     }
 });
 

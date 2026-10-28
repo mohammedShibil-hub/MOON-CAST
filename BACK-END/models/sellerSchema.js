@@ -14,12 +14,6 @@ const sellerSchema = new mongoose.Schema(
             trim: true,
         },
 
-        phoneNumber: {
-            type: String,
-            required: true,
-            trim: true,
-        },
-
         bank: {
             accountHolderName: {
                 type: String,
