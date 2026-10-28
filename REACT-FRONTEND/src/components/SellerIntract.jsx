@@ -1,18 +1,26 @@
 import './SellerIntract.css';
 import { useState } from 'react';
 import axios from 'axios';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 const apiUrl = import.meta.env.VITE_BACKEND_API_URL || 'http://localhost:6004';
 
 
 export function SellerIntract({ sellerIntractOpen, setSellerIntractOpen }) {
+    const navigate = useNavigate();
 
     const [authPage, setAuthPage] = useState('login');
     const [identifier, setIdentifier] = useState("");
     const [password, setPassword] = useState("");
+    const [name, setName] = useState("");
+    const [registerEmail, setRegisterEmail] = useState("");
+    const [registerPassword, setRegisterPassword] = useState("");
+    const [registerConfirmPassword, setRegisterConfirmPassword] = useState("");
 
     const handleContinue = async () => {
         if (!identifier.trim()) {
-            alert("Please enter a valid email.");
+            toast.error("Please enter a valid email.");
             return;
         }
 
@@ -27,7 +35,7 @@ export function SellerIntract({ sellerIntractOpen, setSellerIntractOpen }) {
             }
 
         } catch (err) {
-            alert(err.response?.data?.message || "Account not found");
+            toast.error(err.response?.data?.message || "Account not found");
         }
 
     };
@@ -36,7 +44,7 @@ export function SellerIntract({ sellerIntractOpen, setSellerIntractOpen }) {
         e.preventDefault();
 
         if (!password.trim()) {
-            alert("Please enter your password.");
+            toast.error("Please enter your password.");
             return;
         }
 
@@ -48,19 +56,82 @@ export function SellerIntract({ sellerIntractOpen, setSellerIntractOpen }) {
 
             localStorage.setItem("token", res.data.token);
             localStorage.setItem("user", JSON.stringify(res.data.user));
-            alert("Login successful!");
 
             setSellerIntractOpen(false);
-            window.location.reload();
+
+            if (
+                res.data.sellerExists &&
+                res.data.bankDetailsCompleted
+            ) {
+                navigate("/seller-dashboard");
+            } else {
+                navigate("/bank-details");
+            }
+
+            toast.success("Login successful!");
 
         } catch (err) {
-            const message =
-                err.response?.data?.message ||
-                err.message ||
-                "Invalid password";
-            alert(message);
+
+            console.error("Seller login error:", err.response?.data || err);
+            console.error("status:", err.response?.status);
+            console.error("data:", err.response?.data);
+
+            toast.error(err.response?.data?.message ||
+                "invalid email or password. Please try again."
+            );
         }
     };
+
+    const handleSellerRegister = async (e) => {
+        e.preventDefault();
+
+        if (!name.trim()) {
+            toast.error("Please enter your name.");
+            return;
+        }
+
+        if (!registerEmail.trim()) {
+            toast.error("Please enter a valid email.");
+            return;
+        }
+
+        if (!registerPassword.trim()) {
+            toast.error("Please enter a password.");
+            return;
+        }
+
+        if (registerPassword !== registerConfirmPassword) {
+            toast.error("Passwords do not match.");
+            return;
+        }
+
+        try {
+            const res = await axios.post(`${apiUrl}/api/auth/register`, {
+                name: name.trim(),
+                email: registerEmail.trim().toLowerCase(),
+                password: registerPassword,
+            });
+
+            // Automatically use the registered email
+            setIdentifier(registerEmail.trim().toLowerCase());
+
+            setName("");
+            setRegisterEmail("");
+            setRegisterPassword("");
+            setRegisterConfirmPassword("");
+
+            setAuthPage("login");
+
+            toast.success(res.data.message || "Registration successfully!");
+
+        } catch (err) {
+
+            console.error("Seller registration error:", err.response?.data || err);
+
+            toast.error(err.response?.data?.message ||
+                "Registration failed. Please try again.");
+        }
+    }
 
 
 
@@ -112,22 +183,43 @@ export function SellerIntract({ sellerIntractOpen, setSellerIntractOpen }) {
                                 <div className="register-box">
                                     <h2>Create account</h2>
                                     <div className="register-input">
-                                        <input type="text" placeholder="First and last Name" />
+                                        <input
+                                            type="text" placeholder="First and last Name"
+                                            value={name}
+                                            onChange={(e) => setName(e.target.value)}
+                                        />
                                         <label htmlFor="name">Name</label>
                                     </div>
                                     <div className="register-input">
-                                        <input type="email" placeholder="" />
+                                        <input
+                                            type="email"
+                                            placeholder=""
+                                            value={registerEmail}
+                                            onChange={(e) => setRegisterEmail(e.target.value)}
+                                        />
                                         <label htmlFor="email">Email</label>
                                     </div>
                                     <div className="register-input">
-                                        <input type="password" placeholder="" />
+                                        <input
+                                            type="password"
+                                            placeholder=""
+                                            value={registerPassword}
+                                            onChange={(e) => setRegisterPassword(e.target.value)}
+                                        />
                                         <label htmlFor="password">Password</label>
                                     </div>
                                     <div className="register-input">
-                                        <input type="password" placeholder="" />
-                                        <label htmlFor="password">Password again</label>
+                                        <input
+                                            type="password"
+                                            placeholder=""
+                                            value={registerConfirmPassword}
+                                            onChange={(e) => setRegisterConfirmPassword(e.target.value)}
+                                        />
+                                        <label htmlFor="confirm-password">Confirm Password</label>
                                     </div>
-                                    <button className="register-btn" >Create your MoonCast account</button>
+                                    <button className="register-btn" type="button" onClick={handleSellerRegister} >
+                                        Create your MoonCast account
+                                    </button>
                                     <p className="regi-terms">
                                         By continuing, you agree to MoonCast's
                                         <a href="#"> Conditions of Use</a> and
@@ -147,11 +239,11 @@ export function SellerIntract({ sellerIntractOpen, setSellerIntractOpen }) {
                             <div className="password-box">
                                 <h2>Enter Password</h2>
                                 <div className="password-input">
-                                    <input 
-                                        type="password" 
+                                    <input
+                                        type="password"
                                         placeholder=""
                                         value={password}
-                                        onChange={(e) => setPassword(e.target.value)} 
+                                        onChange={(e) => setPassword(e.target.value)}
                                     />
                                     <label htmlFor="password">Password</label>
                                 </div>
@@ -172,6 +264,7 @@ export function SellerIntract({ sellerIntractOpen, setSellerIntractOpen }) {
                         </div>
                     )}
                 </div>
+                <ToastContainer />
             </div>
         )
 
