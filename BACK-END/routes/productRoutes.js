@@ -8,8 +8,6 @@ const {
 } = require('../controllers/productController');
 
 router.get("/", getProducts);
-router.get("/:id", getProductById);
-
 
 router.get("/similar", async (req, res) => {
   try {
@@ -30,6 +28,9 @@ router.get("/similar", async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+
+router.get("/:id", getProductById);
+
 
 
 module.exports = router;
