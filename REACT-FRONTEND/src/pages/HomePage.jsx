@@ -5,12 +5,14 @@ import { Header } from '../components/Header';
 import { LoginIntract, WishlistIntract, UserAccountIntract } from '../components/NavIntractive';
 import { Footer } from '../components/Footer';
 import { SlidingBanner } from '../components/SlidingBanner';
+import { useNavigate } from 'react-router-dom';
 const API_URL = import.meta.env.VITE_BACKEND_API_URL || 'http://localhost:6004';
 
 import axios from 'axios';
 
 
 export function HomePage() {
+    const navigate = useNavigate();
     //const [loading, setLoading] = useState(true)
     const [loginOpen, setLoginOpen] = useState(false)
     const [accountOpen, setAccountOpen] = useState(false)
@@ -23,6 +25,7 @@ export function HomePage() {
     const [loadingTrending, setLoadingTrending ] = useState(true);
     const [loadingHotwheels, setLoadingHotwheels ] = useState(true);
     const [loadingDiorama, setLoadingDiorama ] = useState(true);
+    const [selectedScale, setSelectedScale] = useState("");
     useEffect(() => {
 
         /*axios.get('http://localhost:6004/api/products')
@@ -93,42 +96,90 @@ export function HomePage() {
                 <div className="supporting-div"></div>
                 <SlidingBanner />
                 <div className="scale-div">
-                    <div className="scale-container">
+                    <div className="scale-container"
+                        onClick={() => navigate('/products?scale=1:64')}
+                        role="button"
+                        tabIndex={0}
+                        onkeydown={(e) => {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                                navigate('/products?scale=1:64');
+                            }}}
+                    >
                         <div className="scale-size">
                             <img className="scale-icon" src="/images/icons/mercedes-roadster.jpg" alt="" />
                             <img className="hover-over" src="/images/icons/benz-scalesize.png" alt="" />
                         </div>
                         <div className="scale-discription">1:64</div>
                     </div>
-                    <div className="scale-container">
+                    <div className="scale-container"
+                        onClick={() => navigate('/products?scale=1:43')}
+                        role="button"
+                        tabIndex={0}
+                        onkeydown={(e) => {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                                navigate('/products?scale=1:43');
+                            }}}
+                    >
                         <div className="scale-size">
                             <img className="scale-icon" src="/images/icons/ferrari-spots.png" alt="" />
                             <img className="hover-over" src="/images/icons/ferrari-spots-scalesize.png" alt="" />
                         </div>
                         <div className="scale-discription">1:43</div>
                     </div>
-                    <div className="scale-container">
+                    <div className="scale-container"
+                        onClick={() => navigate('/products?scale=1:32')}
+                        role="button"
+                        tabIndex={0}
+                        onkeydown={(e) => {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                                navigate('/products?scale=1:32');
+                            }}}
+                    >
                         <div className="scale-size">
                             <img className="scale-icon" src="/images/icons/bentley-flying-spur-plum.jpg" alt="" />
                             <img className="hover-over" src="/images/icons/bentley_scalesize.png" alt="" />
                         </div>
                         <div className="scale-discription">1:32</div>
                     </div>
-                    <div className="scale-container">
+                    <div className="scale-container"
+                        onClick={() => navigate('/products?scale=1:24')}
+                        role="button"
+                        tabIndex={0}
+                        onkeydown={(e) => {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                                navigate('/products?scale=1:24');
+                            }}}
+                    >
                         <div className="scale-size">
                             <img className="scale-icon" src="/images/icons/ferrari-f40-red.jpg" alt="" />
                             <img className="hover-over" src="/images/icons/ferarri-red-scalesize.png" alt="" />
                         </div>
                         <div className="scale-discription">1:24</div>
                     </div>
-                    <div className="scale-container">
+                    <div className="scale-container"
+                        onClick={() => navigate('/products?scale=1:18')}
+                        role="button"
+                        tabIndex={0}
+                        onkeydown={(e) => {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                                navigate('/products?scale=1:18');
+                            }}}
+                    >
                         <div className="scale-size">
                             <img className="scale-icon" src="/images/icons/volvo rally.png" alt="" />
                             <img className="hover-over" src="/images/icons/volvo-rally-scalesize.png" alt="" />
                         </div>
                         <div className="scale-discription">1:18</div>
                     </div>
-                    <div className="scale-container">
+                    <div className="scale-container"
+                        onClick={() => navigate('/products?scale=1:12')}
+                        role="button"
+                        tabIndex={0}
+                        onkeydown={(e) => {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                                navigate('/products?scale=1:12');
+                            }}}
+                    >
                         <div className="scale-size">
                             <img className="scale-icon" src="/images/icons/bmw_bike.png" alt="" />
                             <img className="hover-over" src="/images/icons/bmw_bike_scalesize.png" alt="" />
