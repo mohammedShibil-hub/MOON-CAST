@@ -4,12 +4,15 @@ import { useEffect, useState } from 'react';
 import { HamburgerIntract, WishlistIntract } from '../components/CmpIntractive';
 import { Link, useLocation } from 'react-router';
 import { Footer } from '../components/Footer';
+import { LoginIntract, UserAccountIntract } from '../components/NavIntractive';
 const API_URL = import.meta.env.VITE_BACKEND_API_URL || 'http://localhost:6004';
 
 
 
 export function ProductPage() {
     const location = useLocation();
+    const [loginOpen, setLoginOpen] = useState(false);
+    const [accountOpen, setAccountOpen] = useState(false);
 
     const [hamOpen, setHamOpen] = useState(false)
     const [wishlistOpen, setWishlistOpen] = useState(false)
@@ -46,8 +49,11 @@ export function ProductPage() {
         <>
             <title>products</title>
 
-            <CompactHeader setHamOpen={setHamOpen} setWishlistOpen={setWishlistOpen} />
-            <HamburgerIntract hamOpen={hamOpen} setHamOpen={setHamOpen} />
+            <CompactHeader setHamOpen={setHamOpen} setWishlistOpen={setWishlistOpen}
+                setAccountOpen={setAccountOpen} setLoginOpen={setLoginOpen} />
+            <LoginIntract loginOpen={loginOpen} setLoginOpen={setLoginOpen} />
+            <UserAccountIntract accountOpen={accountOpen} setAccountOpen={setAccountOpen} />
+            <HamburgerIntract hamOpen={hamOpen} setHamOpen={setHamOpen} setWishlistOpen={setWishlistOpen} />
             <WishlistIntract wishlistOpen={wishlistOpen} setWishlistOpen={setWishlistOpen} />
 
             <div className="pp-supporting-div"></div>
