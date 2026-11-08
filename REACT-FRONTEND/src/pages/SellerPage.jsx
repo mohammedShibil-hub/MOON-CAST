@@ -4,27 +4,29 @@ import { CompactHeader } from '../components/CompactHeader';
 import { HamburgerIntract, WishlistIntract } from '../components/CmpIntractive';
 import { Footer } from '../components/Footer';
 import { SellerIntract } from '../components/SellerIntract';
-
+import { LoginIntract } from '../components/NavIntractive';
 
 export function SellerPage() {
 
     const [hamOpen, setHamOpen] = useState(false);
+    const [loginOpen, setLoginOpen] = useState(false)
     const [wishlistOpen, setWishlistOpen] = useState(false);
     const [sellerIntractOpen, setSellerIntractOpen] = useState(false);
 
     return (
         <div className="seller-page">
             <title>Become Seller</title>
-            <CompactHeader setHamOpen={setHamOpen} setWishlistOpen={setWishlistOpen} />
-            <HamburgerIntract hamOpen={hamOpen} setHamOpen={setHamOpen} />
+            <CompactHeader setHamOpen={setHamOpen} setWishlistOpen={setWishlistOpen} setLoginOpen={setLoginOpen}/>
+            <HamburgerIntract hamOpen={hamOpen} setHamOpen={setHamOpen} setWishlistOpen={setWishlistOpen} />
             <WishlistIntract wishlistOpen={wishlistOpen} setWishlistOpen={setWishlistOpen} />
+            <LoginIntract loginOpen={loginOpen} setLoginOpen={setLoginOpen} /> 
             <SellerIntract sellerIntractOpen={sellerIntractOpen} setSellerIntractOpen={setSellerIntractOpen} />
             <div className="seller-page-content">
                 <div className="firstlook-poster">
                     <img src="\images\banner\firstlookposter.png" alt="" />
                     <div className="seller-quote">
                         <p className="quote-1">From creator's desk to collector's display.</p>
-                        <p className="qoute-2">Turn your passion into products collectors love.</p>
+                        <p className="quote-2">Turn your passion into products collectors love.</p>
                         <button className="seller-btn" onClick={() => setSellerIntractOpen(true)}>
                             Start Selling
                         </button>
@@ -144,7 +146,7 @@ export function SellerPage() {
                     </div>
 
                     <div className="reminder-image">
-                        <img src="\images\banner\moonposter.png" alt="Illustration" />
+                        <img src="\images\banner\moonposter1.png" alt="Illustration" />
                     </div>
                 </section>
             </div>
