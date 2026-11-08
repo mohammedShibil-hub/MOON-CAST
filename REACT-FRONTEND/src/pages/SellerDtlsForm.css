@@ -1,4 +1,4 @@
-body{
+body {
     background-color: #bf3434;
 }
 
@@ -21,7 +21,7 @@ body{
     position: relative;
 }
 
-.progress-fill{
+.progress-fill {
     background-color: rgb(78 99 86 / 93%);
     height: 7px;
     border-radius: 15px;
@@ -37,7 +37,7 @@ body{
     margin-top: 16px;
 }
 
-.progress-levels{
+.progress-levels {
     display: flex;
     gap: 10px;
     align-items: flex-start;
@@ -45,7 +45,7 @@ body{
     min-width: 0;
 }
 
-.level-marks{
+.level-marks {
     width: 15px;
     height: 15px;
     border: 2px solid #bbbbbb;
@@ -60,7 +60,7 @@ body{
     width: 23px;
 }
 
-.progress-levels.active .level-marks{
+.progress-levels.active .level-marks {
     border-color: #4e6356;
 }
 
@@ -87,14 +87,15 @@ body{
     font-weight: 600;
 }
 
-.bank-dtls-container{
+.bank-dtls-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin-bottom: 40px;
     column-gap: 10px;
 }
 
-.bank-dtls, .legal-procedures{
+.bank-dtls,
+.legal-procedures {
     background-color: #fff;
     padding: 20px;
     border-radius: 5px;
@@ -102,8 +103,8 @@ body{
 }
 
 .bank-details-form {
-    display :grid;
-    grid-template-rows:1fr 1fr 1fr 1fr 1fr 1fr;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
     gap: 25px;
     margin-top: 22px;
 }
@@ -113,11 +114,13 @@ body{
     margin-bottom: 20px;
 }
 
-.bank-input, .legal-input{
+.bank-input,
+.legal-input {
     position: relative;
 }
 
-.bank-input input, .legal-input input{
+.bank-input input,
+.legal-input input {
     width: 95%;
     padding: 15px 10px;
     font-size: 15px;
@@ -133,7 +136,8 @@ body{
     color: #a3a3a3;
 }
 
-.bank-input label, .legal-input label{
+.bank-input label,
+.legal-input label {
     position: absolute;
     top: 50%;
     left: 11px;
@@ -144,32 +148,31 @@ body{
     transition: all 0.2s ease-in-out;
 }
 
-.bank-input input:focus + label,
-.bank-input input:not(:placeholder-shown) + label,
-.legal-input input:focus + label,
-.legal-input input:not(:placeholder-shown) + label {
-   top: 0;
+.bank-input input:focus+label,
+.bank-input input:not(:placeholder-shown)+label,
+.legal-input input:focus+label,
+.legal-input input:not(:placeholder-shown)+label {
+    top: 0;
     left: 11px;
     font-size: 14px;
     color: #005438;
     padding: 0 5px;
-    background: linear-gradient(
-        to bottom,
-        #ffffff 100%
-    );
+    background: linear-gradient(to bottom,
+            #ffffff 100%);
 }
 
-.bank-input input:focus::placeholder, 
+.bank-input input:focus::placeholder,
 .legal-input input:focus::placeholder {
     opacity: 1;
 }
 
-.bank-input input:focus, .legal-input input:focus{
+.bank-input input:focus,
+.legal-input input:focus {
     border-color: #007f31;
     box-shadow: 0 0 5px rgba(0, 128, 85, 0.4);
 }
 
-.bank-continue-btn{
+.bank-continue-btn {
     background-color: #4e6356;
     color: white;
     cursor: pointer;
@@ -178,15 +181,37 @@ body{
     font-size: 16px;
 }
 
-.legal-procedures{
+.legal-procedures {
     height: 93%;
 }
 
-.legal-input-form{
-    display :grid;
-    grid-template-rows:1fr 1fr;
+.legal-input-form {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
     gap: 25px;
     margin-top: 22px;
 }
 
+@media (max-width: 500px) {
+    .bank-details-box {
+        padding: 60px 10px 0;
+        margin: 0;
+    }
 
+    .seller-progress {
+        font-size: 12px;
+    }
+
+    .progress-levels:nth-child(1) {
+        display: none;
+    }
+
+    .level-marks {
+        width: 23px;
+    }
+
+    .bank-dtls-container {
+        grid-template-columns: 1fr;
+        row-gap: 20px;
+    }
+}

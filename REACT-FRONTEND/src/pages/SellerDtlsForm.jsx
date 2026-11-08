@@ -87,7 +87,7 @@ export function SellerDtlsForm() {
             <title>Seller Bank Details</title>
 
             <CompactHeader setHamOpen={setHamOpen} setWishlistOpen={setWishlistOpen} />
-            <HamburgerIntract hamOpen={hamOpen} setHamOpen={setHamOpen} />
+            <HamburgerIntract hamOpen={hamOpen} setHamOpen={setHamOpen} setWishlistOpen={setWishlistOpen} />
             <WishlistIntract wishlistOpen={wishlistOpen} setWishlistOpen={setWishlistOpen} />
 
             <div className="bank-details-box">
@@ -127,7 +127,7 @@ export function SellerDtlsForm() {
                                 {currentStep > 3 && <img src="/images/icons/icons8-checked-100.png" />}
                                 {currentStep === 3 && <div className="active-dot"></div>}
                             </div>
-                            <div className="level-label">Shipping & Pickup Info</div>
+                            <div className="level-label">Shipping Info</div>
                         </div>
                         <div className={`progress-levels
                             ${currentStep > 4 ? "completed" : ""}
