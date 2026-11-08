@@ -35,7 +35,7 @@ export function ProductDetailPage() {
     return (
         <>
             <CompactHeader setHamOpen={setHamOpen} setWishlistOpen={setWishlistOpen} />
-            <HamburgerIntract hamOpen={hamOpen} setHamOpen={setHamOpen} />
+            <HamburgerIntract hamOpen={hamOpen} setHamOpen={setHamOpen} setWishlistOpen={setWishlistOpen} />
             <WishlistIntract wishlistOpen={wishlistOpen} setWishlistOpen={setWishlistOpen} />
 
             <div className="card-detail-container">

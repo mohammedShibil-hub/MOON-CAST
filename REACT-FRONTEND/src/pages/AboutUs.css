@@ -50,3 +50,9 @@ h3{
     width: 40px;
     margin-right: 10px;
 }
+
+@media (max-width: 500px) {
+    .about-section{
+        padding: 20px;
+    }
+}

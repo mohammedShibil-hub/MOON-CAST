@@ -15,7 +15,7 @@ export function SearchIntract({ searchOpen, setSearchOpen}) {
         )    
     )   
 }
-export function HamburgerIntract({ hamOpen, setHamOpen }) {
+export function HamburgerIntract({ hamOpen, setHamOpen, setWishlistOpen }) {
     return (
         hamOpen && (
             <div className="sideNav-overlay">
@@ -88,14 +88,12 @@ export function HamburgerIntract({ hamOpen, setHamOpen }) {
                                 </div>
                             </div>
                         </div>
-                        <div className="cmp-sell-product">
-                            Start Selling
-                            <div className="cmp-nav-popup">
-                                <div className="cmp-sell-popup">
-
-                                </div>
-                            </div>
+                        <div className="cmp-wishlist" onClick={() => setWishlistOpen(true)}>
+                            Wishlist
                         </div>
+                        <Link className="cmp-sell-product" to="/startSelling">
+                            Start Selling
+                        </Link>
                         <Link className="cmp-about-us" to="/aboutus">
                             About-us
                         </Link>
@@ -113,93 +111,93 @@ export function WishlistIntract({wishlistOpen, setWishlistOpen}) {
     return (
         wishlistOpen && (
             <div className="wishlist-overlay" id="whishlist-overlay">
-                <div className="wishlist-popup">
-                    <div className="wish-close" onClick={() => setWishlistOpen(false)}>
+                <div className="cmp-wishlist-popup">
+                    <div className="cmp-wish-close" onClick={() => setWishlistOpen(false)}>
                         <img src="/images/icons/icons8-multiply-96.png" alt="wish-close" />
                     </div>
-                    <div className="wishlist-head">
+                    <div className="cmp-wishlist-head">
                         <h2>wishlist</h2>
                         <p>Where legends wait for your garage</p>
                         <hr />
                     </div>
-                    <div className="wishlist-content">
-                        <div className="wish-products">
-                            <div className="wProduct-img">
+                    <div className="cmp-wishlist-content">
+                        <div className="cmp-wish-products">
+                            <div className="cmp-wProduct-img">
                                 <img className="wishProduct-img" src="/images/product/1-24-dodge-challenger.jpg"
                                     alt="wishProduct-img" />
                             </div>
-                            <div className="wProduct-details">
-                                <div className="p-name">
+                            <div className="cmp-wProduct-details">
+                                <div className="cmp-p-name">
                                     Dodge Challenger SRT Hellcat 1:24 Diecast
                                 </div>
                                 <div className="p-price">
-                                    <div className="w-offer">- 63</div>
+                                    <div className="cmp-w-offer">- 63</div>
                                     <div className="mrp">2999</div>
                                     <div className="offer-price">1103</div>
                                 </div>
                                 <div className="wish-buttons">
-                                    <div className="p-remove">Remove</div>
-                                    <button className="p-add-cart">Add to Cart</button>
+                                    <div className="cmp-p-remove">Remove</div>
+                                    <button className="cmp-p-add-cart">Add to Cart</button>
                                 </div>
                             </div>
                         </div>
-                        <div className="wish-products">
-                            <div className="wProduct-img">
+                        <div className="cmp-wish-products">
+                            <div className="cmp-wProduct-img">
                                 <img className="wishProduct-img" src="/images/product/rollys-royce-cullinen.jpg"
                                     alt="wishProduct-img" />
                             </div>
-                            <div className="wProduct-details">
-                                <div className="p-name">
+                            <div className="cmp-wProduct-details">
+                                <div className="cmp-p-name">
                                     1:32 Cullinan Diecast Metal Scale Model Car
                                 </div>
                                 <div className="p-price">
-                                    <div className="w-offer">- 60</div>
+                                    <div className="cmp-w-offer">- 60</div>
                                     <div className="mrp">1999</div>
                                     <div className="offer-price">799</div>
                                 </div>
                                 <div className="wish-buttons">
-                                    <div className="p-remove">Remove</div>
-                                    <button className="p-add-cart">Add to Cart</button>
+                                    <div className="cmp-p-remove">Remove</div>
+                                    <button className="cmp-p-add-cart">Add to Cart</button>
                                 </div>
                             </div>
                         </div>
-                        <div className="wish-products">
-                            <div className="wProduct-img">
+                        <div className="cmp-wish-products">
+                            <div className="cmp-wProduct-img">
                                 <img className="wishProduct-img" src="/images/product/Land-Cruiser-diecast.jpg"
                                     alt="wishProduct-img" />
                             </div>
-                            <div className="wProduct-details">
-                                <div className="p-name">
+                            <div className="cmp-wProduct-details">
+                                <div className="cmp-p-name">
                                     Toyota Land Cruiser LC80 1:24 Diecast Metal Car
                                 </div>
                                 <div className="p-price">
-                                    <div className="w-offer">- 67</div>
+                                    <div className="cmp-w-offer">- 67</div>
                                     <div className="mrp">3000</div>
                                     <div className="offer-price">999</div>
                                 </div>
                                 <div className="wish-buttons">
-                                    <div className="p-remove">Remove</div>
-                                    <button className="p-add-cart">Add to Cart</button>
+                                    <div className="cmp-p-remove">Remove</div>
+                                    <button className="cmp-p-add-cart">Add to Cart</button>
                                 </div>
                             </div>
                         </div>
-                        <div className="wish-products">
-                            <div className="wProduct-img">
+                        <div className="cmp-wish-products">
+                            <div className="cmp-wProduct-img">
                                 <img className="wishProduct-img" src="/images/product/Royal-Enfield-Meteor-350.png"
                                     alt="wishProduct-img" />
                             </div>
-                            <div className="wProduct-details">
-                                <div className="p-name">
+                            <div className="cmp-wProduct-details">
+                                <div className="cmp-p-name">
                                     Royal Enfield Classic 350 1:12 licensed
                                 </div>
                                 <div className="p-price">
-                                    <div className="w-offer">- 42</div>
+                                    <div className="cmp-w-offer">- 42</div>
                                     <div className="mrp">1750</div>
                                     <div className="offer-price">999</div>
                                 </div>
                                 <div className="wish-buttons">
-                                    <div className="p-remove">Remove</div>
-                                    <button className="p-add-cart">Add to Cart</button>
+                                    <div className="cmp-p-remove">Remove</div>
+                                    <button className="cmp-p-add-cart">Add to Cart</button>
                                 </div>
                             </div>
                         </div>

@@ -12,7 +12,7 @@ export function ContactUs() {
                     </Link>
                     <p className="subtitle">
                         We love hearing from fellow diecast car enthusiasts! Our team will reply within
-                        <strong>24hours</strong>.
+                        <strong> 24hours</strong>.
                     </p>
                     <div className="contact-form">
                         <form>

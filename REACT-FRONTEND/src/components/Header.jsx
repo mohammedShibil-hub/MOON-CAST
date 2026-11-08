@@ -6,25 +6,26 @@ import { useScrollEffect } from '../utils/HeaderScroll';
 import { avatorColor } from '../utils/avatorColor';
 import { useCart } from '../context/CartContext';
 
-export function Header({ setLoginOpen, setWishlistOpen, setAccountOpen }) {
+export function Header({ setLoginOpen, setWishlistOpen, setAccountOpen, setHamOpen }) {
     const [searchOpen, setSearchOpen] = useState(false);
 
     const { cart } = useCart();
     const cartItemCount = cart.reduce((total, item) => total + item.quantity, 0);
 
     const user = JSON.parse(localStorage.getItem("user"));
-
     const firstLetter = user?.name?.charAt(0).toUpperCase() || '';
 
     const showNavbar = useScrollEffect();
 
     return (
         <header className={`navbar ${showNavbar ? "show" : "hide"}`}>
+
+
             <div className="left-portion">
                 <Link to="/" className="brand-logo">
                     <img src="/images/icons/moon-cast-brand-logo.png" />
                 </Link>
-                <div className="hamburger-menu" /*onclick="openNav()"*/>
+                <div className="hamburger-menu" onClick={() => setHamOpen(true)}>
                     <img src="/images/icons/icons8-hamburger-menu-100.png" alt="" />
                 </div>
             </div>
@@ -115,7 +116,8 @@ export function Header({ setLoginOpen, setWishlistOpen, setAccountOpen }) {
                 {
                     
                     user ? (
-                        <div className="user-avatar" style={{ backgroundColor: avatorColor(user?.name) }} onClick={() => setAccountOpen(true)} >
+                        <div className="user-avatar" style={{ backgroundColor: avatorColor(user?.name) }}
+                        onClick={() => setAccountOpen(true)} >
                             {firstLetter}
                         </div>
                     ) : (

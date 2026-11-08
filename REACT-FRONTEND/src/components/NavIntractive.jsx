@@ -239,8 +239,8 @@ export function WishlistIntract({ wishlistOpen, setWishlistOpen }) {
                                     <div className="offer-price">1103</div>
                                 </div>
                                 <div className="wish-buttons">
-                                    <div className="p-remove">Remove</div>
                                     <button className="p-add-cart">Add to Cart</button>
+                                    <div className="p-remove">Remove</div>
                                 </div>
                             </div>
                         </div>
@@ -259,8 +259,8 @@ export function WishlistIntract({ wishlistOpen, setWishlistOpen }) {
                                     <div className="offer-price">799</div>
                                 </div>
                                 <div className="wish-buttons">
-                                    <div className="p-remove">Remove</div>
                                     <button className="p-add-cart">Add to Cart</button>
+                                    <div className="p-remove">Remove</div>
                                 </div>
                             </div>
                         </div>
@@ -278,9 +278,9 @@ export function WishlistIntract({ wishlistOpen, setWishlistOpen }) {
                                     <div className="mrp">3000</div>
                                     <div className="offer-price">999</div>
                                 </div>
-                                <div className="wish-buttons">
-                                    <div className="p-remove">Remove</div>
+                                <div className="wish-buttons">                            
                                     <button className="p-add-cart">Add to Cart</button>
+                                    <div className="p-remove">Remove</div>
                                 </div>
                             </div>
                         </div>
@@ -299,8 +299,8 @@ export function WishlistIntract({ wishlistOpen, setWishlistOpen }) {
                                     <div className="offer-price">999</div>
                                 </div>
                                 <div className="wish-buttons">
-                                    <div className="p-remove">Remove</div>
                                     <button className="p-add-cart">Add to Cart</button>
+                                    <div className="p-remove">Remove</div>
                                 </div>
                             </div>
                         </div>

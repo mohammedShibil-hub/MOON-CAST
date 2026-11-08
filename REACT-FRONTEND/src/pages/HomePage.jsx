@@ -5,6 +5,7 @@ import { Header } from '../components/Header';
 import { LoginIntract, WishlistIntract, UserAccountIntract } from '../components/NavIntractive';
 import { Footer } from '../components/Footer';
 import { SlidingBanner } from '../components/SlidingBanner';
+import { HamburgerIntract } from '../components/CmpIntractive';
 import { useNavigate } from 'react-router-dom';
 const API_URL = import.meta.env.VITE_BACKEND_API_URL || 'http://localhost:6004';
 
@@ -25,7 +26,9 @@ export function HomePage() {
     const [loadingTrending, setLoadingTrending ] = useState(true);
     const [loadingHotwheels, setLoadingHotwheels ] = useState(true);
     const [loadingDiorama, setLoadingDiorama ] = useState(true);
-    const [selectedScale, setSelectedScale] = useState("");
+    const [hamOpen, setHamOpen] = useState(false)
+
+
     useEffect(() => {
 
         /*axios.get('http://localhost:6004/api/products')
@@ -88,10 +91,12 @@ export function HomePage() {
     return (
         <>
             <title>MOON CAST</title>
-            <Header setLoginOpen={setLoginOpen} setWishlistOpen={setWishlistOpen} setAccountOpen={setAccountOpen} />
+            <Header setLoginOpen={setLoginOpen} setWishlistOpen={setWishlistOpen} setAccountOpen={setAccountOpen} setHamOpen={setHamOpen} />
             <LoginIntract loginOpen={loginOpen} setLoginOpen={setLoginOpen} />
             <WishlistIntract wishlistOpen={wishlistOpen} setWishlistOpen={setWishlistOpen} />
             <UserAccountIntract accountOpen={accountOpen} setAccountOpen={setAccountOpen} />
+            <HamburgerIntract hamOpen={hamOpen} setHamOpen={setHamOpen} setWishlistOpen={setWishlistOpen} />
+
             <main>
                 <div className="supporting-div"></div>
                 <SlidingBanner />

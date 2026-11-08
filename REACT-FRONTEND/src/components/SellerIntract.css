@@ -405,7 +405,16 @@
     color:#b12f2f;
 }
 
-@media(max-width:600px){
+@media(max-width:500px){
+
+    .seller-popup{
+        width: 84%;
+        padding: 20px;
+    }
+
+    .login-input input{
+        width: 94%;
+    }
 
     .register-box{
         padding:20px;
@@ -413,6 +422,10 @@
 
     .register-box h1{
         font-size:36px;
+    }
+
+    .register-input input{
+        width: 94%;
     }
 
     .input-box label{
@@ -428,24 +441,4 @@
     .signin{
         font-size:16px;
     }
-}
-
-
-/* Responsive */
-
-@media(max-width:600px){
-
-.login-box,
-.create-btn,
-.divider{
-    width:95%;
-}
-
-.login-box{
-    padding:25px;
-}
-
-.login-box h1{
-    font-size:32px;
-}
 }

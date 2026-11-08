@@ -1,4 +1,4 @@
-.compact-header{
+.compact-header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -13,6 +13,7 @@
     z-index: 100;
     transition: top 0.3s;
 }
+
 .compact-header.hide {
     top: -60px;
 }
@@ -20,21 +21,24 @@
 .compact-header.show {
     top: 0;
 }
-.left-section{
+
+.left-section {
     padding-left: 25px;
     display: flex;
     align-items: center;
 }
-.cmp-hamburger-menu img{
+
+.cmp-hamburger-menu img {
     width: 25px;
     cursor: pointer;
 }
 
-.cmp-brand-logo img{
+.cmp-logo {
     width: 180px;
     padding: 7px;
 }
-.right-section{
+
+.right-section {
     display: flex;
     flex-direction: row;
     gap: 30px;
@@ -42,42 +46,68 @@
     position: relative;
     align-items: center;
 }
-.right-section img{
+
+.right-section img {
     width: 100%;
     height: auto;
     object-fit: contain;
 }
-.cmp-search-icon, .cmp-cart-icon, .cmp-wishlist-icon{
+
+.cmp-search-icon,
+.cmp-cart-icon,
+.cmp-login-icon {
     position: relative;
     cursor: pointer;
     font-size: 12px;
 }
-.cmp-search-icon{
+
+.cmp-user-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #4B5563;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cmp-search-icon {
     width: 28px;
     background-color: transparent;
     border: 0;
 }
-.cmp-wishlist-icon{
+
+.cmp-login-icon {
     width: 27px;
+    background-color: transparent;
+    border: 0;
 }
-.cmp-cart-icon{
+
+.cmp-cart-icon {
     width: 30px;
 }
-.cmp-cound{
+
+.cmp-cound {
     background-color: #d97706;
     position: absolute;
-    min-width: 15px;
-    min-height: 15px;
-    padding: 3px 2px 0px 2px;
+    width: 19px;
+    height: 18px;
+    line-height: 18px;
     border-radius: 50%;
-    font-size: 11px;
+    font-size: 12px;
     text-align: center;
     top: -6px;
     right: -9px;
     font-weight: 600;
     color: white;
 }
-.cmp-search-icon:hover::after, .cmp-cart-icon:hover::after, .cmp-wishlist-icon:hover::after{
+
+.cmp-search-icon:hover::after,
+.cmp-cart-icon:hover::after,
+.cmp-login-icon:hover::after {
     position: absolute;
     top: 47px;
     background-color: gray;
@@ -85,15 +115,82 @@
     color: white;
     border-radius: 2px;
 }
-.cmp-search-icon:hover::after{
+
+.cmp-search-icon:hover::after {
     content: "Search";
     left: -2px;
 }
-.cmp-wishlist-icon:hover::after{
-    content: "Wishlist";
+
+.cmp-login-icon:hover::after {
+    content: "Login";
     right: -4px;
 }
-.cmp-cart-icon:hover::after{
+
+.cmp-cart-icon:hover::after {
     content: "Cart";
     right: -4px;
+}
+
+@media (max-width: 500px) {
+
+    .compact-header {
+        height: 4vh;
+    }
+
+    .left-section {
+        padding-left: 10px;
+        width: 5.82%;
+    }
+
+    .cmp-hamburger-menu {
+        width: 18px;
+    }
+
+    .cmp-hamburger-menu img {
+        width: 100%;
+    }
+
+    .middle-section {
+        flex: 1;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .cmp-brand-logo {
+        width: 125px;
+        padding-left: 7px;
+    }
+
+    .cmp-logo {
+        width: 100%;
+        padding: 0;
+    }
+
+    .right-section {
+        width: 100px;
+        gap: 0;
+        justify-content: space-around;
+        padding-right: 4px;
+    }
+
+    .cmp-search-icon,
+    .cmp-cart-icon,
+    .cmp-login-icon {
+        width: 17px;
+    }
+
+    .cmp-user-avatar {
+        width: 20px;
+        height: 19px;
+        font-size: 14px;
+    }
+
+    .cmp-cound {
+        width: 11px;
+        height: 11px;
+        line-height: 11px;
+        font-size: 7px;
+        right: -5px;
+        top: -3px;
+    }
 }

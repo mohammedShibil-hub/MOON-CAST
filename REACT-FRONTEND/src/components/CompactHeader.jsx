@@ -4,12 +4,16 @@ import { SearchIntract } from './CmpIntractive';
 import { Link } from 'react-router';
 import { useScrollEffect } from '../utils/HeaderScroll';
 import { useCart } from '../context/CartContext';
+import { avatorColor } from '../utils/avatorColor';
 
-export function CompactHeader({setHamOpen, setWishlistOpen}) {
+export function CompactHeader({ setHamOpen, setAccountOpen, setLoginOpen }) {
     const [searchOpen, setSearchOpen] = useState(false);
 
     const { cart } = useCart();
     const cartItemCount = cart.reduce((total, item) => total + item.quantity, 0);
+
+    const user = JSON.parse(localStorage.getItem("user"));
+    const firstLetter = user?.name?.charAt(0).toUpperCase() || '';
 
     const showNavbar = useScrollEffect();
 
@@ -22,22 +26,31 @@ export function CompactHeader({setHamOpen, setWishlistOpen}) {
             </div>
             <div className="middle-section">
                 <div className="cmp-brand-logo">
-                    <Link to="/"><img src="/images/icons/moon-cast-brand-logo.png" /></Link>
+                    <Link to="/"><img className="cmp-logo" src="/images/icons/moon-cast-brand-logo.png" /></Link>
                 </div>
             </div>
             <div className="right-section">
                 <button className="cmp-search-icon" onClick={() => setSearchOpen(true)}>
                     <img src="/images/icons/icons8-search-10.png" />
                 </button>
-                <SearchIntract searchOpen={searchOpen} setSearchOpen={setSearchOpen}/>
+                <SearchIntract searchOpen={searchOpen} setSearchOpen={setSearchOpen} />
 
-                <div className="cmp-wishlist-icon" onClick={() => setWishlistOpen(true)}>
-                    <img src="/images/icons/icons8-heart-100.png" />
-                    <div className="cmp-cound">0</div>
-                </div>
+                {
+
+                    user ? (
+                        <div className="cmp-user-avatar" style={{ backgroundColor: avatorColor(user?.name) }}
+                        onClick={() => setAccountOpen(true)} >
+                            {firstLetter}
+                        </div>
+                    ) : (
+                        <button className="cmp-login-icon" onClick={() => setLoginOpen(true)}>
+                            <img src="/images/icons/icons8-login-96.png" />
+                        </button>
+                    )
+                }
                 <Link to="/checkout" className="cmp-cart-icon">
                     <img src="/images/icons/icons8-cart-100.png" />
-                        <div className="cmp-cound">{cartItemCount}</div>
+                    <div className="cmp-cound">{cartItemCount}</div>
                 </Link>
             </div>
         </header>

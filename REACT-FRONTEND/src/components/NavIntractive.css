@@ -13,12 +13,14 @@
     align-items: center;
     z-index: 100;
 }
-.search-box{
+
+.search-box {
     display: flex;
     width: 51%;
     height: 75%;
 }
-.search-bar{
+
+.search-bar {
     flex: 1;
     margin-right: 7px;
     border: 0;
@@ -27,25 +29,30 @@
     padding: 6px 10px;
     letter-spacing: 0.5px;
 }
-.search-bar:focus{
+
+.search-bar:focus {
     border: 0;
     outline: 0;
 }
-.search-close{
+
+.search-close {
     width: 5.4%;
     border: 0;
     border-radius: 8px;
     background-color: red;
     cursor: pointer;
 }
-.search-close img{
+
+.search-close img {
     width: 80%;
     padding-top: 3px;
 }
 
 /* Login button */
 
-.wishlist-overlay, .login-overlay, .account-overlay{
+.wishlist-overlay,
+.login-overlay,
+.account-overlay {
     position: fixed;
     display: flex;
     top: 0;
@@ -59,7 +66,7 @@
     z-index: 100;
 }
 
-.login-page{
+.login-page {
     background-color: #ebebeb;
     display: flex;
     padding: 30px 40px;
@@ -70,7 +77,8 @@
     position: relative;
     width: 32%;
 }
-.login-close{
+
+.login-close {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -80,20 +88,24 @@
     border-radius: 7px;
     padding: 2px 0 0 1px;
 }
-.login-close img{
+
+.login-close img {
     width: 25px;
 }
-.log-head{
+
+.log-head {
     display: flex;
     flex-direction: column;
     row-gap: 7px;
     width: 100%;
 }
-.log-logo img{
+
+.log-logo img {
     width: 200px;
     margin-bottom: 15px;
 }
-.login-signup{
+
+.login-signup {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -102,36 +114,45 @@
     margin-bottom: 20px;
     cursor: pointer;
 }
-.login, .signup{
+
+.login,
+.signup {
     padding: 9px;
     flex: 1;
 }
-.vertical-line{
+
+.vertical-line {
     width: 1px;
     height: 20px;
     background-color: #a8a8a8;
 }
-.login:hover, .signup:hover{
+
+.login:hover,
+.signup:hover {
     border-bottom: 2px solid black;
 }
-.log-content{
+
+.log-content {
     display: none;
 }
-.log-content.active{
+
+.log-content.active {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
-.log-details{
+
+.log-details {
     display: grid;
     grid-template-rows: 37px 1fr 1fr;
     row-gap: 15px;
 }
-.log-input{
+
+.log-input {
     position: relative;
 }
 
-.log-input input{
+.log-input input {
     width: 100%;
     padding: 15px 10px;
     font-size: 16px;
@@ -139,7 +160,8 @@
     border-radius: 4px;
     outline: none;
 }
-.log-input label{
+
+.log-input label {
     position: absolute;
     top: 50%;
     left: 11px;
@@ -150,25 +172,24 @@
     transition: all 0.2s ease-in-out;
 }
 
-.log-input input:focus + label,
-.log-input input:not(:placeholder-shown) + label {
+.log-input input:focus+label,
+.log-input input:not(:placeholder-shown)+label {
     top: 0;
     left: 11px;
     font-size: 14px;
     color: #005438;
     padding: 0 5px;
-    background: linear-gradient(
-        to bottom,
-        #ebebeb 50%,
-        #ffffff 50%
-    );
+    background: linear-gradient(to bottom,
+            #ebebeb 50%,
+            #ffffff 50%);
 }
-.log-input input:focus{
+
+.log-input input:focus {
     border-color: #007f31;
     box-shadow: 0 0 5px rgba(0, 128, 85, 0.4);
 }
 
-.forgot-pass{
+.forgot-pass {
     text-decoration: none;
     color: #0073e6;
     cursor: pointer;
@@ -176,13 +197,16 @@
     font-size: 14px;
     margin-top: 7px;
 }
-.forgot-pass:hover{
+
+.forgot-pass:hover {
     color: red;
 }
-.log-button{
+
+.log-button {
     margin: 25px 0 0;
 }
-.log-button button{
+
+.log-button button {
     padding: 10px 50px;
     font-size: 16px;
     border-radius: 10px;
@@ -190,30 +214,34 @@
     background-color: #4e6356;
     color: white;
     cursor: pointer;
-    transition:.3s;
+    transition: .3s;
 }
-.log-button button:hover{
+
+.log-button button:hover {
     background-color: #354a43;
 }
-.sign-content{
+
+.sign-content {
     display: none;
 }
-.sign-content.active{
+
+.sign-content.active {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
-.sign-details{
+
+.sign-details {
     display: grid;
     grid-template-rows: 37px 1fr 1fr 1fr;
     row-gap: 15px;
 }
 
-.sign-input{
+.sign-input {
     position: relative;
 }
 
-.sign-input input{
+.sign-input input {
     width: 100%;
     padding: 15px 10px;
     font-size: 16px;
@@ -222,7 +250,7 @@
     outline: none;
 }
 
-.sign-input label{
+.sign-input label {
     position: absolute;
     top: 50%;
     left: 11px;
@@ -233,28 +261,28 @@
     transition: all 0.2s ease-in-out;
 }
 
-.sign-input input:focus + label,
-.sign-input input:not(:placeholder-shown) + label {
+.sign-input input:focus+label,
+.sign-input input:not(:placeholder-shown)+label {
     top: 0;
     left: 11px;
     font-size: 14px;
     color: #005438;
     padding: 0 5px;
-    background: linear-gradient(
-        to bottom,
-        #ebebeb 50%,
-        #ffffff 50%
-    );
+    background: linear-gradient(to bottom,
+            #ebebeb 50%,
+            #ffffff 50%);
 }
 
-.sign-input input:focus{
+.sign-input input:focus {
     border-color: #007f31;
     box-shadow: 0 0 5px rgba(0, 128, 85, 0.4);
 }
-.sign-button{
+
+.sign-button {
     margin: 25px 0 0;
 }
-.sign-button button{
+
+.sign-button button {
     padding: 10px 50px;
     font-size: 16px;
     border-radius: 10px;
@@ -262,37 +290,43 @@
     background-color: #4e6356;
     color: white;
     cursor: pointer;
-    transition:.3s;
+    transition: .3s;
 }
-.sign-button button:hover{
+
+.sign-button button:hover {
     background-color: #354a43;
 }
-.log-partition{
+
+.log-partition {
     display: flex;
-    flex-direction: row;    
+    flex-direction: row;
     column-gap: 10px;
     align-items: center;
 }
-.log-partition hr{
+
+.log-partition hr {
     width: 50%;
     margin: 0;
 }
-.log-options{
+
+.log-options {
     display: flex;
     flex-direction: row;
     column-gap: 10px;
 }
-.log-options img{
+
+.log-options img {
     width: 25px;
 }
-.log-options button{
+
+.log-options button {
     padding: 10px 0 7px;
     border: 1px solid #a8a8a8;
     border-radius: 10px;
     flex: 1;
 }
 
-.account-popup{
+.account-popup {
     background-color: #ebebeb;
     display: flex;
     flex-direction: column;
@@ -304,7 +338,7 @@
     width: 50%;
 }
 
-.account-close{
+.account-close {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -315,20 +349,20 @@
     padding: 3px 0 0 1px;
 }
 
-.account-close img{
+.account-close img {
     width: 25px;
 }
 
-.account-head{
+.account-head {
     margin: 13px auto 20px;
 }
 
-.account-head p{
+.account-head p {
     margin: auto;
     color: rgb(98, 98, 98);
 }
 
-.useracct-ava{
+.useracct-ava {
     width: 90px;
     height: 90px;
     margin: 0 auto 14px;
@@ -341,13 +375,14 @@
     font-size: xxx-large;
 }
 
-.account-name{
+.account-name {
     text-align: center;
     margin-bottom: 10px;
 }
 
-.logout-btn{
-    background-color: #d97706;;
+.logout-btn {
+    background-color: #d97706;
+    ;
     color: white;
     border: none;
     padding: 7px 13px;
@@ -358,7 +393,7 @@
 
 /* wishlist button */
 
-.wishlist-popup{
+.wishlist-popup {
     background-color: #ebebeb;
     display: flex;
     flex-direction: column;
@@ -369,7 +404,8 @@
     position: relative;
     width: 50%;
 }
-.wish-close{
+
+.wish-close {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -379,20 +415,25 @@
     border-radius: 7px;
     padding: 3px 0 0 1px;
 }
-.wish-close img{
+
+.wish-close img {
     width: 25px;
 }
-.wishlist-head{
+
+.wishlist-head {
     margin: 13px 0 20px;
     width: 100%;
 }
-.wishlist-head p{
+
+.wishlist-head p {
     margin: 10px 0 10px;
 }
-.wishlist-head hr{
+
+.wishlist-head hr {
     width: 100%;
 }
-.wishlist-content{
+
+.wishlist-content {
     display: grid;
     grid-auto-rows: 134px;
     grid-gap: 10px;
@@ -400,32 +441,45 @@
     overflow: auto;
     height: 421px;
 }
-.wish-products{
+
+.wish-products {
     background-color: white;
     display: grid;
     grid-template-columns: 170px 1fr;
     border-radius: 9px;
     overflow: hidden;
 }
-.wProduct-img{
+
+.wProduct-img {
     overflow: hidden;
 }
-.wProduct-img img{
+
+.wProduct-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-.wProduct-details{
+
+.wProduct-details {
     display: grid;
     grid-template-rows: 1fr 20px 30px;
     row-gap: 7px;
     padding: 15px 24px;
 }
-.p-cost-button{
+
+.p-name {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.p-cost-button {
     display: flex;
     justify-content: space-between;
 }
-.w-offer{
+
+.w-offer {
     display: inline-block;
     font-size: 16px;
     border-radius: 17px;
@@ -433,39 +487,75 @@
     font-weight: 600;
     margin-right: 17px;
 }
-.p-remove{
-    color: #0065ca;
-    display: inline-block;
-    cursor: pointer;
-    margin-right: 20px;
+
+.wish-buttons {
+    display: flex;
+    align-items: center;
 }
-.p-remove:hover{
+
+.p-remove {
+    color: #0065ca;
+    cursor: pointer;
+}
+
+.p-remove:hover {
     color: red;
 }
-.p-add-cart{
+
+.p-add-cart {
     background-color: #4e6356;
     color: white;
     border: none;
     padding: 7px 13px;
     border-radius: 3px;
     cursor: pointer;
+    margin-right: 25px;
 }
 
 @media (max-width: 500px) {
-    .login-page{
-        width: 70%;
+    .login-page {
+        width: 84%;
+        padding: 20px;
     }
-    .search-box{
+
+    .search-box {
         width: 80%;
         height: 75%;
     }
-    .search-bar{
+
+    .search-bar {
         border-radius: 5px;
         font-size: 9px;
         margin-right: 5px;
     }
-    .search-close{
+
+    .search-close {
         width: 5.4%;
         border-radius: 5px;
+    }
+
+    .log-input input{
+        width: 94%;
+    }
+
+    .sign-input input{
+        width: 94%;
+    }
+
+    .wishlist-popup {
+        padding: 10px;
+        width: 90%;
+    }
+
+    .wishlist-head {
+        margin-left: 10px;
+    }
+
+    .wish-buttons {
+        display: flex;
+    }
+
+    .p-add-cart {
+        margin-right: 10px;
     }
 }

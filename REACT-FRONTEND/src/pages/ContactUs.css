@@ -6,7 +6,7 @@
     justify-content: center;
 }
 .contact-container {
-    max-width: 900px;
+    width: 50%;
     background: #F0FDFA;
     padding: 15px 40px 40px;
     border-radius: 20px;
@@ -54,9 +54,12 @@
     display: block;
     color: #222;
 }
+
 .contact-form input,
 .contact-form textarea {
-    width: 96%;
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
     padding: 12px;
     border-radius: 10px;
     border: 1px solid #ccc;
@@ -94,9 +97,9 @@
 .store-info {
     padding-top: 20px;
     border-top: 1px solid #ddd;
-    display: grid;
-    grid-template-rows: 30px 40px 40px 60px;
-    row-gap: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 .store-info h2 {
     font-size: 24px;
@@ -115,4 +118,41 @@
 }
 .sun-span{
     color: red;
+}
+
+@media (max-width: 500px) {
+
+    .contact-section {
+        padding: 20px;
+        width: auto;
+    }
+
+    .contact-container {
+        width: 100%;
+        padding: 15px 18px;
+    }
+
+    .contact-content,
+    .contact-form,
+    .contact-form form {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .title {
+        font-size: 25px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+    }
+
+    .store-info h2 {
+        font-size: 21px;
+    }
+
+    .store-info p {
+        font-size: 13px;
+        overflow-wrap: anywhere;
+    }
 }
