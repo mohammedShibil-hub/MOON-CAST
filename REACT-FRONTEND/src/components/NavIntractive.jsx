@@ -4,6 +4,7 @@ import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { avatorColor } from '../utils/avatorColor';
+import { useWishlist } from '../context/WishlistContext';
 const apiUrl = import.meta.env.VITE_BACKEND_API_URL || 'http://localhost:6004';
 
 
@@ -58,7 +59,7 @@ export function LoginIntract({ loginOpen, setLoginOpen }) {
             chandra@gmail.com
             asdf34
             */
-           
+
 
         } catch (err) {
             const message =
@@ -162,7 +163,7 @@ export function LoginIntract({ loginOpen, setLoginOpen }) {
                         </div>
                     </div>
                 </div>
-                <ToastContainer />                                                                
+                <ToastContainer />
             </div>
         )
     )
@@ -170,7 +171,7 @@ export function LoginIntract({ loginOpen, setLoginOpen }) {
 
 export function UserAccountIntract({ accountOpen, setAccountOpen, }) {
 
-    
+
     const [user, setUser] = useState(() => {
         const savedUser = localStorage.getItem('user');
         return savedUser ? JSON.parse(savedUser) : null;
@@ -198,7 +199,7 @@ export function UserAccountIntract({ accountOpen, setAccountOpen, }) {
                             <h1>{user?.name}</h1>
                             <p>{user?.email}</p>
                         </div>
-                        
+
                     </div>
                     <button className="logout-btn" onClick={logout}>Logout</button>
                     <div className="account-content">
@@ -211,6 +212,9 @@ export function UserAccountIntract({ accountOpen, setAccountOpen, }) {
 }
 
 export function WishlistIntract({ wishlistOpen, setWishlistOpen }) {
+
+    const { wishlist, removeWishlist } = useWishlist();
+
     return (
         wishlistOpen && (
             <div className="wishlist-overlay" id="whishlist-overlay">
@@ -224,86 +228,38 @@ export function WishlistIntract({ wishlistOpen, setWishlistOpen }) {
                         <hr />
                     </div>
                     <div className="wishlist-content">
-                        <div className="wish-products">
-                            <div className="wProduct-img">
-                                <img className="wishProduct-img" src="/images/product/1-24-dodge-challenger.jpg"
-                                    alt="wishProduct-img" />
+                        {wishlist.length === 0 ? (
+                            <div className="empty-wishlist">
+                                <h3>Your wishlist is empty!</h3>
+                                <p>Save your favourite models here.</p>
+                                <img src="/images/icons/empty-wishlist.png" alt="empty-wishlist" />
                             </div>
-                            <div className="wProduct-details">
-                                <div className="p-name">
-                                    Dodge Challenger SRT Hellcat 1:24 Diecast
+                        ) : (
+                            wishlist.map(product => (
+                                <div className="wish-products" key={product.id}>
+                                    <div className="wProduct-img">
+                                        <img className="wishProduct-img" src={product.image?.[0]}
+                                            alt={product.name} />
+                                    </div>
+                                    <div className="wProduct-details">
+                                        <div className="p-name">
+                                            {product.name}
+                                        </div>
+                                        <div className="p-price">
+                                            <div className="w-offer">- {product.discount}%</div>
+                                            <div className="mrp">₹{product.mrp.toFixed(2)}</div>
+                                            <div className="offer-price">₹{product.offerPrice.toFixed(2)}</div>
+                                        </div>
+                                        <div className="wish-buttons">
+                                            <button className="p-add-cart">Add to Cart</button>
+                                            <div className="p-remove" onClick={() => removeWishlist(product.id)}>
+                                                Remove
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="p-price">
-                                    <div className="w-offer">- 63</div>
-                                    <div className="mrp">2999</div>
-                                    <div className="offer-price">1103</div>
-                                </div>
-                                <div className="wish-buttons">
-                                    <button className="p-add-cart">Add to Cart</button>
-                                    <div className="p-remove">Remove</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="wish-products">
-                            <div className="wProduct-img">
-                                <img className="wishProduct-img" src="/images/product/rollys-royce-cullinen.jpg"
-                                    alt="wishProduct-img" />
-                            </div>
-                            <div className="wProduct-details">
-                                <div className="p-name">
-                                    1:32 Cullinan Diecast Metal Scale Model Car
-                                </div>
-                                <div className="p-price">
-                                    <div className="w-offer">- 60</div>
-                                    <div className="mrp">1999</div>
-                                    <div className="offer-price">799</div>
-                                </div>
-                                <div className="wish-buttons">
-                                    <button className="p-add-cart">Add to Cart</button>
-                                    <div className="p-remove">Remove</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="wish-products">
-                            <div className="wProduct-img">
-                                <img className="wishProduct-img" src="/images/product/Land-Cruiser-diecast.jpg"
-                                    alt="wishProduct-img" />
-                            </div>
-                            <div className="wProduct-details">
-                                <div className="p-name">
-                                    Toyota Land Cruiser LC80 1:24 Diecast Metal Car
-                                </div>
-                                <div className="p-price">
-                                    <div className="w-offer">- 67</div>
-                                    <div className="mrp">3000</div>
-                                    <div className="offer-price">999</div>
-                                </div>
-                                <div className="wish-buttons">                            
-                                    <button className="p-add-cart">Add to Cart</button>
-                                    <div className="p-remove">Remove</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="wish-products">
-                            <div className="wProduct-img">
-                                <img className="wishProduct-img" src="/images/product/Royal-Enfield-Meteor-350.png"
-                                    alt="wishProduct-img" />
-                            </div>
-                            <div className="wProduct-details">
-                                <div className="p-name">
-                                    Royal Enfield Classic 350 1:12 licensed
-                                </div>
-                                <div className="p-price">
-                                    <div className="w-offer">- 42</div>
-                                    <div className="mrp">1750</div>
-                                    <div className="offer-price">999</div>
-                                </div>
-                                <div className="wish-buttons">
-                                    <button className="p-add-cart">Add to Cart</button>
-                                    <div className="p-remove">Remove</div>
-                                </div>
-                            </div>
-                        </div>
+                            ))
+                        )}
                     </div>
                 </div>
             </div>

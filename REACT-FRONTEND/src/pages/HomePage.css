@@ -219,12 +219,13 @@ main {
     bottom: 12px;
     right: 6px;
     width: 23px;
+    background: transparent;
+    border: none;
     cursor: pointer;
-    content: url(/images/icons/icons8-heart-96.png);
 }
 
-.wishlist-checkBox:checked+.wishlist-label {
-    content: url(/images/icons/icons8-heart-fill-red.png);
+.heart-icon{
+    width: 100%;
 }
 
 .name {

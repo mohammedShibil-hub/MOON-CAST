@@ -5,10 +5,12 @@ import { SearchIntract } from './NavIntractive';
 import { useScrollEffect } from '../utils/HeaderScroll';
 import { avatorColor } from '../utils/avatorColor';
 import { useCart } from '../context/CartContext';
+import { useWishlist } from '../context/WishlistContext';
 
 export function Header({ setLoginOpen, setWishlistOpen, setAccountOpen, setHamOpen }) {
     const [searchOpen, setSearchOpen] = useState(false);
 
+    const { wishlist} = useWishlist();
     const { cart } = useCart();
     const cartItemCount = cart.reduce((total, item) => total + item.quantity, 0);
 
@@ -129,7 +131,7 @@ export function Header({ setLoginOpen, setWishlistOpen, setAccountOpen, setHamOp
 
                 <div className="wishlist-icon" onClick={() => setWishlistOpen(true)}>
                     <img src="/images/icons/icons8-heart-100.png" />
-                    <div className="cound">0</div>
+                    <div className="cound">{wishlist.length}</div>
                 </div>
                 <Link to="/checkout" className="cart-icon">
                     <img src="/images/icons/icons8-cart-100.png" />

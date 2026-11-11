@@ -7,6 +7,7 @@ import { Footer } from '../components/Footer';
 import { SlidingBanner } from '../components/SlidingBanner';
 import { HamburgerIntract } from '../components/CmpIntractive';
 import { useNavigate } from 'react-router-dom';
+import { useWishlist } from '../context/WishlistContext';
 const API_URL = import.meta.env.VITE_BACKEND_API_URL || 'http://localhost:6004';
 
 import axios from 'axios';
@@ -27,6 +28,7 @@ export function HomePage() {
     const [loadingHotwheels, setLoadingHotwheels ] = useState(true);
     const [loadingDiorama, setLoadingDiorama ] = useState(true);
     const [hamOpen, setHamOpen] = useState(false)
+    const {wishlist, toggleWishlist} = useWishlist();
 
 
     useEffect(() => {
@@ -77,6 +79,7 @@ export function HomePage() {
             });
 
     }, []);
+
 
     const renderSkeletons = (count = 12) =>
     Array.from({ length: count }).map((_, index) => (
@@ -202,8 +205,18 @@ export function HomePage() {
                                 <div className="img-box">
                                     <img className="product-image" src={product.images?.[0] || "/images/placeholder.png"} alt={product.name} />
                                     <div className="offer">{product.offer}%</div>
-                                    <input type="checkbox" id="wishlist1" className="wishlist-checkBox" />
-                                    <label className="wishlist-label"></label>
+                                    <button className="wishlist-label" onClick={(e) => {
+                                        e.preventDefault();
+                                        e.stopPropagation();
+                                        toggleWishlist(product._id);
+                                    }}>
+                                        <img className="heart-icon" alt="wishlist-icon"
+                                            src={wishlist.some(item => String(item._id) === String(product._id))
+                                                ? "/images/icons/icons8-heart-fill-red.png"
+                                                : "/images/icons/icons8-heart-96.png"
+                                            }
+                                        />
+                                    </button>
                                 </div>
                                 <div className="name">{product.name}</div>
                                 <div className="price-div">
@@ -228,8 +241,17 @@ export function HomePage() {
                                 <div className="img-box">
                                     <img className="product-image" src={product.images?.[0] || "/images/placeholder.png"} alt={product.name} />
                                     <div className="offer">{product.offer}%</div>
-                                    <input type="checkbox" id="wishlist1" className="wishlist-checkBox" />
-                                    <label className="wishlist-label"></label>
+                                    <button className="wishlist-label" onClick={(e) => {
+                                        e.preventDefault();
+                                        e.stopPropagation();
+                                        toggleWishlist(product._id);
+                                    }}>
+                                        <img className="heart-icon" alt="wishlist-icon"
+                                            src={wishlist.some(item => item._id === product._id)
+                                                ? "/images/icons/icons8-heart-fill-red.png"
+                                                : "/images/icons/icons8-heart-96.png"
+                                        } />
+                                    </button>
                                 </div>
                                 <div className="name">{product.name}</div>
                                 <div className="price-div">
@@ -254,8 +276,17 @@ export function HomePage() {
                                 <div className="img-box">
                                     <img className="product-image" src={product.images?.[0] || "/images/placeholder.png"} alt={product.name} />
                                     <div className="offer">{product.offer}%</div>
-                                    <input type="checkbox" id="wishlist1" className="wishlist-checkBox" />
-                                    <label className="wishlist-label"></label>
+                                    <button className="wishlist-label" onClick={(e) => {
+                                        e.preventDefault();
+                                        e.stopPropagation();
+                                        toggleWishlist(product._id)}
+                                    }>
+                                        <img className="heart-icon" alt="wishlist-icon"
+                                            src={wishlist.some(item => item._id === product._id)
+                                                ? "/images/icons/icons8-heart-fill-red.png"
+                                                : "/images/icons/icons8-heart-96.png"
+                                            } />
+                                    </button>
                                 </div>
                                 <div className="name">{product.name}</div>
                                 <div className="price-div">
@@ -283,8 +314,19 @@ export function HomePage() {
                                         <img className="product-image" src={product.images?.[0] || "/images/placeholder.png"} alt={product.name} />
 
                                         <div className="offer">{product.offer}%</div>
-                                        <input type="checkbox" id="wishlist1" className="wishlist-checkBox" />
-                                        <label className="wishlist-label"></label>
+                                        <button className="wishlist-label" onClick={
+                                            (e) => {
+                                                e.preventDefault();
+                                                e.stopPropagation();
+                                                toggleWishlist(product._id);
+                                            }
+                                        }>
+                                            <img className="heart-icon" alt="wishlist-icon"
+                                                src={wishlist.some(item => item._id === product._id)
+                                                    ? "/images/icons/icons8-heart-fill-red.png"
+                                                    : "/images/icons/icons8-heart-96.png"
+                                                } />
+                                        </button>
                                     </div>
                                     <div className="name">{product.name}</div>
                                     <div className="price-div">
