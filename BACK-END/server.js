@@ -7,6 +7,7 @@ const cors = require('cors');
 const authRoutes = require("./routes/authRoutes");
 const sellerRoutes = require("./routes/sellerRoutes");
 const sellerregiRoutes = require("./routes/sellerregiRoutes");
+const wishlistRoutes = require("./routes/wishlistRoutes");
 
 connectDB()
 const app = express()
@@ -20,6 +21,7 @@ app.use("/api/products", require('./routes/productRoutes'));
 app.use("/api/auth", authRoutes);
 app.use("/api/seller", sellerRoutes);
 app.use("/api/seller-details", sellerregiRoutes);
+app.use("/api/wishlist", wishlistRoutes);
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "public", "server.html"));
 });

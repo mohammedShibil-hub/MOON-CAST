@@ -29,7 +29,12 @@ const userSchema = new mongoose.Schema(
             }
         ],
 
-        wishlist: [String],
+        wishlist: [
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Product",
+            }
+        ],
 
         address: {
             fullName: String,
