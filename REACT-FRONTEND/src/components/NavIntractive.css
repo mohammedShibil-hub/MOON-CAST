@@ -525,12 +525,13 @@
 
     .search-bar {
         border-radius: 5px;
-        font-size: 9px;
+        font-size: 12px;
         margin-right: 5px;
     }
 
     .search-close {
-        width: 5.4%;
+        width: 23px;
+        height: 29px;
         border-radius: 5px;
     }
 

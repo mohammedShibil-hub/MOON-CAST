@@ -7,6 +7,7 @@ import { ProductReview } from '../components/ProductReview';
 import { useParams } from 'react-router';
 import { Footer } from '../components/Footer';
 import { useCart } from '../context/CartContext';
+import { UserAccountIntract, LoginIntract } from '../components/NavIntractive';
 const API_URL = import.meta.env.VITE_BACKEND_API_URL || 'http://localhost:6004';
 
 
@@ -14,6 +15,8 @@ export function ProductDetailPage() {
 
     const [hamOpen, setHamOpen] = useState(false);
     const [wishlistOpen, setWishlistOpen] = useState(false);
+    const [loginOpen, setLoginOpen] = useState(false);
+    const [accountOpen, setAccountOpen] = useState(false);
     const [product, setProduct] = useState(null)
     const [selectedImage, setSelectedImage] = useState(null)
     const [quantity, setQuantity] = useState(1);
@@ -34,9 +37,12 @@ export function ProductDetailPage() {
 
     return (
         <>
-            <CompactHeader setHamOpen={setHamOpen} setWishlistOpen={setWishlistOpen} />
+            <CompactHeader setHamOpen={setHamOpen} setWishlistOpen={setWishlistOpen} 
+                setAccountOpen={setAccountOpen} setLoginOpen={setLoginOpen} />
             <HamburgerIntract hamOpen={hamOpen} setHamOpen={setHamOpen} setWishlistOpen={setWishlistOpen} />
             <WishlistIntract wishlistOpen={wishlistOpen} setWishlistOpen={setWishlistOpen} />
+            <LoginIntract loginOpen={loginOpen} setLoginOpen={setLoginOpen} />
+            <UserAccountIntract accountOpen={accountOpen} setAccountOpen={setAccountOpen} />
 
             <div className="card-detail-container">
                 <div className="product-path">Home

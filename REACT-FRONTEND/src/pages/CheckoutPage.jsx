@@ -10,11 +10,11 @@ export function CheckoutPage() {
     return (
         <div className="checkoutPage">
             <title>Checkout</title>
-            <header>
-                <div className="left-section">
+            <header className="checkout-header">
+                <div className="checkout-left-section">
                     <Link to="/"><img className="left-brand-logo" src="/images/icons/moon-cast-brand-logo.png" /></Link>
                 </div>
-                <div className="middle-section">
+                <div className="checkout-middle-section">
                     <div className="check">Checkout (<span className="count">{cartItemCount} items</span>)</div>
                 </div>
             </header>

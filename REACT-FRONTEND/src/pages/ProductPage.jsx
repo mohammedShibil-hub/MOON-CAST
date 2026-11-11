@@ -13,10 +13,10 @@ export function ProductPage() {
     const location = useLocation();
     const [loginOpen, setLoginOpen] = useState(false);
     const [accountOpen, setAccountOpen] = useState(false);
-
     const [hamOpen, setHamOpen] = useState(false)
     const [wishlistOpen, setWishlistOpen] = useState(false)
     const [products, setProducts] = useState([])
+    const [loadingProducts, setLoadingProducts] = useState(false)
 
     const fetchProducts = async (query) => {
         const res = await fetch(
@@ -27,8 +27,21 @@ export function ProductPage() {
     }
 
     useEffect(() => {
-        fetchProducts(location.search)
-            .then(data => setProducts(data));
+        const loadProducts = async () => {
+            setLoadingProducts(true);
+
+            try {
+                const data = await fetchProducts(location.search);
+                setProducts(data);
+            }
+            catch (error) {
+                console.error("Error fetching products:", error);
+            }
+            finally {
+                setLoadingProducts(false);
+            }
+        };
+        loadProducts();
     }, [location.search]);
 
     const query = new URLSearchParams(location.search);
@@ -44,6 +57,15 @@ export function ProductPage() {
     else if (trending) heading = "Trending";
     else if (brand) heading = `${brand}`;
     else if (category) heading = `${category}`;
+
+    const renderSkelton = (count = 12) =>
+        Array.from({ length: count }).map((_, index) => (
+            <div className="box-div skeleton" key={index}>
+                <div className="pics skeleton"></div>
+                <div className="discription skeleton"></div>
+                <div className="amount skeleton"></div>
+            </div>
+        ))
 
     return (
         <>
@@ -66,26 +88,28 @@ export function ProductPage() {
                 </div>
             </div>
             <div className="productPage-container">
-                {products.map(product => (
-                    <Link key={product._id} className="box-div" to={`/product/${product._id}`} >
-                        <div className="pics">
-                            <img src={product.images[0]} />
-                            <div className="P-offer">{product.offer}%</div>
-                        </div>
-                        <div className="discription">
-                            {product.name}
-                        </div>
-                        <div className="amound">
-                            <div className="product-mrp">₹{product.mrp}</div>
-                            <div className="offer-price">₹{product.price}</div>
-                        </div>
-                        <div className="added">
-                            <img src="/images/icons/checkmark.png" alt="add-checkmark" />
-                            Added
-                        </div>
-                        <button className="js-addCart" data-product-id="${product.id}">Add to Cart</button>
-                    </Link>
-                ))}
+                {loadingProducts ? (renderSkelton(12)) : (
+                    products.map(product => (
+                        <Link key={product._id} className="box-div" to={`/product/${product._id}`} >
+                            <div className="pics">
+                                <img src={product.images[0]} />
+                                <div className="P-offer">{product.offer}%</div>
+                            </div>
+                            <div className="discription">
+                                {product.name}
+                            </div>
+                            <div className="amound">
+                                <div className="product-mrp">₹{product.mrp}</div>
+                                <div className="offer-price">₹{product.price}</div>
+                            </div>
+                            <div className="added">
+                                <img src="/images/icons/checkmark.png" alt="add-checkmark" />
+                                Added
+                            </div>
+                            <button className="js-addCart" data-product-id="${product.id}">Add to Cart</button>
+                        </Link>
+                    ))
+                )}
             </div>
             <Footer />
         </>

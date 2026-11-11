@@ -255,3 +255,30 @@
 .similar-products-card h2{
     text-align: center;
 }
+
+@media (max-width: 500px) {
+
+    .card-detail-container{
+        padding: 60px 12px 0;
+    }
+
+    .product-dtl-page{
+        flex-direction: column;
+    }
+
+    .dtl-left-section{
+        position: relative;
+    }
+
+    .dtl-right-section{
+        width: 100%;
+    }
+
+    .emi-box{
+        width: auto;
+    }
+
+    .top-rating-section{
+        flex-direction: column;
+    }
+}

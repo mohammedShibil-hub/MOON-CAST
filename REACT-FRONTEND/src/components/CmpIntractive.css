@@ -347,6 +347,23 @@
         width: 50%;
     }
 
+    .cmp-search-box {
+        width: 80%;
+        height: 75%;
+    }
+
+    .cmp-search-bar {
+        border-radius: 5px;
+        font-size: 12px;
+        margin-right: 5px;
+    }
+
+    .cmp-search-close {
+        width: 23px;
+        height: 29px;
+        border-radius: 5px;
+    }
+
     .cmp-wishlist-popup {
         padding: 0;
     }
