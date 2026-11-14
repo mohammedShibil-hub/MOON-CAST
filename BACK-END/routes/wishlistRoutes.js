@@ -9,12 +9,13 @@ const authMiddleware = require("../middleware/authMiddleware");
 
 router.get('/', authMiddleware, async (req, res) => {
     try {
-        const user = await userSchema.findById(req.user._id).populate('wishlist');
-        res.status(200).json({ wishlist: user.wishlist });
+        const user = await userSchema.findById(req.user.id).populate('wishlist');
 
         if (!user) {
             return res.status(404).json({ message: "User not found" });
         }
+
+        res.status(200).json({ wishlist: user.wishlist || [] });
 
     } catch (error) {
         res.status(500).json({ message: error.message });
@@ -25,7 +26,15 @@ router.get('/', authMiddleware, async (req, res) => {
 router.post('/toggle', authMiddleware, async (req, res) => {
     try {
         const { productId } = req.body;
-        const user = await userSchema.findById(req.user._id);
+
+        const user = await userSchema.findById(req.user.id);
+
+        if(!user) {
+            return res.status(404).json({
+                message: "user not found"
+            });
+        }
+
         const product = await Product.findById(productId);
 
         if (!product) {
@@ -43,8 +52,12 @@ router.post('/toggle', authMiddleware, async (req, res) => {
 
         await user.save();
         await user.populate('wishlist');
+
         res.status(200).json({
-            message: alreadyInWishlist ? "Product removed from wishlist" : "Product added to wishlist",
+            message: alreadyInWishlist 
+            ? "Product removed from wishlist"
+            : "Product added to wishlist",
+
             wishlist: user.wishlist
         });
     } catch (error) {
@@ -53,14 +66,23 @@ router.post('/toggle', authMiddleware, async (req, res) => {
 });
 
 
-router.delete('/wishlist/:productId', authMiddleware, async (req, res) => {
+router.delete('/:productId', authMiddleware, async (req, res) => {
     try {
-        const user = await userSchema.findById(req.user._id);
+        const user = await userSchema.findById(req.user.id);
+
+        if(!user) {
+            return res.status(404).json({
+                message: "user not found"
+            })
+        }
 
         user.wishlist = user.wishlist.filter(id => id.toString() !== req.params.productId);
+
         await user.save();
         await user.populate('wishlist');
+
         res.status(200).json({ message: "Product removed from wishlist", wishlist: user.wishlist });
+
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
