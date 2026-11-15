@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
+const apiUrl = import.meta.env.VITE_BACKEND_API_URL || 'http://localhost:6004';
 
 const WishlistContext = createContext();
 
@@ -6,6 +7,7 @@ export function WishlistProvider({ children }) {
     const [wishlist, setWishlist] = useState([]);
 
     const token = localStorage.getItem("token");
+    console.log("Token exists:", !!token);
 
     const fetchwishlist = async () => {
         if (!token) {
@@ -14,9 +16,9 @@ export function WishlistProvider({ children }) {
         }
 
         try {
-            const response = await fetch(`${import.meta.env.VITE_BACKEND_API_URL}/api/wishlist`, {
+            const response = await fetch(`${apiUrl}/api/wishlist`, {
                 headers: {
-                    "Authorization": `Bearer${token}`
+                    "Authorization": `Bearer ${token}`
                 }
             });
             if (!response.ok) {
@@ -25,6 +27,7 @@ export function WishlistProvider({ children }) {
 
             const data = await response.json();
             setWishlist(data.wishlist);
+
         } catch (error) {
             console.error("Error fetching wishlist:", error);
         };
@@ -36,7 +39,7 @@ export function WishlistProvider({ children }) {
         }
 
         try {
-            const response = await fetch(`${import.meta.env.VITE_BACKEND_API_URL}/api/wishlist/toggle`, {
+            const response = await fetch(`${apiUrl}/api/wishlist/toggle`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -46,26 +49,32 @@ export function WishlistProvider({ children }) {
             });
 
             const data = await response.json();
+
+            console.log("wishlist API status:", response.status);
+            console.log("wishlist API response:", data);
+
             if (!response.ok) {
                 throw new Error(data.message || "Failed to toggle wishlist");
             }
-            setWishlist(data.wishlist);
+            setWishlist(data.wishlist || []);
+            
         } catch (error) {
             console.error("Error toggling wishlist:", error);
         }
 
         console.log("Clicked Product ID:", productId);
     };
-    const removeFromWishlist = async (productId) => {
+    const removeWishlist = async (productId) => {
 
         try {
-            const response = await fetch(`${import.meta.env.VITE_BACKEND_API_URL}/api/wishlist/${productId}`, {
+            const response = await fetch(`${apiUrl}/api/wishlist/${productId}`, {
                 method: "DELETE",
                 headers: {
                     "Authorization": `Bearer ${token}`
                 }
             });
             const data = await response.json();
+
             if (!response.ok) {
                 throw new Error(data.message || "Failed to remove from wishlist");
             }
@@ -83,7 +92,7 @@ export function WishlistProvider({ children }) {
         <WishlistContext.Provider value={{
             wishlist,
             toggleWishlist,
-            removeFromWishlist,
+            removeWishlist,
             fetchwishlist
         }}>
             {children}

@@ -236,9 +236,9 @@ export function WishlistIntract({ wishlistOpen, setWishlistOpen }) {
                             </div>
                         ) : (
                             wishlist.map(product => (
-                                <div className="wish-products" key={product.id}>
+                                <div className="wish-products" key={product._id}>
                                     <div className="wProduct-img">
-                                        <img className="wishProduct-img" src={product.image?.[0]}
+                                        <img className="wishProduct-img" src={product.images?.[0]}
                                             alt={product.name} />
                                     </div>
                                     <div className="wProduct-details">
@@ -246,13 +246,13 @@ export function WishlistIntract({ wishlistOpen, setWishlistOpen }) {
                                             {product.name}
                                         </div>
                                         <div className="p-price">
-                                            <div className="w-offer">- {product.discount}%</div>
+                                            <div className="w-offer">- {product.offer}%</div>
                                             <div className="mrp">₹{product.mrp.toFixed(2)}</div>
-                                            <div className="offer-price">₹{product.offerPrice.toFixed(2)}</div>
+                                            <div className="offer-price">₹{product.price.toFixed(2)}</div>
                                         </div>
                                         <div className="wish-buttons">
                                             <button className="p-add-cart">Add to Cart</button>
-                                            <div className="p-remove" onClick={() => removeWishlist(product.id)}>
+                                            <div className="p-remove" onClick={() => removeWishlist(product._id)}>
                                                 Remove
                                             </div>
                                         </div>

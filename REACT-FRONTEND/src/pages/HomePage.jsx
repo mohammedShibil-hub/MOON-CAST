@@ -108,7 +108,7 @@ export function HomePage() {
                         onClick={() => navigate('/products?scale=1:64')}
                         role="button"
                         tabIndex={0}
-                        onkeydown={(e) => {
+                        onKeyDown={(e) => {
                             if (e.key === 'Enter' || e.key === ' ') {
                                 navigate('/products?scale=1:64');
                             }}}
@@ -123,7 +123,7 @@ export function HomePage() {
                         onClick={() => navigate('/products?scale=1:43')}
                         role="button"
                         tabIndex={0}
-                        onkeydown={(e) => {
+                        onKeyDown={(e) => {
                             if (e.key === 'Enter' || e.key === ' ') {
                                 navigate('/products?scale=1:43');
                             }}}
@@ -138,7 +138,7 @@ export function HomePage() {
                         onClick={() => navigate('/products?scale=1:32')}
                         role="button"
                         tabIndex={0}
-                        onkeydown={(e) => {
+                        onKeyDown={(e) => {
                             if (e.key === 'Enter' || e.key === ' ') {
                                 navigate('/products?scale=1:32');
                             }}}
@@ -153,7 +153,7 @@ export function HomePage() {
                         onClick={() => navigate('/products?scale=1:24')}
                         role="button"
                         tabIndex={0}
-                        onkeydown={(e) => {
+                        onKeyDown={(e) => {
                             if (e.key === 'Enter' || e.key === ' ') {
                                 navigate('/products?scale=1:24');
                             }}}
@@ -168,7 +168,7 @@ export function HomePage() {
                         onClick={() => navigate('/products?scale=1:18')}
                         role="button"
                         tabIndex={0}
-                        onkeydown={(e) => {
+                        onKeyDown={(e) => {
                             if (e.key === 'Enter' || e.key === ' ') {
                                 navigate('/products?scale=1:18');
                             }}}
@@ -183,7 +183,7 @@ export function HomePage() {
                         onClick={() => navigate('/products?scale=1:12')}
                         role="button"
                         tabIndex={0}
-                        onkeydown={(e) => {
+                        onKeyDown={(e) => {
                             if (e.key === 'Enter' || e.key === ' ') {
                                 navigate('/products?scale=1:12');
                             }}}
