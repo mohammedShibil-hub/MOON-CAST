@@ -13,7 +13,7 @@ export function SellerIntract({ sellerIntractOpen, setSellerIntractOpen }) {
     const [authPage, setAuthPage] = useState('login');
     const [identifier, setIdentifier] = useState("");
     const [password, setPassword] = useState("");
-    const [name, setName] = useState("");
+    const [sellerName, setSellerName] = useState("");
     const [registerEmail, setRegisterEmail] = useState("");
     const [registerPassword, setRegisterPassword] = useState("");
     const [registerConfirmPassword, setRegisterConfirmPassword] = useState("");
@@ -85,7 +85,7 @@ export function SellerIntract({ sellerIntractOpen, setSellerIntractOpen }) {
     const handleSellerRegister = async (e) => {
         e.preventDefault();
 
-        if (!name.trim()) {
+        if (!sellerName.trim()) {
             toast.error("Please enter your name.");
             return;
         }
@@ -106,8 +106,8 @@ export function SellerIntract({ sellerIntractOpen, setSellerIntractOpen }) {
         }
 
         try {
-            const res = await axios.post(`${apiUrl}/api/auth/register`, {
-                name: name.trim(),
+            const res = await axios.post(`${apiUrl}/api/auth/sellerregister`, {
+                name: sellerName.trim(),
                 email: registerEmail.trim().toLowerCase(),
                 password: registerPassword,
             });
@@ -115,7 +115,7 @@ export function SellerIntract({ sellerIntractOpen, setSellerIntractOpen }) {
             // Automatically use the registered email
             setIdentifier(registerEmail.trim().toLowerCase());
 
-            setName("");
+            setSellerName("");
             setRegisterEmail("");
             setRegisterPassword("");
             setRegisterConfirmPassword("");
@@ -185,10 +185,10 @@ export function SellerIntract({ sellerIntractOpen, setSellerIntractOpen }) {
                                     <div className="register-input">
                                         <input
                                             type="text" placeholder="First and last Name"
-                                            value={name}
-                                            onChange={(e) => setName(e.target.value)}
+                                            value={sellerName}
+                                            onChange={(e) => setSellerName(e.target.value)}
                                         />
-                                        <label htmlFor="name">Name</label>
+                                        <label htmlFor="sellerName">Seller Name</label>
                                     </div>
                                     <div className="register-input">
                                         <input

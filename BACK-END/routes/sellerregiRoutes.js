@@ -7,7 +7,7 @@ const authMiddleware = require("../middleware/authMiddleware");
 
 
 
-router.post("/register", authMiddleware, async (req, res) => {
+router.post("/sellerregister", authMiddleware, async (req, res) => {
     try {
         const {
             accountHolderName,
@@ -53,7 +53,7 @@ router.post("/register", authMiddleware, async (req, res) => {
 
         const newSeller = await Seller.create({
             userId: user._id,
-            sellerName: user.name,
+            sellerName: user.sellerName,
             bank: {
                 accountHolderName,
                 accountNumber,
