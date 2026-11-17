@@ -16,6 +16,11 @@ const userSchema = new mongoose.Schema(
             required: true
         },
 
+        refreshTokenHash: {
+            type: String,
+            default: null
+        },
+
         cart: [
             {
                 productId: {
