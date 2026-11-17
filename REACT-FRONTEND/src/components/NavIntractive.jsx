@@ -46,7 +46,9 @@ export function LoginIntract({ loginOpen, setLoginOpen }) {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post(`${apiUrl}/api/auth/login`, loginData);
+            const res = await axios.post(`${apiUrl}/api/auth/login`, loginData,
+                { withCredentials: true }
+            );
 
             localStorage.setItem('token', res.data.token);
             localStorage.setItem('user', JSON.stringify(res.data.user));
@@ -177,11 +179,22 @@ export function UserAccountIntract({ accountOpen, setAccountOpen, }) {
         return savedUser ? JSON.parse(savedUser) : null;
     });
 
-    const logout = () => {
+    const logout = async () => {
+
+        try {
+            await axios.post(`${apiUrl}/api/auth/register`, {},
+                { withCredentials: true }
+            );
+        }catch (error) {
+            console.error("Logout error:", error )
+        }
+
         localStorage.removeItem('token');
         localStorage.removeItem('user');
         setUser(null);
         setAccountOpen(false)
+
+        window,location.reload()
     }
 
     return (

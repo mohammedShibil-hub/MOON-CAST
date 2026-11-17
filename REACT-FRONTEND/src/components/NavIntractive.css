@@ -452,6 +452,7 @@
 
 .wProduct-img {
     overflow: hidden;
+    padding: 10px;
 }
 
 .wProduct-img img {
@@ -550,6 +551,10 @@
 
     .wishlist-head {
         margin-left: 10px;
+    }
+
+    .wish-products{
+        grid-template-columns: 150px 1fr;
     }
 
     .wish-buttons {
