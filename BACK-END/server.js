@@ -14,31 +14,36 @@ connectDB()
 const app = express()
 
 const allowedOrigins = [
-    "https://moon-cast.vercel.app/",
-    "http://localhost:5173"];
+    "https://moon-cast.vercel.app",
+    "http://localhost:5173"
+];
 
 app.use(cors({
     origin: (origin, callback) => {
         if (!origin || allowedOrigins.includes(origin)) {
             callback(null, true);
         } else {
-            callback(new Error("Not allowed by CORS"));
+            callback(new Error(`Not allowed by CORS: ${origin}`));
         }
     },
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
 }));
+
+
 app.use(express.json());
 app.use(cookieParser());
 
 app.use("/images", express.static(path.join(__dirname, "images")));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+
 app.use("/api/products", require('./routes/productRoutes'));
 app.use("/api/auth", authRoutes);
 app.use("/api/seller", sellerRoutes);
 app.use("/api/seller-details", sellerregiRoutes);
 app.use("/api/wishlist", wishlistRoutes);
+
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "public", "server.html"));
 });
