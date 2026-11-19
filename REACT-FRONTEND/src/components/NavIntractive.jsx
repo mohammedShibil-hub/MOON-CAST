@@ -65,7 +65,7 @@ export function LoginIntract({ loginOpen, setLoginOpen }) {
 
         } catch (err) {
             const message =
-                err.response?.data?.message ||
+                err.response?.data?.message||
                 err.message ||
                 "Something went wrong";
             toast.error('Login failed: ' + message);
@@ -75,18 +75,34 @@ export function LoginIntract({ loginOpen, setLoginOpen }) {
     const handleSignup = async (e) => {
         e.preventDefault();
         try {
-            await axios.post(`${apiUrl}/api/auth/register`, signupData);
+
+            const userData = {
+                name: signupData.name.trim(),
+                email: signupData.email.trim().toLowerCase(),
+                password: signupData.password
+            };
+
+            console.log('Signup data:', userData);
+
+            if(!userData.name || !userData.email || !userData.password) {
+                toast.error('Please fill in all fields.');
+                return;
+            }
+
+            await axios.post(`${apiUrl}/api/auth/register`,
+                userData,
+                { headers: { 'Content-Type': 'application/json' } }
+            );
 
             toast.success('Signup successful!');
+            setSignupData({ name: "", email: "", password: "" });
             setIsLogin(true);
 
         } catch (error) {
-            const message =
-                error.response?.data?.message ||
-                error.message ||
-                "Something went wrong";
-            toast.error('Signup failed: ' + message);
+            console.error('Signup error:', error.response?.data || error.message);
+            toast.error('Signup failed: ' + (error.response?.data?.message || error.message));
         }
+
     };
     return (
 
@@ -194,7 +210,7 @@ export function UserAccountIntract({ accountOpen, setAccountOpen, }) {
         setUser(null);
         setAccountOpen(false)
 
-        window,location.reload()
+        window.location.reload()
     }
 
     return (
