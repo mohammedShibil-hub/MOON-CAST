@@ -7,11 +7,11 @@ module.exports = (req, res, next) => {
 
     const authHeader = req.headers.authorization;
 
-    if (!authHeader) {
-        console.log("AUTH ERROR: Authorization header missing");
+    if (!authHeader || !authHeader.startsWith("Bearer ")) {
+        console.log("AUTH ERROR: Authorization header missing or invalid");
 
         return res.status(401).json({
-            message: "Authorization header missing"
+            message: "Authorization header missing or invalid"
         });
     }
 

@@ -198,20 +198,22 @@ export function UserAccountIntract({ accountOpen, setAccountOpen, }) {
     const logout = async () => {
 
         try {
-            await axios.post(`${apiUrl}/api/auth/register`, {},
+            await axios.post(`${apiUrl}/api/auth/logout`, {},
                 { withCredentials: true }
             );
+
         }catch (error) {
             console.error("Logout error:", error )
         }
 
         localStorage.removeItem('token');
         localStorage.removeItem('user');
+
         setUser(null);
         setAccountOpen(false)
 
         window.location.reload()
-    }
+    };
 
     return (
         accountOpen && (

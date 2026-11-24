@@ -35,7 +35,10 @@ router.post("/register", async (req, res) => {
 
         const { name, email, password } = req.body;
 
-        const existingUser = await User.findOne({ email });
+        const trimmedEmail = email.trim().toLowerCase();
+
+        const existingUser = await User.findOne({ email: trimmedEmail });
+
         if (existingUser) {
             return res.status(400).json({
                 message: "User already exists",
@@ -46,9 +49,10 @@ router.post("/register", async (req, res) => {
 
         const newUser = new User({
             name,
-            email,
+            email: trimmedEmail,
             password: hashedPassword,
         });
+
         await newUser.save();
 
         res.status(201).json({
@@ -56,6 +60,9 @@ router.post("/register", async (req, res) => {
         });
 
     } catch (error) {
+
+        console.error("Registration error:", error);
+
         res.status(500).json({
             message: error.message
         });
@@ -83,7 +90,8 @@ router.post("/login", async (req, res) => {
         const accessToken = generateAccessToken(user);
         const refreshToken = generateRefreshToken(user);
 
-        user.refreshToken = await bcrypt.hash(refreshToken, 10);
+        user.refreshTokenHash = await bcrypt.hash(refreshToken, 10);
+
         await user.save();
 
         res.cookie("refreshToken", refreshToken, cookieOptions);
@@ -101,6 +109,7 @@ router.post("/login", async (req, res) => {
         });
 
     } catch (error) {
+        
         console.error("Login error:", error);
 
         res.status(500).json({ message: error.message });
@@ -109,7 +118,7 @@ router.post("/login", async (req, res) => {
 
 router.post("/refresh", async (req, res) => {
     try {
-        const refreshToken = req.cookies.refreshToken;
+        const refreshToken = req.cookies?.refreshToken;
 
         if (!refreshToken) {
             return res.status(401).json({
@@ -122,7 +131,7 @@ router.post("/refresh", async (req, res) => {
             process.env.JWT_REFRESH_SECRET
         );
 
-        const user = await user.findById(decoded.id);
+        const user = await User.findById(decoded.id);
 
         if (!user || !user.refreshTokenHash) {
             return res.status(401).json({
@@ -173,7 +182,7 @@ router.post("/refresh", async (req, res) => {
 
 router.post("/logout", async (req, res) => {
     try {
-        const refreshToken = req.cookies.refreshToken;
+        const refreshToken = req.cookies?.refreshToken;
 
         if (refreshToken) {
             try {
@@ -189,15 +198,13 @@ router.post("/logout", async (req, res) => {
                 });
 
             } catch (error) {
-                // Continue with cookie clearing
+                console.log("Logout token", error.message);
             }
         }
 
         res.clearCookie("refreshToken", {
-            httpOnly: true,
-            secure: process.env.NODE_ENV === "production",
-            sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
-            path: "/api/auth"
+            ...cookieOptions,
+            maxAge: undefined
         });
 
         res.status(200).json({
@@ -225,7 +232,7 @@ router.post("/check-user", async (req, res) => {
             return res.status(404).json({ message: "User not found", exists: false });
         }
 
-        res.json({
+        res.status(200).json({
             exists: true,
             user: {
                 id: user._id,

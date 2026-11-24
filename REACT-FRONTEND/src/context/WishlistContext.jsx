@@ -1,4 +1,5 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState, useEffect, useCallback } from "react";
+import { authFetch } from "../utils/authFetch";
 const apiUrl = import.meta.env.VITE_BACKEND_API_URL || 'http://localhost:6004';
 
 const WishlistContext = createContext();
@@ -6,45 +7,47 @@ const WishlistContext = createContext();
 export function WishlistProvider({ children }) {
     const [wishlist, setWishlist] = useState([]);
 
-    const token = localStorage.getItem("token");
-    console.log("Token exists:", !!token);
+    const fetchwishlist = useCallback(async () => {
 
-    const fetchwishlist = async () => {
+        const token = localStorage.getItem("token");
+        console.log("Token exists:", !!token);
+
         if (!token) {
             setWishlist([]);
             return;
         }
 
         try {
-            const response = await fetch(`${apiUrl}/api/wishlist`, {
-                headers: {
-                    "Authorization": `Bearer ${token}`
-                }
-            });
-            if (!response.ok) {
-                throw new Error("Failed to fetch wishlist");
-            }
+            const response = await authFetch(`${apiUrl}/api/wishlist`);
 
             const data = await response.json();
-            setWishlist(data.wishlist);
+
+            if (!response.ok) {
+                throw new Error(data.message || "Failed to fetch wishlist");
+            }
+            setWishlist(data.wishlist || []);
 
         } catch (error) {
             console.error("Error fetching wishlist:", error);
         };
-    };
+
+
+    }, [])
+
+
     const toggleWishlist = async (productId) => {
-        if (!token) {
+        if (!localStorage.getItem("token")) {
             console.error("User is not authenticated");
             return;
         }
 
         try {
-            const response = await fetch(`${apiUrl}/api/wishlist/toggle`, {
+            const response = await authFetch(`${apiUrl}/api/wishlist/toggle`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": `Bearer ${token}`
                 },
+
                 body: JSON.stringify({ productId })
             });
 
@@ -57,7 +60,7 @@ export function WishlistProvider({ children }) {
                 throw new Error(data.message || "Failed to toggle wishlist");
             }
             setWishlist(data.wishlist || []);
-            
+
         } catch (error) {
             console.error("Error toggling wishlist:", error);
         }
@@ -67,18 +70,18 @@ export function WishlistProvider({ children }) {
     const removeWishlist = async (productId) => {
 
         try {
-            const response = await fetch(`${apiUrl}/api/wishlist/${productId}`, {
+            const response = await authFetch(`${apiUrl}/api/wishlist/${productId}`, {
                 method: "DELETE",
-                headers: {
-                    "Authorization": `Bearer ${token}`
-                }
             });
+
             const data = await response.json();
 
             if (!response.ok) {
                 throw new Error(data.message || "Failed to remove from wishlist");
             }
-            setWishlist(data.wishlist);
+
+            setWishlist(data.wishlist || []);
+
         } catch (error) {
             console.error("Error removing from wishlist:", error);
         }
@@ -86,7 +89,18 @@ export function WishlistProvider({ children }) {
 
     useEffect(() => {
         fetchwishlist();
-    }, [token]);
+
+        const handleExpired = () => {
+            setWishlist([]);
+        }
+
+        window.addEventListener("tokenExpired", handleExpired);
+
+        return () => {
+            window.removeEventListener("tokenExpired", handleExpired);
+        }
+
+    }, [fetchwishlist]);
 
     return (
         <WishlistContext.Provider value={{

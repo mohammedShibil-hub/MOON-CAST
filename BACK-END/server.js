@@ -13,22 +13,27 @@ const cookieParser = require('cookie-parser');
 connectDB()
 const app = express()
 
-const allowedOrigins = [
-    "https://moon-cast.vercel.app",
-    "http://localhost:5173"
-];
 
 app.use(cors({
     origin: (origin, callback) => {
+
+        const allowedOrigins = [
+            "https://moon-cast.vercel.app",
+            "http://localhost:5173"
+        ];
+
         if (!origin || allowedOrigins.includes(origin)) {
             callback(null, true);
+
         } else {
             callback(new Error(`Not allowed by CORS: ${origin}`));
         }
     },
+
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
+
 }));
 
 
@@ -50,4 +55,4 @@ app.get("/", (req, res) => {
 
 
 const PORT = process.env.PORT || 6004;
-app.listen(PORT, "0.0.0.0",() => console.log(`server running on ${PORT}`));
+app.listen(PORT, "0.0.0.0", () => console.log(`server running on ${PORT}`));
