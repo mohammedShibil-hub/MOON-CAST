@@ -12,6 +12,9 @@ import { CartProvider } from './context/CartContext'
 import { SellerPage } from './pages/SellerPage'
 import { SellerDtlsForm } from './pages/SellerDtlsForm'
 import { SellerDashboard } from './pages/SellerDashboard'
+import { NotFound } from './components/NotFound'
+import { OfflinePage } from './components/OfflinePage'
+import { LoadingPage } from './components/LoadingPage'
 
 function App() {
   const [showIntro, setShowIntro] = useState(true);
@@ -29,7 +32,11 @@ function App() {
 
     {showIntro && <Intro />}
     <CartProvider>
+
+      <OfflinePage />
+
       <Routes>
+        <Route path='*' element={<NotFound />} />
         <Route index element={<HomePage />} />
         <Route path='/checkout' element={<CheckoutPage />} />
         <Route path='/aboutus' element={<AboutUs />} />
@@ -39,6 +46,7 @@ function App() {
         <Route path='/startSelling' element={<SellerPage />} />
         <Route path='/seller-details-form' element={<SellerDtlsForm />} />
         <Route path='/seller-dashboard' element={<SellerDashboard />} />
+        <Route path='/loading' element={<LoadingPage />} />
       </Routes>
     </CartProvider>
     </>

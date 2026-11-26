@@ -8,6 +8,7 @@ import { useParams } from 'react-router';
 import { Footer } from '../components/Footer';
 import { useCart } from '../context/CartContext';
 import { UserAccountIntract, LoginIntract } from '../components/NavIntractive';
+import { LoadingPage } from '../components/LoadingPage';
 const API_URL = import.meta.env.VITE_BACKEND_API_URL || 'http://localhost:6004';
 
 
@@ -33,7 +34,9 @@ export function ProductDetailPage() {
 
     const mainImage = selectedImage || product?.images?.[0];
 
-    if (!product) return <p>Loading...</p>
+    if (!product) {
+        return <LoadingPage />;
+    }
 
     return (
         <>
